@@ -3,7 +3,16 @@
     <head>
         <link rel="stylesheet" type="text/css" href="A1.css" />
         <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
        
+        <style>body {
+            padding-top: 50px
+        }</style>
+
         <div class="header">
             <h1>Concordia Supermarket</h1>
             <p>Best place to find all your needs</p>
@@ -17,7 +26,18 @@
                 color: white;
                 font-size: 20px;
             }
+
+           
+
+            .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
         </style>
+
+
        
     </head>
     <body>
@@ -25,55 +45,84 @@
             .navbar {
                 padding-left:70px;
                 margin-left: 70px;
-                background-color:greenyellow;
+                background-color:rgb(233, 195, 133);
                 
             }
         </style>
+       
+
+</div>
         <div class="navbar">
+            <a class="navbar-brand" href="">Categories</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <a href='#'>Vegetable and fruits</a>
             <a href='#'>Dairy and eggs</a>
             <a href='#'>Pantry</a>
             <a href='#'>Beverages</a>
             <a href='#'>Meat and Poultry</a>
+            <a href='#'>Snacks</a>
         </div>
         <p></p>
-       <div>
+    </br>
+        <h2 style="text-align:center;">Shop by Categories</h2>
+</br>
         <ul>
-            <li> <a href='#'>
-          
+        <div class="wrapper">
+             <a href='#'>
             <figure>
                 <img src="Vegetables and fruits.jpg" alt="Vegetables and fruits" width="150" height="150">
                 <figcaption>Vegetables and fruits</figcaption>
             </figure>
+                                    
+           
+        </a> 
 
-        </a> </li>
-            <li> <a href='#'>
+            <a href='#'>
             <figure>
                 <img src="Dairy and eggs.jpg" alt="Dairy and eggs" width="150" height="150">
                 <figcaption>Dairy and eggs</figcaption>
             </figure>
-        </a> </li>
-            <li> <a href='#'>
+       
+        </a> 
+
+                 <a href='#'>
             <figure>
                 <img src="Pantry.jpg" alt="Pantry" width="150" height="150">
                 <figcaption>Pantry</figcaption>
             </figure> 
-        </a> </li>
-            <li> <a href='#'>
+                                
+        </a> 
+
+             <a href='#'>
             <figure>
                 <img src="Beverages.jpg" alt="Beverages" width="150" height="150">
                 <figcaption>Beverages</figcaption>
             </figure>
-        </a> </li>
-        <li>
-        <a href='#'>
+                                   
+        </a> 
+
+        
+        <a href="">
             <figure>
                 <img src="Meat and Poultry.jpg" alt="Meat and Poultry" width="150" height="150">
                 <figcaption>Meat and Poultry</figcaption>
             </figure>
-        </a> </li>
-    </ul>
+                                
+        </a> 
+
+        <a href='#'>
+            <figure>
+                <img src="Snacks.jpg" alt="Snacks" width="150" height="150">
+                <figcaption>Snacks</figcaption>
+            </figure>
+                                
+        </a> 
+        
     </div>
+</ul>
+  
     </body>
 
     <style>
@@ -82,7 +131,7 @@
           left: 0;
           bottom: 0;
           width: 100%;
-          background-color:greenyellow;
+          background-color:rgb(233, 195, 133);
           color: white;
           text-align: center;
         }
