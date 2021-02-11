@@ -1,0 +1,30 @@
+.header {
+  padding: 50px;
+  text-align: center;
+  background-color: rgb(180, 60, 60);
+  color: white;
+  font-size: 20px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.navbar {
+  padding-left: 0px;
+  margin-left: 0px;
+  background-color: rgb(233, 195, 133);
+  color: #fff;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.nav-link {
+  color: #fff;
+}
