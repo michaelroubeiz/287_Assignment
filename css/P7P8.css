@@ -28,3 +28,11 @@
 .nav-link {
   color: #fff;
 }
+
+.form-horizontal {
+  padding: 10px;
+}
+
+th {
+  text-align: center;
+}
