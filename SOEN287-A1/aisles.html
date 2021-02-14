@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>aisles page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        var p_array = localStorage.getItem('products');
+        p_array = JSON.parse(p_array);
+
+        var at_array = localStorage.getItem('aisle_types');
+        at_array = JSON.parse(at_array);
+
+    </script>
+
+    <style>
+        body {
+            padding-top: 0px;
+        }
+
+        #product_pane {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .product_image {
+            margin: auto;
+            vertical-align: middle;
+            text-align: center;
+            transition-duration:0.3s;
+        }
+
+        .product_image:hover {
+            background-color: rgb(230, 230, 230);
+        }
+        
+        .header {
+            padding: 50px;
+            text-align: center;
+            background-color:rgb(180, 60, 60);
+            color: white;
+            font-size: 20px;
+        }
+
+        .container {
+            padding: 25px;
+        }
+
+        .button {
+            background-color: #B43C3C;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 40%;
+            border: none;
+            text-align: center;
+            outline: none;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition-duration:0.3s;
+        }
+
+        .button:hover {
+            background-color:#8A2E2E;
+        }
+
+        
+        #to_cart {
+            position: absolute;
+            top:45px;
+            right:30px;
+            height: 100px;
+            width: 100px;
+            background-image: url("images\\cart.png");
+            background-size: 70px 70px;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            background-color: #B43C3C;
+            color: white;
+            cursor: pointer;
+            border: 2px solid white;
+            text-align: center;
+            outline: none;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition-duration:0.3s;
+        }
+
+        #to_cart:hover {
+            background-color: #8A2E2E;
+        }
+
+        .navbar {
+            background-color: #8A2E2E;
+            color:white;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+        }
+
+        .navbar-brand {
+            text-decoration: none;
+            font-size: 23px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-link:hover, .navbar-brand:hover {
+            color: rgb(194, 194, 194);
+        }
+        
+        .navbar-toggler {
+            border-color: white;
+            background-color : #8A2E2E;
+        }
+
+        .navbar-toggler-icon {
+            vertical-align: middle;
+            color: white;
+        }
+
+        .navbar-toggler:active, .navbar-toggler:hover {
+            background-color: #692222;
+        }
+
+    </style>
+
+
+    <div class="header">
+        <h1>Concordia Supermarket</h1>
+        <p>Best place to find all your needs</p>
+        <button type="button" class="button" id="to_cart"></a>
+        <script>
+            document.getElementById("to_cart").onclick = function () {
+                location.href = "grocery_cart.html";
+            }
+        </script>
+    </div>
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand" href="homepage.html">Categories</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"> &#9660</span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=1">Vegetable and fruits</a>
+                </li>       
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=2">Dairy and Eggs</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=3">Pantry</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=4">Beverages</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=5">Meat and Poultry</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=6">Snacks</a>
+                </li> 
+            </ul>
+        </div>
+    </nav>
+
+    <br>
+        <h2 style="text-align:center;" id="aisle_title"></h2>
+    </br>
+
+
+    <!--table that auto generates and has links plus the product id appendage-->
+    <div class="container">
+        <table border="0" width="100%" id="product_pane">
+            <col style="width:33%">
+        </table>
+        <br>
+        <button type="button" class="button" id="back_to_home">Back to Homepage</a>
+
+        <script type="text/javascript">
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var a = url.searchParams.get("aisle_id");
+
+            var title = document.getElementById("aisle_title");
+
+            var tt = at_array[a-1];
+            title.innerHTML = tt;
+
+            var current_aisle = [];
+
+            current_aisle= p_array[a-1];
+
+            var t = document.getElementById("product_pane");
+            var rows = t.rows.length;
+            var tr = t.insertRow(rows);
+            var i;
+            var count = 0;
+
+            for(i = 0; i < current_aisle.length; i++){
+                if((i%3==0) && i !=0 ) {
+                    tr = t.insertRow(-1);
+                    count = 0;
+                }
+
+                var td = document.createElement('td'); 
+                td = tr.insertCell(count);
+
+                var im = document.createElement('div');
+                var link = "product_page.html?aisle_id="+a+"&product_id="+current_aisle[i][4];
+
+                im.innerHTML = "<a href=\""+link+"\"><img src=\""+current_aisle[i][0]+"\" alt=\""+current_aisle[i][1]+"\" width=\"150\" height=\"150\"></a>";
+                im.className = "product_image";
+
+                var na = document.createElement('div');
+                na.innerHTML = "<p style=\"font-size: 30px\">"+current_aisle[i][1]+"</p>";
+
+                im.appendChild(na);
+
+                td.appendChild(im);
+                count++;
+            }
+
+            document.getElementById("back_to_home").onclick = function () {
+                location.href = "homepage.html";
+            }
+            
+        </script>
+    </div>
+
+</body>
+</html>
