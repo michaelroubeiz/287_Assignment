@@ -1,0 +1,36 @@
+table, td, th
+{
+    margin-left: 20px;
+    border: 1px solid black;
+    padding: 3px;
+}
+
+caption
+{
+    font-size: 25px;
+    font-weight: bold;
+    caption-side: top;
+    color: black;
+}
+
+p
+{
+    margin-left: 25px;
+}
+
+button
+{
+    margin-left: 20px
+}
+
+h1
+{
+    margin-left: 20px;
+}
+
+a:link{color: blue;}
+a:hover
+{
+    color: rgb(81, 81, 248);
+    text-decoration: none;
+}
