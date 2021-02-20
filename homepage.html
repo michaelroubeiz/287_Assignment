@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <link rel="stylesheet" type="text/css" href="A1.css" />
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <div class="header">
+        <h1>Concordia Supermarket</h1> 
+        <p>Best place to find all your needs</p>
+        <button type="button" class="button" id="to_cart"></a>
+        <button type="button" class="button" id="to_login">Login</a>
+    </div>
+
+    <style>
+        body {
+            padding-top: 0px;
+        }
+
+        .header {
+            padding: 50px;
+            text-align: center;
+            background-color:rgb(180, 60, 60);
+            color: white;
+            font-size: 20px;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color:#8A2E2E;
+            color: white;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #8A2E2E;
+            color:white;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+        }
+
+        .navbar-brand {
+            text-decoration: none;
+            font-size: 23px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-link:hover, .navbar-brand:hover {
+            color: rgb(194, 194, 194);
+        }
+        
+        .navbar-toggler {
+            border-color: white;
+            background-color : #8A2E2E;
+        }
+
+        .navbar-toggler-icon {
+            vertical-align: middle;
+            color: white;
+        }
+
+        .navbar-toggler:active, .navbar-toggler:hover {
+            background-color: #692222;
+        }
+
+        .collapsible {
+            background-color: #8A2E2E;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 23px;
+        } 
+
+        .collapsible:hover{
+            background-color: #692222;
+        }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            width : 100%;
+            bottom: 0px;
+            overflow: hidden;
+            color: white;
+            transition: max-height 0.2s ease-out;
+            background-color: #8A2E2E;
+        }
+
+        #info_button {
+            width : 100%;
+            transition-duration:0.3s;
+        }
+
+        div.bottom_row {
+            position: fixed;
+            width : 100%;
+            bottom : 0px; 
+        }
+
+        #to_cart {
+            position: absolute;
+            top:45px;
+            right:30px;
+            height: 100px;
+            width: 100px;
+            background-image: url("images\\cart.png");
+            background-size: 70px 70px;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            background-color: #B43C3C;
+            color: white;
+            cursor: pointer;
+            border: 2px solid white;
+            text-align: center;
+            outline: none;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition-duration:0.3s;
+        }
+
+        #to_login {
+            position: absolute;
+            top:45px;
+            right:145px;
+            height: 100px;
+            width: 100px;
+            
+            background-position: center;
+            background-repeat: no-repeat;
+
+            background-color: #B43C3C;
+            color: white;
+            cursor: pointer;
+            border: 2px solid white;
+            text-align: center;
+            outline: none;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition-duration:0.3s;
+        }
+
+        #to_cart:hover, #to_login:hover {
+            background-color: #8A2E2E;
+        }
+
+        .category_image {
+            margin: auto;
+            vertical-align: middle;
+            text-align: center;
+            transition-duration:0.3s;
+        }
+
+        .category_image:hover {
+            background-color: rgb(230, 230, 230);
+        }
+
+    </style> 
+
+    <script>
+        //initializing array for products
+        var product_array = [
+            //Fruits and Vegetables
+            [["images\\banana.png", "Banana", "$0.33", "190g", 0, "6 (per bunch)", "7-8 inches", "Fruit", "Potassium, Fiber"], 
+            ["images\\apple.png", "Apple", "$0.86", "170g", 0,"48 (per box)", "2 3⁄4 to 3 1⁄4 inches in diameter", "Fruit","Fiber, Vitamin C"],
+            ["images\\tomato.png", "Tomato", "$1.76", "200g", 0,"Sold Individually", "50 to 70mm in diameter", "Fruit", "Vitamin A, Fiber"], 
+            ["images\\lettuce.png", "Lettuce", "$2.99", "800g", 0,"Sold Individually", "8 inches in diameter", "Vegetable", "Vitamin A, Vitamin C"],
+            ["images\\carrot.png", "Carrot", "$1.99", "38g", 0,"12 (per bunch)", "10 inches", "Vegetable", "Fiber, Calcium"],
+            ["images\\onion.png", "Onion", "$4.39", "300g", 0, "Sold Individually", "4.5 inches", "Vegetable", "Fiber"]],
+
+            //Diary and Eggs
+            [["images\\eggs.jpg", "Eggs", "$3.49", "340g", 0,"12 (per box)", "10 inches", "Eggs", "Iron"],
+            ["images\\milk.png", "Milk", "$6.86", "4L", 0,"2 bags", "4L", "Diary", "Protein, Calcium"], 
+            ["images\\cheese.png", "Cheese", "$5.49", "270g", 0,"Sold Individually", "27cm", "Diary", "Fat, Calcium"],  
+            ["images\\butter.png", "Butter", "$4.69", "454g", 0,"Sold Individually", "10cm", "Diary", "Fat"],    
+            ["images\\yogurt.png", "Yogurt", "$6.99", "750g", 0,"Sold Individually", "8cm", "Diary", "Protein, Carbs"],
+            ["images\\cream_cheese.jpg", "Cream Cheese", "$5.49", "250g", 0,"Sold Individually", "8cm", "Diary", "Fat, Carbs"]], 
+
+            //Pantry
+            [["images\\ketchup.png", "Ketchup", "$3.99", "1L", 0,"Sold Individually", "12cm", "Condiment", "Sugar, Sodium"],
+            ["images\\salt.png", "Salt", "$6.49", "1.36kg", 0,"Sold Individually", "10cm", "Seasoning", "Sodium"],
+            ["images\\sugar.jpg", "Sugar", "$3.49", "2kg", 0,"Sold Individually", "15cm", "Condiment", "Protein, Carbs"],
+            ["images\\olive oil.png", "Olive Oil", "$12.99", "1L", 0,"Sold Individually", "20cm", "Condiment", "Fat"],
+            ["images\\spaghetti.jpg", "Spaghetti", "$2.39", "500g", 0,"Sold Individually", "15cm", "Pasta", "Carbs"],
+            ["images\\mayonnaise.jpg", "Mayonnaise", "$6.49", "600g", 0,"Sold Individually", "13cm", "Condiment", "Fat"]],
+
+            //Beverages
+            [["images\\water.png", "Water", "$4.49", "330ml", 0,"15 (per box)", "15cm", "Beverage", "Water"],
+            ["images\\juice.png", "Juice", "$2.79", "2L", 0,"Sold Individually", "17cm", "Beverage", "Water, Sugar"],
+            ["images\\coca-cola.png", "Soft Drink (Coca Cola)", "$1.89", "1.25L", 0,"Sold Individually", "12cm", "Beverage", "Sugar"],
+            ["images\\coffee.jpg", "Coffee", "$6.99", "100g", 0,"Sold Individually", "11cm", "Beverage", "micronutrients"],
+            ["images\\tea.png", "Tea", "$3.49", "24oz", 0,"Sold Individually", "10cm", "Beverage", "antioxidants"],
+            ["images\\almond_milk.jpg", "Almond Milk", "$3.70", "300g", 0,"3 (per box)", "10cm", "Beverage", "Fats, Protein"]],
+
+            //Meat and Poultry
+            [["images\\ground_beef.png", "Ground Beef", "$1.54", "100g", 0,"Sold Individually", "8cm", "Meat", "Protein"],
+            ["images\\chicken.png", "Chicken", "$12.54", "1.6kg", 0,"Sold Individually", "10cm", "Poultry", "Protein"],
+            ["images\\steak.jpg", "Steak", "$8.88", "130g", 0,"Sold Individually", "9cm", "Meat", "Protein"],
+            ["images\\sausage.png", "Wieners", "$5.99", "100g", 0,"Sold Individually", "8cm", "Meat", "Protein"],
+            ["images\\turkey.jpg", "Turkey", "$61.83", "8kg", 0,"Sold Individually", "16cm", "Poultry", "Protein"],
+            ["images\\duck.jpg", "Duck", "$19.28", "500g", 0,"Sold Individually", "12cm", "Poultry", "Protein"]],
+
+            //Snacks
+            [["images\\popcorn.png", "Popcorn", "$5.59", "340g", 0,"6 (per box)", "12cm", "Snack", "Magnesium, Phosphorus"],
+            ["images\\chips.png", "Lays Chips", "$1.89", "50g", 0,"Sold Individually", "7cm", "Snack", "Fat, Sodium"],
+            ["images\\chocolate.png", "Chocolate", "$3.39", "135g", 0,"Sold Individually", "12cm", "Snack", "Sugar, Protein"],
+            ["images\\cookies.jpg", "Cookies", "$3.99", "255g", 0,"Sold Individually", "12cm", "Snack", "Sugar, Carbohydrates"],
+            ["images\\nuts.jpg", "Nuts", "$12.99", "300g", 0,"Sold Individually", "13cm", "Snack", "Magnesium, Fiber"], 
+            ["images\\jello.jpg", "Jell-o", "$3.29", "265g", 0,"2 (per box)", "7cm", "Snack", "Sugar"]]
+        ];
+
+        var x; 
+        var y;
+        var count = 0;
+
+        for(x = 0; x < product_array.length; x++) {
+            for(y = 0; y < product_array[x].length; y++) {
+                product_array[x][y][4] = (count+1);
+                count++;
+            }
+        }
+
+        //initializing array of aisle types
+        var aisle_type_array = ["Vegetables and Fruits", "Diary and Eggs", "Pantry", "Beverages", "Meat and Poultry", "Snacks"];
+        var category_images = ["images\\fruits_and_vegetables.png", "images\\eggs_and_diary.png", "images\\pantry.png", "images\\beverages.png", "images\\meat_and_poultry.png", "images\\snacks.png"];
+        localStorage.setItem('aisle_types', JSON.stringify(aisle_type_array));
+
+        localStorage.setItem('products', JSON.stringify(product_array));
+
+        document.getElementById("to_cart").onclick = function () {
+            location.href = "grocery_cart.html";
+        }
+
+        document.getElementById("to_login").onclick = function () {
+            location.href = "";
+            //add login link here
+        }
+
+    </script>
+    
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand" href="">Categories</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"> &#9660</span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=1">Vegetable and fruits</a>
+                </li>       
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=2">Dairy and Eggs</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=3">Pantry</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=4">Beverages</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=5">Meat and Poultry</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="aisles.html?aisle_id=6">Snacks</a>
+                </li> 
+            </ul>
+        </div>
+    </nav>
+
+    <br>
+        <h2 style="text-align:center;">Categories</h2>
+    </br>
+
+    <!--aisle links-->
+    <div class="container">
+        <table border="0" width="100%" id="category_pane">
+            <col style="width:33%">
+        </table>
+
+        <script type="text/javascript">
+            var t = document.getElementById("category_pane");
+            var rows = t.rows.length;
+            var tr = t.insertRow(rows);
+            var i;
+            var count = 0;
+
+            for(i = 0; i < aisle_type_array.length; i++){
+                if((i%3==0) && i !=0 ) {
+                    tr = t.insertRow(-1);
+                    count = 0;
+                }
+
+                var td = document.createElement('td'); 
+                td = tr.insertCell(count);
+
+                var im = document.createElement('div');
+                var link = "aisles.html?aisle_id="+(i+1);
+
+                im.innerHTML = "<a href=\""+link+"\"><img src=\""+category_images[i]+"\" alt=\""+aisle_type_array[i]+"\" width=\"150\" height=\"150\"></a>";
+                im.className = "category_image";
+
+                var na = document.createElement('div');
+                na.innerHTML = "<p style=\"font-size: 30px\">"+aisle_type_array[i]+"</p>";
+
+                im.appendChild(na);
+
+                td.appendChild(im);
+                count++;
+            }
+        </script>
+
+    </div>
+</body>
+    <!--collapsible footer for info-->
+    <div class="bottom_row" >
+        <button class="collapsible" id="info_button">Info</button>
+        <div class="content">
+            <br>
+            <h3>Welcome to Concordia Supermarket! </h3>
+            <p>Click on any aisle to be brought to a page of products. Add these products to your cart and get an estimation on how much they'll cost!</p>
+        </div>
+    </div>
+
+    <script>
+        var bt = document.getElementById("info_button");
+
+        bt.addEventListener("click", function() {
+            this.classList.toggle("active");
+
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+            content.style.maxHeight = null;
+            } 
+            else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
+    </script>
+</html>
