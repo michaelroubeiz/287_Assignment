@@ -1,7 +1,11 @@
+body {
+  padding-top: 0px;
+}
+
 .header {
   padding: 50px;
   text-align: center;
-  background-color: rgb(180, 60, 60);
+  background-color:rgb(180, 60, 60);
   color: white;
   font-size: 20px;
 }
@@ -13,27 +17,48 @@
   grid-auto-rows: minmax(100px, auto);
 }
 
-.navbar {
-  padding-left: 0px;
-  margin-left: 0px;
-  background-color: #8A2E2E;
-  color: #fff;
-  cursor: pointer;
-}
-
-.nav-link:hover {
-  color: rgb(0, 0, 0);
-}
-
-.nav-link {
-  color: #fff;
-}
-
-.form-horizontal {
-  padding: 10px;
-}
-
-th {
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#8A2E2E;
+  color: white;
   text-align: center;
 }
 
+.navbar{
+  background-color: #8A2E2E;
+  color:white;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+}
+
+.navbar-brand {
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-link:hover, .navbar-brand:hover {
+  color: rgb(194, 194, 194);
+}
+
+.navbar-toggler {
+  border-color: white;
+  background-color : #8A2E2E;
+}
+
+.navbar-toggler-icon {
+  vertical-align: middle;
+  color: white;
+}
+
+.navbar-toggler:active, .navbar-toggler:hover {
+  background-color: #692222;
+}
