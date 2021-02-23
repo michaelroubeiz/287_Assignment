@@ -11,6 +11,8 @@
     
     <script>
 
+
+        //Run this code if the user isn't logged in (15-35)
         if(!sessionStorage.cart_initialized) {
             var cart = [];
             sessionStorage.setItem('g_cart', JSON.stringify(cart));
@@ -19,24 +21,26 @@
             sessionStorage.setItem('a_cart', JSON.stringify(amounts));
         }
 
-            //get access to the grocery cart
-            var g_array = sessionStorage.getItem('g_cart');
-            g_array = JSON.parse(g_array);
+        //get access to the grocery cart
+        var g_array = sessionStorage.getItem('g_cart');
+        g_array = JSON.parse(g_array);
 
-            //get access to all product information
-            var p_darray = localStorage.getItem('products');
-            p_darray = JSON.parse(p_darray);
-            var p_array = [];
-
-            for(var i = 0; i < p_darray.length; i++) {
-                for(var m = 0; m < p_darray[i].length; m++) {
-                    p_array.push(p_darray[i][m]);
-                }
+        for(var i = 0; i < p_darray.length; i++) {
+            for(var m = 0; m < p_darray[i].length; m++) {
+                p_array.push(p_darray[i][m]);
             }
+        }
 
-            //get access to the amount per grocery item
-            var a_array = sessionStorage.getItem('a_cart');
-            a_array = JSON.parse(a_array);
+        //get access to the amount per grocery item
+        var a_array = sessionStorage.getItem('a_cart');
+        a_array = JSON.parse(a_array);
+
+        //Add code to get the a_cart and g_cart from the user if logged in here
+
+        //get access to all product information
+        var p_darray = localStorage.getItem('products');
+        p_darray = JSON.parse(p_darray);
+        var p_array = [];
     </script>
     <style>
         .header {
