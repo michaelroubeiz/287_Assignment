@@ -224,74 +224,76 @@
 
     <script>
         //initializing array for products
-        var product_array = [
-            //Fruits and Vegetables
-            [["images\\banana.png", "Banana", "$0.33", "190g", 0, "6 (per bunch)", "7-8 inches", "Fruit", "Potassium, Fiber"], 
-            ["images\\apple.png", "Apple", "$0.86", "170g", 0,"48 (per box)", "2 3⁄4 to 3 1⁄4 inches in diameter", "Fruit","Fiber, Vitamin C"],
-            ["images\\tomato.png", "Tomato", "$1.76", "200g", 0,"Sold Individually", "50 to 70mm in diameter", "Fruit", "Vitamin A, Fiber"], 
-            ["images\\lettuce.png", "Lettuce", "$2.99", "800g", 0,"Sold Individually", "8 inches in diameter", "Vegetable", "Vitamin A, Vitamin C"],
-            ["images\\carrot.png", "Carrot", "$1.99", "38g", 0,"12 (per bunch)", "10 inches", "Vegetable", "Fiber, Calcium"],
-            ["images\\onion.png", "Onion", "$4.39", "300g", 0, "Sold Individually", "4.5 inches", "Vegetable", "Fiber"]],
+        if (typeof product_array === 'undefined') {
+            var product_array = [
+                //Fruits and Vegetables
+                [["images\\banana.png", "Banana", "$0.33", "190g", 0, "6 (per bunch)", "7-8 inches", "Fruit", "Potassium, Fiber"], 
+                ["images\\apple.png", "Apple", "$0.86", "170g", 0,"48 (per box)", "2 3⁄4 to 3 1⁄4 inches in diameter", "Fruit","Fiber, Vitamin C"],
+                ["images\\tomato.png", "Tomato", "$1.76", "200g", 0,"Sold Individually", "50 to 70mm in diameter", "Fruit", "Vitamin A, Fiber"], 
+                ["images\\lettuce.png", "Lettuce", "$2.99", "800g", 0,"Sold Individually", "8 inches in diameter", "Vegetable", "Vitamin A, Vitamin C"],
+                ["images\\carrot.png", "Carrot", "$1.99", "38g", 0,"12 (per bunch)", "10 inches", "Vegetable", "Fiber, Calcium"],
+                ["images\\onion.png", "Onion", "$4.39", "300g", 0, "Sold Individually", "4.5 inches", "Vegetable", "Fiber"]],
 
-            //Diary and Eggs
-            [["images\\eggs.jpg", "Eggs", "$3.49", "340g", 0,"12 (per box)", "10 inches", "Eggs", "Iron"],
-            ["images\\milk.png", "Milk", "$6.86", "4L", 0,"2 bags", "4L", "Diary", "Protein, Calcium"], 
-            ["images\\cheese.png", "Cheese", "$5.49", "270g", 0,"Sold Individually", "27cm", "Diary", "Fat, Calcium"],  
-            ["images\\butter.png", "Butter", "$4.69", "454g", 0,"Sold Individually", "10cm", "Diary", "Fat"],    
-            ["images\\yogurt.png", "Yogurt", "$6.99", "750g", 0,"Sold Individually", "8cm", "Diary", "Protein, Carbs"],
-            ["images\\cream_cheese.jpg", "Cream Cheese", "$5.49", "250g", 0,"Sold Individually", "8cm", "Diary", "Fat, Carbs"]], 
+                //Diary and Eggs
+                [["images\\eggs.jpg", "Eggs", "$3.49", "340g", 0,"12 (per box)", "10 inches", "Eggs", "Iron"],
+                ["images\\milk.png", "Milk", "$6.86", "4L", 0,"2 bags", "4L", "Diary", "Protein, Calcium"], 
+                ["images\\cheese.png", "Cheese", "$5.49", "270g", 0,"Sold Individually", "27cm", "Diary", "Fat, Calcium"],  
+                ["images\\butter.png", "Butter", "$4.69", "454g", 0,"Sold Individually", "10cm", "Diary", "Fat"],    
+                ["images\\yogurt.png", "Yogurt", "$6.99", "750g", 0,"Sold Individually", "8cm", "Diary", "Protein, Carbs"],
+                ["images\\cream_cheese.jpg", "Cream Cheese", "$5.49", "250g", 0,"Sold Individually", "8cm", "Diary", "Fat, Carbs"]], 
 
-            //Pantry
-            [["images\\ketchup.png", "Ketchup", "$3.99", "1L", 0,"Sold Individually", "12cm", "Condiment", "Sugar, Sodium"],
-            ["images\\salt.png", "Salt", "$6.49", "1.36kg", 0,"Sold Individually", "10cm", "Seasoning", "Sodium"],
-            ["images\\sugar.jpg", "Sugar", "$3.49", "2kg", 0,"Sold Individually", "15cm", "Condiment", "Protein, Carbs"],
-            ["images\\olive oil.png", "Olive Oil", "$12.99", "1L", 0,"Sold Individually", "20cm", "Condiment", "Fat"],
-            ["images\\spaghetti.jpg", "Spaghetti", "$2.39", "500g", 0,"Sold Individually", "15cm", "Pasta", "Carbs"],
-            ["images\\mayonnaise.jpg", "Mayonnaise", "$6.49", "600g", 0,"Sold Individually", "13cm", "Condiment", "Fat"]],
+                //Pantry
+                [["images\\ketchup.png", "Ketchup", "$3.99", "1L", 0,"Sold Individually", "12cm", "Condiment", "Sugar, Sodium"],
+                ["images\\salt.png", "Salt", "$6.49", "1.36kg", 0,"Sold Individually", "10cm", "Seasoning", "Sodium"],
+                ["images\\sugar.jpg", "Sugar", "$3.49", "2kg", 0,"Sold Individually", "15cm", "Condiment", "Protein, Carbs"],
+                ["images\\olive oil.png", "Olive Oil", "$12.99", "1L", 0,"Sold Individually", "20cm", "Condiment", "Fat"],
+                ["images\\spaghetti.jpg", "Spaghetti", "$2.39", "500g", 0,"Sold Individually", "15cm", "Pasta", "Carbs"],
+                ["images\\mayonnaise.jpg", "Mayonnaise", "$6.49", "600g", 0,"Sold Individually", "13cm", "Condiment", "Fat"]],
 
-            //Beverages
-            [["images\\water.png", "Water", "$4.49", "330ml", 0,"15 (per box)", "15cm", "Beverage", "Water"],
-            ["images\\juice.png", "Juice", "$2.79", "2L", 0,"Sold Individually", "17cm", "Beverage", "Water, Sugar"],
-            ["images\\coca-cola.png", "Soft Drink (Coca Cola)", "$1.89", "1.25L", 0,"Sold Individually", "12cm", "Beverage", "Sugar"],
-            ["images\\coffee.jpg", "Coffee", "$6.99", "100g", 0,"Sold Individually", "11cm", "Beverage", "micronutrients"],
-            ["images\\tea.png", "Tea", "$3.49", "24oz", 0,"Sold Individually", "10cm", "Beverage", "antioxidants"],
-            ["images\\almond_milk.jpg", "Almond Milk", "$3.70", "300g", 0,"3 (per box)", "10cm", "Beverage", "Fats, Protein"]],
+                //Beverages
+                [["images\\water.png", "Water", "$4.49", "330ml", 0,"15 (per box)", "15cm", "Beverage", "Water"],
+                ["images\\juice.png", "Juice", "$2.79", "2L", 0,"Sold Individually", "17cm", "Beverage", "Water, Sugar"],
+                ["images\\coca-cola.png", "Soft Drink (Coca Cola)", "$1.89", "1.25L", 0,"Sold Individually", "12cm", "Beverage", "Sugar"],
+                ["images\\coffee.jpg", "Coffee", "$6.99", "100g", 0,"Sold Individually", "11cm", "Beverage", "micronutrients"],
+                ["images\\tea.png", "Tea", "$3.49", "24oz", 0,"Sold Individually", "10cm", "Beverage", "antioxidants"],
+                ["images\\almond_milk.jpg", "Almond Milk", "$3.70", "300g", 0,"3 (per box)", "10cm", "Beverage", "Fats, Protein"]],
 
-            //Meat and Poultry
-            [["images\\ground_beef.png", "Ground Beef", "$1.54", "100g", 0,"Sold Individually", "8cm", "Meat", "Protein"],
-            ["images\\chicken.png", "Chicken", "$12.54", "1.6kg", 0,"Sold Individually", "10cm", "Poultry", "Protein"],
-            ["images\\steak.jpg", "Steak", "$8.88", "130g", 0,"Sold Individually", "9cm", "Meat", "Protein"],
-            ["images\\sausage.png", "Wieners", "$5.99", "100g", 0,"Sold Individually", "8cm", "Meat", "Protein"],
-            ["images\\turkey.jpg", "Turkey", "$61.83", "8kg", 0,"Sold Individually", "16cm", "Poultry", "Protein"],
-            ["images\\duck.jpg", "Duck", "$19.28", "500g", 0,"Sold Individually", "12cm", "Poultry", "Protein"]],
+                //Meat and Poultry
+                [["images\\ground_beef.png", "Ground Beef", "$1.54", "100g", 0,"Sold Individually", "8cm", "Meat", "Protein"],
+                ["images\\chicken.png", "Chicken", "$12.54", "1.6kg", 0,"Sold Individually", "10cm", "Poultry", "Protein"],
+                ["images\\steak.jpg", "Steak", "$8.88", "130g", 0,"Sold Individually", "9cm", "Meat", "Protein"],
+                ["images\\sausage.png", "Wieners", "$5.99", "100g", 0,"Sold Individually", "8cm", "Meat", "Protein"],
+                ["images\\turkey.jpg", "Turkey", "$61.83", "8kg", 0,"Sold Individually", "16cm", "Poultry", "Protein"],
+                ["images\\duck.jpg", "Duck", "$19.28", "500g", 0,"Sold Individually", "12cm", "Poultry", "Protein"]],
 
-            //Snacks
-            [["images\\popcorn.png", "Popcorn", "$5.59", "340g", 0,"6 (per box)", "12cm", "Snack", "Magnesium, Phosphorus"],
-            ["images\\chips.png", "Lays Chips", "$1.89", "50g", 0,"Sold Individually", "7cm", "Snack", "Fat, Sodium"],
-            ["images\\chocolate.png", "Chocolate", "$3.39", "135g", 0,"Sold Individually", "12cm", "Snack", "Sugar, Protein"],
-            ["images\\cookies.jpg", "Cookies", "$3.99", "255g", 0,"Sold Individually", "12cm", "Snack", "Sugar, Carbohydrates"],
-            ["images\\nuts.jpg", "Nuts", "$12.99", "300g", 0,"Sold Individually", "13cm", "Snack", "Magnesium, Fiber"], 
-            ["images\\jello.jpg", "Jell-o", "$3.29", "265g", 0,"2 (per box)", "7cm", "Snack", "Sugar"]]
-        ];
+                //Snacks
+                [["images\\popcorn.png", "Popcorn", "$5.59", "340g", 0,"6 (per box)", "12cm", "Snack", "Magnesium, Phosphorus"],
+                ["images\\chips.png", "Lays Chips", "$1.89", "50g", 0,"Sold Individually", "7cm", "Snack", "Fat, Sodium"],
+                ["images\\chocolate.png", "Chocolate", "$3.39", "135g", 0,"Sold Individually", "12cm", "Snack", "Sugar, Protein"],
+                ["images\\cookies.jpg", "Cookies", "$3.99", "255g", 0,"Sold Individually", "12cm", "Snack", "Sugar, Carbohydrates"],
+                ["images\\nuts.jpg", "Nuts", "$12.99", "300g", 0,"Sold Individually", "13cm", "Snack", "Magnesium, Fiber"], 
+                ["images\\jello.jpg", "Jell-o", "$3.29", "265g", 0,"2 (per box)", "7cm", "Snack", "Sugar"]]
+            ];
 
-        var x; 
-        var y;
-        var count = 0;
+            var x; 
+            var y;
+            var count = 0;
 
-        for(x = 0; x < product_array.length; x++) {
-            for(y = 0; y < product_array[x].length; y++) {
-                product_array[x][y][4] = (count+1);
-                count++;
+            for(x = 0; x < product_array.length; x++) {
+                for(y = 0; y < product_array[x].length; y++) {
+                    product_array[x][y][4] = (count+1);
+                    count++;
+                }
             }
+
+            //initializing array of aisle types
+            var aisle_type_array = ["Vegetables and Fruits", "Diary and Eggs", "Pantry", "Beverages", "Meat and Poultry", "Snacks"];
+            var category_images = ["images\\fruits_and_vegetables.png", "images\\eggs_and_diary.png", "images\\pantry.png", "images\\beverages.png", "images\\meat_and_poultry.png", "images\\snacks.png"];
+            localStorage.setItem('aisle_types', JSON.stringify(aisle_type_array));
+
+            localStorage.setItem('products', JSON.stringify(product_array));
         }
-
-        //initializing array of aisle types
-        var aisle_type_array = ["Vegetables and Fruits", "Diary and Eggs", "Pantry", "Beverages", "Meat and Poultry", "Snacks"];
-        var category_images = ["images\\fruits_and_vegetables.png", "images\\eggs_and_diary.png", "images\\pantry.png", "images\\beverages.png", "images\\meat_and_poultry.png", "images\\snacks.png"];
-        localStorage.setItem('aisle_types', JSON.stringify(aisle_type_array));
-
-        localStorage.setItem('products', JSON.stringify(product_array));
-
+        
         document.getElementById("to_cart").onclick = function () {
             location.href = "grocery_cart.html";
         }
