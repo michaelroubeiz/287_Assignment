@@ -239,7 +239,7 @@
         </table>
 
         <script type="text/javascript">
-            /*var ind = sessionStorage.product-1;
+            var ind = sessionStorage.product-1;
             if(!g_array.includes(ind)) {
                 g_array.push(ind);
                 sessionStorage.setItem('g_cart', JSON.stringify(g_array));
@@ -352,13 +352,13 @@
             document.getElementById("back_to_aisle").onclick = function () {
                 var x = "aisles.html?aisle_id="+sessionStorage.aisle;
                 location.href = x;
-            }*/
+            }
         </script>
     </div>
 </body>
 <script>
 
-    /*function less(oButton) {
+    function less(oButton) {
         var x;
         var index = g_array.length - +oButton.parentNode.parentNode.rowIndex;
         var table = document.getElementById("cart_pane");
@@ -436,6 +436,6 @@
 
         document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
         document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
-    }*/
+    }
 </script>
 </html>
