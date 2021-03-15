@@ -12,13 +12,6 @@ h1
     margin-left: 25px;
 }
 
-a:link{color: rgb(57, 57, 240);}
-a:hover
-{
-    color: rgb(60, 60, 255);
-    text-decoration: none;
-}
-
 p
 {
     margin-left: 25px;
@@ -50,27 +43,66 @@ caption
     font-size: 30px;
 }
 
-button
-{
-    font-size: 17px;
-}
+
+.btn:hover {
+    background: #c2bebe;
+    color: #fff;
+    border: 2px solid #c2bebe;
+  }
+  
+  #add {
+    width: 101px;
+    height: 42px;
+    margin:auto;
+    display:block;
+  }
+  
+  #edit-delete {
+    width: 70px;
+    height: 18px;
+    text-align: center;
+    margin:auto;
+    display:block;
+    text-align: center;
+    line-height: 20px;
+  }
 
 ul
 {
     box-align: center;
 }
 
-li:link{color: blue}
-li:link{color: blue}
+
+
 li
 {
     font-size: 20px;
     display: inline;
-    padding: 25px
+    padding: 25px;
 }
+
+a:link{color: rgb(255, 255, 255);}
+a:hover{color: rgb(214, 207, 207);}
+a:visited{color: rgb(255, 255, 255);}
 
 #addOrder
 {
     margin-left: 25px;
     margin-bottom: 25px;
 }
+
+#navBar
+{
+    padding: 20px;
+    background-color:rgb(119, 33, 33);
+}
+
+.btn{
+    background: rgb(180, 60, 60);
+    border-radius: 4px;
+    border: 2px solid rgb(180, 60, 60);
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
