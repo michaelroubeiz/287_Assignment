@@ -100,19 +100,3 @@
     margin-left: 22.5%;
     line-height: 40px;
 }
-
-#product_pane {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.product_image {
-    margin: auto;
-    vertical-align: middle;
-    text-align: center;
-    transition-duration: 0.3s;
-}
-
-.product_image:hover {
-    background-color: rgb(230, 230, 230);
-}
