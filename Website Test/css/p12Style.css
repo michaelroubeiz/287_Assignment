@@ -1,10 +1,4 @@
-table, td, th
-{
-    margin-left: 20px;
-    border: 1px solid black;
-    padding: 3px;
-}
-
+tr:nth-child(even) {background-color: #ececec;}
 .header {
     padding: 50px;
     text-align: center;
@@ -18,32 +12,97 @@ h1
     margin-left: 25px;
 }
 
-caption
-{
-    font-size: 25px;
-    font-weight: bold;
-    caption-side: top;
-    color: black;
-}
-
 p
 {
     margin-left: 25px;
 }
 
-button
+table
 {
-    margin-left: 20px
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    text-align: center;
+    border-collapse: collapse;
+    border: 2px solid black;
+    padding: 30px;
 }
 
-h1
+th, td, tr
 {
-    margin-left: 20px;
+    padding: 15px;
+    border: 1px solid black;
 }
 
-a:link{color: blue;}
-a:hover
-{
-    color: rgb(81, 81, 248);
-    text-decoration: none;
+caption
+{ 
+    caption-side: top;
+    font-weight: bold;
+    padding: 6px;
+    text-align: left;
+    font-size: 30px;
 }
+
+
+.btn:hover {
+    background: #c2bebe;
+    color: #fff;
+    border: 2px solid #c2bebe;
+  }
+  
+  #add {
+    width: 101px;
+    height: 42px;
+    margin:auto;
+    display:block;
+  }
+  
+  #edit-delete {
+    width: 70px;
+    height: 18px;
+    text-align: center;
+    margin:auto;
+    display:block;
+    text-align: center;
+    line-height: 20px;
+  }
+
+ul
+{
+    box-align: center;
+}
+
+
+
+li
+{
+    font-size: 20px;
+    display: inline;
+    padding: 25px;
+}
+
+a:link{color: rgb(255, 255, 255);}
+a:hover{color: rgb(214, 207, 207);}
+a:visited{color: rgb(255, 255, 255);}
+
+#addOrder
+{
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+#navBar
+{
+    padding: 20px;
+    background-color:rgb(119, 33, 33);
+}
+
+.btn{
+    background: rgb(180, 60, 60);
+    border-radius: 4px;
+    border: 2px solid rgb(180, 60, 60);
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
