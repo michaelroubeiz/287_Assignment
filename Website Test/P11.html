@@ -4,7 +4,7 @@
 <head>
     <meta charset = "UTF-8">
     
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/p11Style.css">
     <title>P11</title>
@@ -16,29 +16,50 @@
         <p>Best place to find all your needs</p>
     </div>
 
+    <script>
+        function deleteTable(tableNum, num)
+        {
+            var table = document.getElementById(tableNum);
+            table.remove();
+
+            var navBar = document.getElementById('navBar').getElementsByTagName('li')[num-1];
+            navBar.remove();
+        }
+    </script>
+
+    <script>
+        function deleteItem(product)
+        {
+            var item = document.getElementById(product);
+            item.remove();
+        }
+    </script>
+
 </head>
 
 
 <body>
-    <br>
-    <!-- Add order-->
-        <form action = "LoginPage.html">
-            <button id = "addOrder">Add Order</button>
-        </form>                                                      
-
+   
     <div>
-        <ul>
+        <ul id = "navBar"> 
             <li><a href="#Order_58927578430">Order #58927578430</a></li>
             <li><a href="#Order_58927942845">Order #58927942845</a></li>
             <li><a href="#Order_58957492051">Order #58957492051</a></li>
             <li><a href="#Order_58938657648">Order #58938657648</a></li>
             <li><a href="#Order_58867426468">Order #58867426468</a></li>
         </ul>
-    </div>
-       
 
+    
+        <br\>
+
+        <!-- Add order-->
+        <form style="width:95%" action="LoginPage.html" id="add">
+            <button type="submit" value="Add" class="btn btn-secondary btn-lg btn-block">Add Order</button>
+        </form>
+
+        
     <!-- Table 1 -->
-    <table>
+    <table id = 'table1'>
         <a id="Order_58927578430"> <caption><br/>#Order 58927578430</caption> </a>
         <tr>
             <th>Product</th>
@@ -46,11 +67,12 @@
             <th>Unit Price</th>
             <th>Quantity</th>
             <th>Subtotal</th>
-            <form action="P12AddItem.html">
-                <th><button>Add</button></th>
+            <form action="P12AddItem.html" id="add">
+                <th><button type="submit" value="Add" class="btn btn-secondary btn-lg btn-block">Add</button></th>
             </form>
+
         </tr>
-        <tr>
+        <tr id = "salt1">
             <td>Salt</td>
             <td><img src="images\salt.png" alt="Salt Image" width="100" height="100"></td>
             <td>$6.49</td>
@@ -58,12 +80,14 @@
             <td>$6.49</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('salt1')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = tomato1>
             <td>Tomato</td>
             <td><img src="images\tomato.png" alt="Tomato image" width="100" height="100"></td>
             <td>$1.76</td>
@@ -71,12 +95,14 @@
             <td>$7.16</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                <form>
+                    <button onclick = "deleteItem('tomato1')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
-        <tr>
+        <tr id = spaghetti1>
             <td>Spaghetti</td>
             <td><img src="images\spaghetti.jpg" alt="Spaghetti image" width="150" height="100"></td>
             <td>$2.39</td>
@@ -84,12 +110,15 @@
             <td>$9.56</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                <form>
+                <form>
+                    <button onclick = "deleteItem('spaghetti1')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
-        <tr>
+        <tr id = oliveOil1>
             <td>Olive Oil</td>
             <td><img src="images\olive oil.png" alt="Olive Oil image" width="40" height="100"></td>
             <td>$12.99</td>
@@ -97,12 +126,14 @@
             <td>$25.98</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button  onclick = "deleteItem('oliveOil1')"style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = carrot1>
             <td>Carrot</td>
             <td><img src="images\carrot.png" alt="Carrot Image" width="150" height="100"></td>
             <td>$1.99</td>
@@ -110,12 +141,14 @@
             <td>$3.97</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('carrot1')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = juice1>
             <td>Juice</td>
             <td><img src="images\juice.png" alt="Juice image" width="70" height="100"></td>
             <td>$2.79</td>
@@ -123,21 +156,25 @@
             <td>$2.79</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('juice1')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
         <tr>
             <td><b>Cart Summary:</b></td>
             <td colspan = "4">Subtotal: $55.95<br/>Tax: $8.39<br/>Total: $64.34</td>
-            <td><button>Delete order</button></td>
+            <td>
+                <button onclick = "deleteTable('table1', '1')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+            </td>
         </tr>
 
     </table>
 
     <!--Table 2-->
-    <table>
+    <table id = 'table2'>
         <a id="Order_58927942845"><caption><br/>Order #58927942845</caption></a>
         <tr>
             <th>Product</th>
@@ -145,11 +182,12 @@
             <th>Unit Price</th>
             <th>Quantity</th>
             <th>Subtotal</th>
-            <form action="P12AddItem.html">
-                <th><button>Add</button></th>
+            <form action="P12AddItem.html" id="add">
+                <th><button type="submit" value="Add" class="btn btn-secondary btn-lg btn-block">Add</button></th>
             </form>
+
         </tr>
-        <tr>
+        <tr id="lettuce2">
             <td>Lettuce</td>
             <td><img src="images\lettuce.png" alt="Lettuce image" width="100" height="100"></td>
             <td>$2.99</td>
@@ -157,12 +195,14 @@
             <td>$2.99</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('lettuce2')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "yogurt2">
             <td>Yogurt</td>
             <td><img src="images\yogurt.png" alt="Yogurt image" width="100" height="100"></td>
             <td>$6.99</td>
@@ -170,12 +210,14 @@
             <td>$13.98</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('yogurt2')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "cheese2">
             <td>Cheese</td>
             <td><img src="images\cheese.png" alt="Cheese Image" width="100" height="100"></td>
             <td>$5.49</td>
@@ -183,12 +225,14 @@
             <td>$21.96</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('cheese2')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "steak2">
             <td>Steak</td>
             <td><img src="images\steak.jpg" alt="Steak Image" width="100" height="100"></td>
             <td>$8.88</td>
@@ -196,12 +240,14 @@
             <td>$17.76</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('steak2')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "wiener2">
             <td>Wiener</td>
             <td><img src="images\sausage.png" alt="Sausage image" width="100" height="100"></td>
             <td>$5.99</td>
@@ -209,12 +255,14 @@
             <td>$23.96</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button  onclick = "deleteItem('wiener2')"style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "banana2">
             <td>Banana</td>
             <td><img src="images\banana.png" alt="Banana image" width="100" height="100"></td>
             <td>$0.33</td>
@@ -222,12 +270,14 @@
             <td>$2.64</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button  onclick = "deleteItem('banana2')"style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "onion2">
             <td>Onion</td>
             <td><img src="images\onion.png" alt="Onion image" width="100" height="100"></td>
             <td>$4.39</td>
@@ -235,12 +285,14 @@
             <td>$8.78</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('onion2')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "apple2">
             <td>Apple</td>
             <td><img src="images\apple.png" alt="Apple image" width="100" height="100"></td>
             <td>$0.86</td>
@@ -248,19 +300,23 @@
             <td>$6.88</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button  onclick = "deleteItem('apple2')"style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
         <tr>
             <td><b>Cart Summary:</b></td>
             <td colspan = "4">Subtotal: $98.95<br/>Tax: $14.84<br/>Total: $113.79</td>
-            <td><button>Delete order</button></td>
+            <td>
+                <button  onclick = "deleteTable('table2', '2')"style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+            </td>
         </tr>
 
         <!-- Table 3 -->
-        <table>
+        <table id = 'table3'>
         <a id="Order_58957492051"><caption><br/>Order #58957492051</caption></a>
         <tr>
             <th>Product</th>
@@ -268,11 +324,12 @@
             <th>Unit Price</th>
             <th>Quantity</th>
             <th>Subtotal</th>
-            <form action="P12AddItem.html">
-                <th><button>Add</button></th>
+            <form action="P12AddItem.html" id="add">
+                <th><button type="submit" value="Add" class="btn btn-secondary btn-lg btn-block">Add</button></th>
             </form>
+
         </tr>
-        <tr>
+        <tr id = "water3">
             <td>Water</td>
             <td><img src="images\water.png" alt="Water image" width="55" height="100"></td>
             <td>$4.49</td>
@@ -280,12 +337,14 @@
             <td>$22.45</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button  onclick = "deleteItem('water3')"style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "coffee3">
             <td>Coffee</td>
             <td><img src="images\coffee.jpg" alt="Coffee image" width="100" height="100"></td>
             <td>$6.99</td>
@@ -293,12 +352,14 @@
             <td>$27.96</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('coffee3')"style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "cheese3">
             <td>Cheese</td>
             <td><img src="images\cheese.png" alt="JCheese image" width="100" height="100"></td>
             <td>$5.49</td>
@@ -306,12 +367,14 @@
             <td>$10.98</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('cheese3')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "turkey3">
             <td>Turkey</td>
             <td><img src="images\turkey.jpg" alt="Turkey image" width="100" height="100"></td>
             <td>$61.83</td>
@@ -319,12 +382,14 @@
             <td>$61.83</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('turkey3')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "egg3">
             <td>Eggs</td>
             <td><img src="images\eggs.jpg" alt="Eggs image" width="100" height="100"></td>
             <td>$3.49</td>
@@ -332,12 +397,14 @@
             <td>$6.98</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('egg3')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "banana3">
             <td>Banana</td>
             <td><img src="images\banana.png" alt="Banana image" width="100" height="100"></td>
             <td>$0.33</td>
@@ -345,12 +412,14 @@
             <td>$2.64</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('banana3')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "tomato3">
             <td>Tomato</td>
             <td><img src="images\tomato.png" alt="Tomato image" width="100" height="100"></td>
             <td>$1.79</td>
@@ -358,12 +427,14 @@
             <td>$8.95</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button  onclick = "deleteItem('tomato3')"style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "apple3">
             <td>Apple</td>
             <td><img src="images\apple.png" alt="Apple image" width="100" height="100"></td>
             <td>$0.86</td>
@@ -371,22 +442,28 @@
             <td>$4.30</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('apple3')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
         <tr>
 
             <td><b>Cart Summary:</b></td>
             <td colspan = "4">Subtotal: $140.09<br/>Tax: $21.91<br/>Total: $162.00</td>
-            <td><button>Delete order</button></td>
+            <td>
+                <form>
+                    <button onclick = "deleteTable('table3', '3')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
+            </td>
         </tr>
 
     </table>
 
     <!-- Table 4-->
-    <table>
+    <table id = 'table4'>
         <a id="Order_58938657648"><caption><br/>Order #58938657648</caption></a>
         <tr>
             <th>Product</th>
@@ -394,11 +471,12 @@
             <th>Unit Price</th>
             <th>Quantity</th>
             <th>Subtotal</th>
-            <form action="P12AddItem.html">
-                <th><button>Add</button></th>
+            <form action="P12AddItem.html" id="add">
+                <th><button type="submit" value="Add" class="btn btn-secondary btn-lg btn-block">Add</button></th>
             </form>
+
         </tr>
-        <tr>
+        <tr id = "tea4">
             <td>Tea</td>
             <td><img src="images\tea.png" alt="Tea image" width="100" height="100"></td>
             <td>$3.49</td>
@@ -406,12 +484,14 @@
             <td>$13.96</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('tea4')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "juice4">
             <td>Juice</td>
             <td><img src="images\juice.png" alt="Juice image" width="70" height="100"></td>
             <td>$2.79</td>
@@ -419,12 +499,16 @@
             <td>$5.58</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <form>
+                        <button onclick = "deleteItem('juice4')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                    </form>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "groundBeef4">
             <td>Ground Beef</td>
             <td><img src="images\ground_beef.png" alt="Ground Beef image" width="100" height="100"></td>
             <td>$1.54</td>
@@ -432,12 +516,14 @@
             <td>$25.78</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('groundBeef4')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "apple4">
             <td>Apple</td>
             <td><img src="images\apple.png" alt="Apple image" width="100" height="100"></td>
             <td>$0.86</td>
@@ -445,12 +531,14 @@
             <td>$8.60</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('apple4')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "carrot4">
             <td>Carrot</td>
             <td><img src="images\carrot.png" alt="Carrot image" width="150" height="100"></td>
             <td>$1.99</td>
@@ -458,21 +546,28 @@
             <td>$3.97</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('carrot4')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
         <tr>
 
             <td><b>Cart Summary:</b></td>
             <td colspan = "4">Subtotal: $57.89<br/>Tax: $8.68<br/>Total: $66.57</td>
-            <td><button>Delete order</button></td>
+            <td>
+                <form>
+                    <button onclick = "deleteTable('table4', '4')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
+            </td>
         </tr>
+    </table>
         
         <!-- Table 5-->
 
-    <table>
+    <table id = 'table5'>
         <a id="Order_58867426468"><caption><br/>Order #58867426468</caption></a>
         <tr>
             <th>Product</th>
@@ -480,11 +575,12 @@
             <th>Unit Price</th>
             <th>Quantity</th>
             <th>Subtotal</th>
-            <form action="P12AddItem.html">
-                <th><button>Add</button></th>
+            <form action="P12AddItem.html" id="add">
+                <th><button type="submit" value="Add" class="btn btn-secondary btn-lg btn-block">Add</button></th>
             </form>
+
         </tr>
-        <tr>
+        <tr id = "chicken5">
             <td>Chicken</td>
             <td><img src="images\chicken.png" alt="Chicken image" width="120" height="100"></td>
             <td>$12.84</td>
@@ -492,12 +588,14 @@
             <td>$25.68</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('chicken5')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "oliveOil5">
             <td>Olive Oil</td>
             <td><img src="images\olive oil.png" alt="Olive Oil image" width="45" height="100"></td>
             <td>$12.99</td>
@@ -505,12 +603,14 @@
             <td>$25.98</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('oliveOil5')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "sugar5">
             <td>Sugar</td>
             <td><img src="images\sugar.jpg" alt="Sugar image" width="100" height="100"></td>
             <td>$3.49</td>
@@ -518,12 +618,14 @@
             <td>$10.47</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('sugar5')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = salt5>
             <td>Salt</td>
             <td><img src="images\salt.png" alt="Salt image" width="100" height="100"></td>
             <td>$6.49</td>
@@ -531,12 +633,14 @@
             <td>$19.47</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('salt5')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = duck5>
             <td>Duck</td>
             <td><img src="images\duck.jpg" alt="Duck image" width="100" height="100"></td>
             <td>$19.28</td>
@@ -544,12 +648,14 @@
             <td>$19.28</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('duck5')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
         </tr>
-        <tr>
+        <tr id = "juice5">
             <td>Juice</td>
             <td><img src="images\juice.png" alt="Juice image" width="70" height="100"></td>
             <td>$2.79</td>
@@ -557,11 +663,13 @@
             <td>$5.58</td>
             <td>
                 <form action="P12EditItem.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                 </form>
-                <button>Delete</button>
+                <form>
+                    <button onclick = "deleteItem('juice5')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                </form>
             </td>
-            <tr>
+            <tr id = "tomato5">
                 <td>Tomato</td>
                 <td><img src="images\tomato.png" alt="Tomato image" width="100" height="100"></td>
                 <td>$1.79</td>
@@ -569,16 +677,22 @@
                 <td>$14.32</td>
                 <td>
                     <form action="P12EditItem.html">
-                        <button>Edit</button><br/>
+                        <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
                     </form>
-                    <button>Delete</button>
+                    <form>
+                        <button onclick = "deleteItem('tomato5')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                    </form>
                 </td>
         </tr>
         <tr>
 
             <td><b>Cart Summary:</b></td>
             <td colspan = "4">Subtotal: $120.78<br/>Tax: $18.12<br/>Total: $138.90</td>
-            <td><button>Delete order</button></td>
+            <td>
+                <form>
+                    <button onclick = "deleteTable('table5', '5')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
+                  </form>
+            </td>
         </tr>
 
     </body>
