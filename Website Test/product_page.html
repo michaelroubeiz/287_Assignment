@@ -4,7 +4,7 @@
     <title>product page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -131,7 +131,8 @@
             }
 
         </style> 
-        
+            
+            
         <div class="header">
             <h1>Concordia Supermarket</h1>
             <p>Best place to find all your needs</p>
@@ -174,7 +175,7 @@
         </div>
     </nav>
     <div class="container">
-        <table border="0" width="100%">
+        <table border="0" width="100%" id="product_pane">
             <col style="width:33%">
             <col style="width:67%">
             <tr>
@@ -250,8 +251,18 @@
             var product_name, price, weight = "";
             var p_ID, p_Q, p_S, p_T, p_NS = "";
 
+            var t = document.getElementById("product_pane");
+            var p = t.parentNode;
+            var wrapper = document.createElement('div');
+            wrapper.style.overflowX="scroll";
+            wrapper.appendChild(t);
+            p.appendChild(wrapper);
+
             //getting data based on id
-            document.getElementById("image").src = p_array[+a-1][0];
+            var image = document.getElementById("image");
+            
+            image.src = p_array[+a-1][0];
+
             product_name = p_array[+a-1][1];
             price = p_array[+a-1][2];
             weight = p_array[+a-1][3];
@@ -262,6 +273,12 @@
             p_T = p_array[+a-1][7];
             p_NS = p_array[+a-1][8];
 
+            if(screen.width < 500) {
+                image.style.width = "200px";
+                image.style.height = "200px";
+
+                document.getElementById("cart_button").style.padding = "12px";
+            }
 
             document.getElementById("name").innerHTML = product_name;
             document.getElementById("price").innerHTML = price;

@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="A1.css" />
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -246,6 +246,8 @@
             transition-duration:0.3s;
         }
 
+        a {color:inherit;}
+
     </style>
 
     <script>
@@ -389,13 +391,18 @@
                 var im = document.createElement('div');
                 var link = "aisles.html?aisle_id="+(i+1);
 
-                im.innerHTML = "<a href=\""+link+"\"><img src=\""+category_images[i]+"\" alt=\""+aisle_type_array[i]+"\" width=\"150\" height=\"150\"></a>";
+                if(screen.width < 500) im.innerHTML = "<a href=\""+link+"\"><img src=\""+category_images[i]+"\" alt=\""+aisle_type_array[i]+"\" width=\""+(0.22*screen.width)+"\" height=\""+(0.22*screen.width)+"\"></a>";
+                else im.innerHTML = "<a href=\""+link+"\"><img src=\""+category_images[i]+"\" alt=\""+aisle_type_array[i]+"\" width=\"150\" height=\"150\"></a>";
                 im.className = "category_image";
 
                 var na = document.createElement('div');
-                if(aisle_type_array[i] == "Vegetables and Fruits")                
-                    na.innerHTML = "<p style=\"font-size: 23.8px\">"+aisle_type_array[i]+"</p>";
+
+                if(screen.width < 500 && aisle_type_array[i] == "Vegetables and Fruits")  na.innerHTML = "<p style=\"font-size: 12px\">"+aisle_type_array[i]+"</p>";
+                else if(screen.width < 500 && aisle_type_array[i].length > 10) na.innerHTML = "<p style=\"font-size: 20px\">"+aisle_type_array[i]+"</p>";
+                else if(screen.width < 500) na.innerHTML = "<p style=\"font-size: 22px\">"+aisle_type_array[i]+"</p>";
+                else if(aisle_type_array[i].length > 20) na.innerHTML = "<p style=\"font-size: 28px\">"+aisle_type_array[i]+"</p>";
                 else na.innerHTML = "<p style=\"font-size: 30px\">"+aisle_type_array[i]+"</p>";
+                
                 im.appendChild(na);
 
                 td.appendChild(im);
@@ -410,7 +417,7 @@
 
     <!--Weekly Deal-->
     <div class="container">
-        <table border="0" width="100%" id="weekly_deals">
+        <table border="0.5" width="100%" id="weekly_deals">
             <col style="width:33%">
             <tr>
                 <td id="wd_1"></td>
@@ -426,6 +433,7 @@
         </table>
 
         <script>
+
             var p_darray = localStorage.getItem('products');
             p_darray = JSON.parse(p_darray);
             var p_array = [];
@@ -462,7 +470,9 @@
             var im1 = document.createElement('div');
             var link = "product_page.html?aisle_id="+p_array[sessionStorage.weekly1-1][9]+"&product_id="+p_array[sessionStorage.weekly1-1][4];
 
-            im1.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly1-1][0]+"\" alt=\""+p_array[sessionStorage.weekly1-1][0]+"\" width=\"150\" height=\"150\"></a>";
+            
+            if(screen.width<500) im1.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly1-1][0]+"\" alt=\""+p_array[sessionStorage.weekly1-1][0]+"\" width=\""+(0.22*screen.width)+"\" height=\""+(0.22*screen.width)+"\"></a>";
+            else im1.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly1-1][0]+"\" alt=\""+p_array[sessionStorage.weekly1-1][0]+"\" width=\"150\" height=\"150\"></a>";
             im1.className = "product_image";
 
             var name1 = document.createElement('div');
@@ -472,13 +482,18 @@
             if(typeof sessionStorage.dealstring1 === "undefined") sessionStorage.dealstring1 = new_price1;
             var title_string1 = p_array[sessionStorage.weekly1-1][1]+" / " +new_price1;
 
-            if(title_string1.length > 20) name1.innerHTML = "<p style=\"font-size: 28px\">"+title_string1 +"</p>";
+            if(screen.width < 500 && title_string1.length > 20) name1.innerHTML = "<p style=\"font-size: 22px\">"+title_string1 +"</p>";
+            else if(screen.width < 500) name1.innerHTML = "<p style=\"font-size: 24px\">"+title_string1 +"</p>";
+            else if(title_string1.length > 20) name1.innerHTML = "<p style=\"font-size: 28px\">"+title_string1 +"</p>";
             else name1.innerHTML = "<p style=\"font-size: 30px\">"+title_string1 +"</p>";
 
             var a_button1 = document.createElement("button");
             a_button1.innerHTML = "Go to aisle";
             a_button1.setAttribute("onclick", "to_aisle("+p_array[sessionStorage.weekly1-1][9]+")");
             a_button1.setAttribute("class", "weekly_button");
+            
+            
+            if(screen.width < 500) a_button1.style.padding = "12px";
             im1.appendChild(name1);
             wd1.appendChild(im1);
 
@@ -490,7 +505,8 @@
             var im2 = document.createElement('div');
             var link = "product_page.html?aisle_id="+p_array[sessionStorage.weekly2-1][9]+"&product_id="+p_array[sessionStorage.weekly2-1][4];
 
-            im2.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly2-1][0]+"\" alt=\""+p_array[sessionStorage.weekly2-1][0]+"\" width=\"150\" height=\"150\"></a>";
+            if(screen.width<500) im2.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly2-1][0]+"\" alt=\""+p_array[sessionStorage.weekly2-1][0]+"\" width=\""+(0.22*screen.width)+"\" height=\""+(0.22*screen.width)+"\"></a>";
+            else im2.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly2-1][0]+"\" alt=\""+p_array[sessionStorage.weekly2-1][0]+"\" width=\"150\" height=\"150\"></a>";
             im2.className = "product_image";
 
             var name2 = document.createElement('div');
@@ -501,13 +517,17 @@
     
             var title_string2 = p_array[sessionStorage.weekly2-1][1]+" / " +new_price2;
 
-            if(title_string2.length > 20) name2.innerHTML = "<p style=\"font-size: 28px\">"+title_string2 +"</p>";
+            if(screen.width<500 && title_string2.length > 20) name2.innerHTML = "<p style=\"font-size: 22px\">"+title_string2 +"</p>";
+            else if(screen.width<500) name2.innerHTML = "<p style=\"font-size: 24px\">"+title_string2 +"</p>";
+            else if(title_string2.length > 20) name2.innerHTML = "<p style=\"font-size: 28px\">"+title_string2 +"</p>";
             else name2.innerHTML = "<p style=\"font-size: 30px\">"+title_string2 +"</p>";
             
             var a_button2 = document.createElement("button");
             a_button2.innerHTML = "Go to aisle";
             a_button2.setAttribute("onclick", "to_aisle("+p_array[sessionStorage.weekly2-1][9]+")");
             a_button2.setAttribute("class", "weekly_button");
+            if(screen.width < 500) a_button2.style.padding = "12px";
+
             im2.appendChild(name2);
             wd2.appendChild(im2);
             document.getElementById("wdb_2").appendChild(a_button2);
@@ -517,8 +537,8 @@
             //third weekly deal
             var im3 = document.createElement('div');
             var link = "product_page.html?aisle_id="+p_array[sessionStorage.weekly3-1][9]+"&product_id="+p_array[sessionStorage.weekly3-1][4];
-
-            im3.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly3-1][0]+"\" alt=\""+p_array[sessionStorage.weekly3-1][0]+"\" width=\"150\" height=\"150\"></a>";
+            if(screen.width<500) im3.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly3-1][0]+"\" alt=\""+p_array[sessionStorage.weekly3-1][0]+"\" width=\""+(0.22*screen.width)+"\" height=\""+(0.22*screen.width)+"\"></a>";
+            else im3.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly3-1][0]+"\" alt=\""+p_array[sessionStorage.weekly3-1][0]+"\" width=\"150\" height=\"150\"></a>";
             im3.className = "product_image";
 
             var name3 = document.createElement('div');
@@ -529,13 +549,17 @@
     
             var title_string3 = p_array[sessionStorage.weekly3-1][1]+" / " +new_price3;
 
-            if(title_string3.length > 20) name3.innerHTML = "<p style=\"font-size: 28px\">"+title_string3 +"</p>";
+            if (screen.width < 500 && title_string3.length > 20)  name3.innerHTML = "<p style=\"font-size: 22px\">"+title_string3 +"</p>";
+            else if(screen.width < 500) name3.innerHTML = "<p style=\"font-size: 24px\">"+title_string3 +"</p>";
+            else if(title_string3.length > 20) name3.innerHTML = "<p style=\"font-size: 28px\">"+title_string3 +"</p>";
             else name3.innerHTML = "<p style=\"font-size: 30px\">"+title_string3 +"</p>";
 
             var a_button3 = document.createElement("button");
             a_button3.innerHTML = "Go to aisle";
             a_button3.setAttribute("onclick", "to_aisle("+p_array[sessionStorage.weekly3-1][9]+")");
             a_button3.setAttribute("class", "weekly_button");
+            if(screen.width < 500) a_button3.style.padding = "12px";
+
             im3.appendChild(name3);
             wd3.appendChild(im3);
             document.getElementById("wdb_3").appendChild(a_button3);
