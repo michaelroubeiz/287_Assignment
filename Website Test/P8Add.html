@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/P7P8.css" />
+    <script type="text/javascript" src="js/P7P8.js"></script>
+    <title>P8Add</title>
+
+    <script type="text/javascript">
+        function validate() {
+            var product = document.forms["Form"]["product"].value;
+            var quantity = document.forms["Form"]["quantity"].value;
+            var size = document.forms["Form"]["size"].value;
+            var type = document.forms["Form"]["type"].value;
+            var nutritional_source = document.forms["Form"]["nutritional_source"].value;
+            var available = document.forms["Form"]["available"].value;
+            var price = document.forms["Form"]["price"].value;
+            if (product == null || product == "", quantity == null || quantity == "", size == null || size == "", type == null || type == "", nutritional_source == null || nutritional_source == "", available == null || available == "", price == null || price == "") {
+                alert("Not all boxes filled!");
+                return false;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md" id="top_bar">
+        <a class="navbar-brand"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"> &#9660</span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <a class="nav-link" href="homepage.html">Homepage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="P9.html">User list</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="P11.html">Order list</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="header">
+        <h1>Concordia Supermarket</h1>
+        <p>Best place to find all your needs</p>
+    </div>
+
+    <form class="form-horizontal" name="Form">
+        <div class="form-group">
+            <label for="inputName3" class="col-sm-2 control-label">
+                <br />
+                <h3>Add Product</h3>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="inputName3" class="col-sm-2 control-label">
+                <h5>Product:</h5>
+            </label>
+            <div class="col-sm-10">
+                <input name="product" type="name" class="form-control" id="inputName3" placeholder="ex: Banana" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputName3" class="col-sm-2 control-label">
+                <h5>Select Image<span style="font-size:15px"> (png or jpg)</span>:</h5>
+            </label>
+            <div class="col-sm-10">
+                <input name="image" type="file" class="form-control" accept="image/png, image/jpeg" id="inputName3" placeholder="jpeg and png only" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputDescription3" class="col-sm-2 control-label">
+                <h5>Description:</h5>
+            </label>
+
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <label for="title">Quantity:</label>
+                    <input name="quantity" type="description" class="form-control" placeholder="ex: 46 (per box)" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <label for="title">Size:</label>
+                    <input name="size" type="description" class="form-control" placeholder="ex: 8cm" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-10 ">
+                    <label for="title ">Type:</label>
+                    <input name="type" type="description" class="form-control" placeholder="ex: Beverage" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-10 ">
+                    <label for="title ">Nutritional Source:</label>
+                    <input name="nutritional_source" type="description" class="form-control" placeholder="ex: Potassium, Fiber" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputQuantity3" class="col-sm-2 control-label">
+                <h5>Quantity <span style="font-size:15px">(# Available)</span>:</h5>
+            </label>
+            <div class="col-sm-10">
+                <input name="available" type="quantity" class="form-control" id="inputQuantity3" placeholder="ex: 5" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputQuantity3" class="col-sm-2 control-label">
+                <h5>Price:</h5>
+            </label>
+            <div class="col-sm-10">
+                <input name="price" type="price" class="form-control" id="inputPrice3" placeholder="ex: $0.33/190g" />
+            </div>
+        </div>
+    </form>
+    <div style="display:inline-flex">
+        <form action="P7.html">
+            <button type="submit" value="Enter" class="btn btn-secondary btn-lg btn-block">Cancel</button>
+        </form>
+        <form name="button" onsubmit="return validate()" action="P7.html" style="width:100px">
+            <button type="submit" value="Enter" class="btn btn-secondary btn-lg btn-block">Save</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

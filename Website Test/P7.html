@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/P7P8.css" />
+    <script type="text/javascript" src="js/P7P8.js"></script>
+    <title>P7</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md" id="top_bar">
+        <a class="navbar-brand"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"> &#9660</span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <a class="nav-link" href="homepage.html">Homepage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="P9.html">User list</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="P11.html">Order list</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="header">
+        <h1>Concordia Supermarket</h1>
+        <p>Best place to find all your needs</p>
+    </div>
+    <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand" href="">Categories</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"> &#9660</span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie0">Vegetables and fruits</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie1">Dairy and Eggs</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie2">Pantry</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie3">Beverages</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie4">Meat and Poultry</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie5">Snacks</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br />
+
+    <script type="text/javascript">
+        var body = document.getElementsByTagName("body")[0]; //Banner and Tables
+        var aisles = document.createElement("div"); //Everything but banner
+        aisles.className = "container";
+        br();
+        for (var i = 0; i < product_array.length; i++) {
+            var title = document.createElement("h3");
+            title.appendChild(document.createTextNode(categories[i])); //Categories
+            title.id = "categorie" + (i);
+
+            aisles.appendChild(title);
+
+            var table = document.createElement("table");
+            table.name = "table" + (i);
+            var tBody = document.createElement("tbody");
+
+            var row = document.createElement("tr");
+            for (var l = 0; l < header.length; l++) { //Top row for the tables
+                var colTitle = document.createElement("th");
+                if (l == header.length - 1) {
+                    document.getElementsByName("colTitle").innerHTML = addButton(this);
+                } else {
+                    colTitle.appendChild(document.createTextNode(header[l]));
+                }
+                row.appendChild(colTitle);
+            }
+            tBody.appendChild(row);
+
+            for (var j = 0; j < product_array[i].length; j++) { //All rows
+                var row = document.createElement("tr");
+                for (var k = 0; k < product_array[i][j].length + 1; k++) { //Individual rows
+
+                    switch (k) {
+                        case 1:
+                            var cell = document.createElement("td");
+                            var image = document.createElement("img");
+                            image.src = product_array[i][j][1];
+                            image.style.width = "100px";
+                            image.style.height = "100px";
+                            cell.appendChild(image);
+                            break;
+                        case 2:
+                            var cell = document.createElement("td");
+                        case 3:
+                        case 4:
+                        case 5:
+                            var list = document.createElement("ul");
+                            list.style.listStyle = "circle";
+                            list.style.margin = "5px";
+                            var element = document.createElement("li");
+                            element.textContent = (product_array[i][j][k]);
+                            list.appendChild(element);
+                            cell.appendChild(list);
+                            break;
+                        case 8:
+                            var cell = document.createElement("td");
+                            document.getElementsByName("cell").innerHTML = editDeleteButtons(this);
+                            break;
+                        default:
+                            var cell = document.createElement("td");
+                            cell.appendChild(document.createTextNode(product_array[i][j][k]));
+                    }
+                    row.appendChild(cell);
+                }
+                tBody.appendChild(row);
+            }
+
+            tBody.className = "table table-striped table-hover";
+            table.appendChild(tBody);
+            aisles.appendChild(table)
+            body.appendChild(aisles);
+            table.className = "container";
+            table.id = "Vegetables_and_Fruits_Table";
+            table.style.textAlign = "center";
+            table.setAttribute("border", "2");
+            br();
+            br();
+        }
+    </script>
+
+</body>
+
+</html>

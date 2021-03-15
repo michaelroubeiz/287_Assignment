@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="A1.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        
+        <title>Contact Us</title>
+
+        <nav class="navbar navbar-expand-md" id="top_bar">
+            <a class="navbar-brand"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"> &#9660</span>
+            </button>
+    
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="grocery_cart.html">Grocery Cart</a>
+                    </li>       
+                </ul>
+            </div>
+        </nav>
+
+        <div class="header">
+            <a href=homepage.html>
+                <h1>Concordia Supermarket</h1>
+            </a>
+            <p>Best place to find all your needs</p>
+        </div>
+    </head>
+    
+    
+    <style>
+        a { color: inherit; } 
+        a:hover {color: white}
+        h3 {text-align: center;}
+        div {text-align: center}
+        .header {
+            padding: 50px;
+            text-align: center;
+            background-color:rgb(180, 60, 60);
+            color: white;
+            font-size: 20px;
+        }
+
+        #top_bar {
+            background-color: rgb(180, 60, 60);
+            color:white;  
+        }
+
+        .navbar {
+            background-color: #8A2E2E;
+            color:white;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+        }
+
+        .btn{
+            background: rgb(180, 60, 60);
+            border-radius: 4px;
+            border: 2px solid rgb(180, 60, 60);
+            font-size: 15px;
+        }
+
+        .input {
+            padding: 5px;
+        }
+
+    </style>
+
+    <script>
+        function checkInput() {
+
+        //check if the string starts with #
+        //needs to execute to find a way to execute the function 
+        var x=document.getElementById("Order Number");
+        var message=document.getElementById("error-nwl");
+        if (x.value.length < 8)
+        {
+            message.innerHTML="You have to enter at least 8 characters."
+        }
+    }
+        
+        //Don't know yet how to check how many "numbers" and "letters" the Order Number input contais
+
+    </script>
+
+    <body>
+    </br>
+
+    <div>
+    <h3>Contact Information</h3>
+    </br>
+    <form action="">
+        <fieldset>
+        
+        <p>
+            <label>UserName  </label>
+            <input type="text" name="UserName" value="">
+           
+        </p>
+        <p>
+            <label>ItemName  </label>
+            <input type="text" name="ItemName" value="">
+            
+        </p>
+        <p>
+            <label>Order Number  </label> 
+            <input type="text" name="Order Number" id="Order Number" value="" placeholder="example: #12345AB" required maxlength="8" onsubmit="checkInput(); return false;" method="post" >
+            <div id="error-nwl"></div>
+              
+            
+        </p>
+        <p>
+            <span>
+            <label>Questions/Inquiries  </label>
+            <textarea name="questions?"></textarea> 
+            </span>
+        </p>
+        </fieldset>
+    </div>
+    </br>
+    <button type="submit" value="submit" class="btn btn-secondary btn-lg btn-block">Submit</button>
+    <button type="reset" value="reset" class="btn btn-secondary btn-lg btn-block">Reset</button>
+
+   
+
+    </fieldset>
+</form>
+</body>
+
+</html>
