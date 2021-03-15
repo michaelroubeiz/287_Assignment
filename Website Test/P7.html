@@ -2,624 +2,163 @@
 <html lang="en">
 
 <head>
-  <div class="header">
-    <a class="nav-link" href="../homepage.html">
-      <h1>Concordia Supermarket</h1>
-    </a>
-    <p>Best place to find all your needs</p>
-  </div>
-
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/P7P8.css" />
-  <title>P7</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/P7P8.css" />
+    <script type="text/javascript" src="js/P7P8.js"></script>
+    <title>P7</title>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md">
-    <a class="navbar-brand" href="">Categories</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"> &#9660</span>
-    </button>
+    <nav class="navbar navbar-expand-md" id="top_bar">
+        <a class="navbar-brand"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"> &#9660</span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#Vegetables_and_Fruits">Vegetables and fruits</a>
-        </li>
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <a class="nav-link" href="homepage.html">Homepage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="P9.html">User list</a>
+                </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#Dairy_and_Eggs">Dairy and Eggs</a>
-        </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="P11.html">Order list</a>
+                </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#Pantry">Pantry</a>
-        </li>
+            </ul>
+        </div>
+    </nav>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#Beverages">Beverages</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#Meat_and_Poultry">Meat and Poultry</a>
-        </li>
-      </ul>
+    <div class="header">
+        <h1>Concordia Supermarket</h1>
+        <p>Best place to find all your needs</p>
     </div>
-  </nav>
-  <br />
-  <div class="container">
-    <h3><a id="Vegetables_and_Fruits">Vegetables and Fruits:</a></h3>
-    <table border="2" style="text-align:center" class="table table-striped table-hover">
-      <tr>
-        <th>Product</th>
-        <th>Image</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>
-          <form action="P8Add.html">
-            <input type="submit" value="Add" />
-          </form>
-        </th>
-      </tr>
-      <tr>
-        <td>Banana</td>
-        <td><img alt="Banana" src="../images/banana.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 1<br>Quantity: 6 (per bunch)<br>Size: 7-8 inches<br>Type: Fruit<br>Nutritional Source:
-            Potassium, Fiber</p>
-        </td>
-        <td>10</td>
-        <td>$0.33/190g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Apple</td>
-        <td><img alt="Apple" src="../images/apple.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 2<br>Quantity: 48 (per box)<br>Size: 2 3⁄4 to 3 1⁄4 inches in diameter<br>Type:
-            Fruit<br>Nutritional Source: Fiber, Vitamin C</p>
-        </td>
-        <td>8</td>
-        <td>$0.86/170g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Tomato</td>
-        <td><img alt="Tomato" src="../images/tomato.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 3<br>Quantity: Sold Individually<br>Size: 50 to 70mm in diameter<br>Type: Fruit<br>Nutritional
-            Source: Vitamin A, Fiber</p>
-        </td>
-        <td>7</td>
-        <td>$1.76/200g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Lettuce</td>
-        <td><img alt="Lettuce" src="../images/lettuce.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 4<br>Quantity: Sold Individually<br>Size: 8 inches in diameter<br>Type:
-            Vegetable<br>Nutritional Source: Vitamin A, Vitamin C</p>
-        </td>
-        <td>11</td>
-        <td>$2.99/800g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Carrot</td>
-        <td><img alt="Carrot" src="../images/carrot.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 5<br>Quantity: 12 (per bunch)<br>Size: 10 inches<br>Type: Vegetable<br>Nutritional Source:
-            Fiber, Calcium</p>
-        </td>
-        <td>15</td>
-        <td>$1.99/38g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Onion</td>
-        <td><img alt="Onion" src="../images/onion.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 6<br>Quantity: Sold Individually<br>Size: 4.5 inches<br>Type: Vegetable<br>Nutritional Source:
-            Fiber</p>
-        </td>
-        <td>4</td>
-        <td>$4.39/300g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-    </table>
+    <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand" href="">Categories</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"> &#9660</span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie0">Vegetables and fruits</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie1">Dairy and Eggs</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie2">Pantry</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie3">Beverages</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie4">Meat and Poultry</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorie5">Snacks</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <br />
-    <h3><a id="Dairy_and_Eggs">Dairy and Eggs:</a></h3>
-    <table border="2" style="text-align:center" class="table table-striped table-hover">
 
-      <tr>
-        <th>Product</th>
-        <th>Image</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>
-          <form action="P8Add.html">
-            <input type="submit" value="Add" />
-          </form>
-        </th>
-      </tr>
-      <tr>
-        <td>Eggs</td>
-        <td><img alt="Eggs" src="../images/eggs.jpg" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 7<br>Quantity: 12 (per box)<br>Size: 10 inches<br>Type: Eggs<br>Nutritional Source: Iron</p>
-        </td>
-        <td>5</td>
-        <td>$3.49/340g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Milk</td>
-        <td><img alt="Milk" src="../images/milk.png" width="80" height="100" /></td>
-        <td>
-          <p>Product ID: 8<br>Quantity: 2 bags<br>Size: 4L<br>Type: Dairy<br>Nutritional Source: Protein, Calcium</p>
-        </td>
-        <td>19</td>
-        <td>$6.86/4L</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Cheese</td>
-        <td><img alt="Cheese" src="../images/cheese.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 9<br>Quantity: Sold Individually<br>Size: 27cm<br>Type: Dairy<br>Nutritional Source: Fat,
-            Calcium</p>
-        </td>
-        <td>17</td>
-        <td>$5.49/270g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Butter</td>
-        <td><img alt="Butter" src="../images/butter.png" width="90" height="100" /></td>
-        <td>
-          <p>Product ID: 10<br>Quantity: Sold Individually<br>Size: 10cm<br>Type: Dairy<br>Nutritional Source: Fat</p>
-        </td>
-        <td>3</td>
-        <td>$4.69/454g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Yogurt</td>
-        <td><img alt="Yogurt" src="../images/yogurt.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 11<br>Quantity: Sold Individually<br>Size: 8cm<br>Type: Dairy<br>Nutritional Source: Protein,
-            Carbs</p>
-        </td>
-        <td>13</td>
-        <td>$6.99/750g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-    </table>
+    <script type="text/javascript">
+        var body = document.getElementsByTagName("body")[0]; //Banner and Tables
+        var aisles = document.createElement("div"); //Everything but banner
+        aisles.className = "container";
+        br();
+        for (var i = 0; i < product_array.length; i++) {
+            var title = document.createElement("h3");
+            title.appendChild(document.createTextNode(categories[i])); //Categories
+            title.id = "categorie" + (i);
 
-    <br />
-    <h3><a id="Pantry">Pantry:</a></h3>
-    <table border="2" style="text-align:center" class="table table-striped table-hover">
+            aisles.appendChild(title);
 
-      <tr>
-        <th>Product</th>
-        <th>Image</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>
-          <form action="P8Add.html">
-            <input type="submit" value="Add" />
-          </form>
-        </th>
-      </tr>
-      <tr>
-        <td>Ketchup</td>
-        <td><img alt="Ketchup" src="../images/ketchup.png" width="80" height="100" /></td>
-        <td>
-          <p>Product ID: 12<br>Quantity: Sold Individually<br>Size: 12cm<br>Type: Condiment<br>Nutritional Source:
-            Sugar, Sodium</p>
-        </td>
-        <td>34</td>
-        <td>$3.99/1L</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Salt</td>
-        <td><img alt="Salt" src="../images/salt.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 13<br>Quantity: Sold Individually<br>Size: 10cm<br>Type: Seasoning<br>Nutritional Source:
-            Sodium</p>
-        </td>
-        <td>3</td>
-        <td>$6.49/1.36kg</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Sugar</td>
-        <td><img alt="Sugar" src="../images/sugar.jpg" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 14<br>Quantity: Sold Individually<br>Size: 15cm<br>Type: Condiment<br>Nutritional Source:
-            Protein, Carbs</p>
-        </td>
-        <td>9</td>
-        <td>$3.49/2kg</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Olive Oil</td>
-        <td><img alt="Olive Oil" src="../images/olive oil.png" width="60" height="100" /></td>
-        <td>
-          <p>Product ID: 15<br>Quantity: Sold Individually<br>Size: 20cm<br>Type: Condiment<br>Nutritional Source: Fat
-          </p>
-        </td>
-        <td>10</td>
-        <td>$12.99/1L</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Spaghetti</td>
-        <td><img alt="Spaghetti" src="../images/spaghetti.jpg" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 16<br>Quantity: Sold Individually<br>Size: 15cm<br>Type: Pasta<br>Nutritional Source: Carbs</p>
-        </td>
-        <td>15</td>
-        <td>$2.39/50g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-    </table>
+            var table = document.createElement("table");
+            table.name = "table" + (i);
+            var tBody = document.createElement("tbody");
 
-    <br />
-    <h3><a id="Beverages">Beverages:</a></h3>
-    <table border="2" style="text-align:center" class="table table-striped table-hover">
+            var row = document.createElement("tr");
+            for (var l = 0; l < header.length; l++) { //Top row for the tables
+                var colTitle = document.createElement("th");
+                if (l == header.length - 1) {
+                    document.getElementsByName("colTitle").innerHTML = addButton(this);
+                } else {
+                    colTitle.appendChild(document.createTextNode(header[l]));
+                }
+                row.appendChild(colTitle);
+            }
+            tBody.appendChild(row);
 
-      <tr>
-        <th>Product</th>
-        <th>Image</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>
-          <form action="P8Add.html">
-            <input type="submit" value="Add" />
-          </form>
-        </th>
-      </tr>
-      <tr>
-        <td>Water</td>
-        <td><img alt="Water" src="../images/water.png" width="50" height="100" /></td>
-        <td>
-          <p>Product ID: 17<br>Quantity: 15 (per box)<br>Size: 15cm<br>Type: Beverage<br>Nutritional Source: Water</p>
-        </td>
-        <td>13</td>
-        <td>$4.49/330ml</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Juice</td>
-        <td><img alt="Juice" src="../images/juice.png" width="70" height="100" /></td>
-        <td>
-          <p>Product ID: 18<br>Quantity: Sold Individually<br>Size: 17cm<br>Type: Beverage<br>Nutritional Source: Water,
-            Sugar</p>
-        </td>
-        <td>8</td>
-        <td>$2.79/2L/190g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Soft Drink</td>
-        <td><img alt="Soft Drink" src="../images/coca-cola.png" width="50" height="100" /></td>
-        <td>
-          <p>Product ID: 19<br>Quantity: Sold Individually<br>Size: 12cm<br>Type: Beverage<br>Nutritional Source: Sugar
-          </p>
-        </td>
-        <td>27</td>
-        <td>$1.89/1.25L</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Coffee</td>
-        <td><img alt="Coffee" src="../images/coffee.jpg" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 20<br>Quantity: Sold Individually<br>Size: 11cm<br>Type: Beverage<br>Nutritional Source:
-            Micronutrients</p>
-        </td>
-        <td>12</td>
-        <td>$6.99/100g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Tea</td>
-        <td><img alt="Tea" src="../images/tea.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 21<br>Quantity: Sold Individually<br>Size: 10cm<br>Type: Beverage<br>Nutritional Source:
-            Antioxidants</p>
-        </td>
-        <td>18</td>
-        <td>$3.49/24oz</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-    </table>
+            for (var j = 0; j < product_array[i].length; j++) { //All rows
+                var row = document.createElement("tr");
+                for (var k = 0; k < product_array[i][j].length + 1; k++) { //Individual rows
 
-    <br />
-    <h3><a id="Meat_and_Poultry">Meat and Poultry:</a></h3>
-    <table border="2" style="text-align:center" class="table table-striped table-hover">
+                    switch (k) {
+                        case 1:
+                            var cell = document.createElement("td");
+                            var image = document.createElement("img");
+                            image.src = product_array[i][j][1];
+                            image.style.width = "100px";
+                            image.style.height = "100px";
+                            cell.appendChild(image);
+                            break;
+                        case 2:
+                            var cell = document.createElement("td");
+                        case 3:
+                        case 4:
+                        case 5:
+                            var list = document.createElement("ul");
+                            list.style.listStyle = "circle";
+                            list.style.margin = "5px";
+                            var element = document.createElement("li");
+                            element.textContent = (product_array[i][j][k]);
+                            list.appendChild(element);
+                            cell.appendChild(list);
+                            break;
+                        case 8:
+                            var cell = document.createElement("td");
+                            document.getElementsByName("cell").innerHTML = editDeleteButtons(this);
+                            break;
+                        default:
+                            var cell = document.createElement("td");
+                            cell.appendChild(document.createTextNode(product_array[i][j][k]));
+                    }
+                    row.appendChild(cell);
+                }
+                tBody.appendChild(row);
+            }
 
-      <tr>
-        <th>Product</th>
-        <th>Image</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>
-          <form action="P8Add.html">
-            <input type="submit" value="Add" />
-          </form>
-        </th>
-      </tr>
-      <tr>
-        <td>Ground Beef</td>
-        <td><img alt="Ground Beef" src="../images/ground_beef.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 22<br>Quantity: Sold Individually<br>Size: 8cm<br>Type: Meat<br>Nutritional Source: Protein</p>
-        </td>
-        <td>24</td>
-        <td>$1.54/100g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Chicken</td>
-        <td><img alt="Chicken" src="../images/chicken.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 23<br>Quantity: Sold Individually<br>Size: 10cm<br>Type: Poultry<br>Nutritional Source: Protein
-          </p>
-        </td>
-        <td>48</td>
-        <td>$12.54/1.6kg</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Steak</td>
-        <td><img alt="Steak" src="../images/steak.jpg" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 24<br>Quantity: Sold Individually<br>Size: 9cm<br>Type: Meat<br>Nutritional Source: Protein</p>
-        </td>
-        <td>17</td>
-        <td>$8.88/130g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Sausages</td>
-        <td><img alt="Sausages" src="../images/sausage.png" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 25<br>Quantity: Sold Individually<br>Size: 8cm<br>Type: Meat<br>Nutritional Source: Protein</p>
-        </td>
-        <td>21</td>
-        <td>$5.99/100g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Turkey</td>
-        <td><img alt="Turkey" src="../images/turkey.jpg" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 26<br>Quantity: Sold Individually<br>Size: 16cm<br>Type: Poultry<br>Nutritional Source: Protein
-          </p>
-          </ul>
-        </td>
-        <td>13</td>
-        <td>$61.83/8kg</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>Duck</td>
-        <td><img alt="Duck" src="../images/duck.jpg" width="100" height="100" /></td>
-        <td>
-          <p>Product ID: 27<br>Quantity: Sold Individually<br>Size: 12cm<br>Type: Poultry<br>Nutritional Source: Protein
-          </p>
-        </td>
-        <td>13</td>
-        <td>$19.28/500g</td>
-        <td>
-          <form action="P8Edit.html">
-            <input type="submit" value="Edit" />
-          </form>
-          <form action="">
-            <input type="submit" value="Delete" />
-          </form>
-        </td>
-      </tr>
-    </table>
-  </div>
+            tBody.className = "table table-striped table-hover";
+            table.appendChild(tBody);
+            aisles.appendChild(table)
+            body.appendChild(aisles);
+            table.className = "container";
+            table.id = "Vegetables_and_Fruits_Table";
+            table.style.textAlign = "center";
+            table.setAttribute("border", "2");
+            br();
+            br();
+        }
+    </script>
+
 </body>
 
 </html>
