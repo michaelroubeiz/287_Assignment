@@ -48,7 +48,7 @@
                 font-size: 15pt;
             }
 
-            .collapsible {
+            .collapsible, .m_desc {
                 background-color: #B43C3C;
                 color: white;
                 cursor: pointer;
@@ -63,7 +63,7 @@
                 transition-duration:0.3s;
             }
 
-            .active, .collapsible:hover {
+            .active, .collapsible:hover, .m_desc:hover {
                 background-color:#8A2E2E;
             }
 
@@ -178,6 +178,7 @@
             <col style="width:33%">
             <col style="width:67%">
             <tr>
+
                 <td rowspan = 10 style="text-align: center; vertical-align: top;"><img id="image" src="" width="300" height="300"></td>
                 <td class="p_name" rowspan = 2 id="name"></td>
             </tr>
@@ -213,9 +214,14 @@
                         </ul></p>
                     </div>
                 </td>
+
+                <td rowspan = 2 style="padding-left: 15px;">
+                    <button type="button" class="m_desc" id="more_description" onclick="to_detail()">More... </button>
+                </td>
             </tr>
 
-            <tr></tr>
+            <tr>
+            </tr>
 
         </table>
 
@@ -285,6 +291,15 @@
                     content.style.display = "block";
                 }
             });
+
+            function to_detail() {
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var a = url.searchParams.get("product_id");
+                var b = url.searchParams.get("aisle_id");
+
+                location.href = "detailed_description.html?aisle_id="+b+"&product_id="+a;
+            }
      
         </script>
     </div>
