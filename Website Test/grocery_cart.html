@@ -10,7 +10,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
     <script>
-
         //Run this code if the user isn't logged in (15-36)
         if(!sessionStorage.cart_initialized) {
             var cart = [];
@@ -211,7 +210,19 @@
 
             <tr style="border-bottom: 0px;">
                 <td></td><td></td>
-                <td style="font-size:15px; font-weight:bold; text-align:left;">Tax: </td>
+                <td style="font-size:12px; font-weight:bold; text-align:left;">QST: </td>
+                <td style="font-size:12px; text-align:right;" id="QST"></td>
+            </tr>
+
+            <tr style="border-bottom: 0px;">
+                <td></td><td></td>
+                <td style="font-size:12px; font-weight:bold; text-align:left;">GST: </td>
+                <td style="font-size:12px; text-align:right;" id="GST"></td>
+            </tr>
+
+            <tr style="border-bottom: 0px;">
+                <td></td><td></td>
+                <td style="font-size:15px; font-weight:bold; text-align:left;">Total Tax: </td>
                 <td style="font-size:15px; text-align:right;" id="tax"></td>
             </tr>
 
@@ -226,7 +237,7 @@
 
         <script type="text/javascript">
             var ind = sessionStorage.product-1;
-            if(!g_array.includes(ind)) {
+            if(!g_array.includes(ind) && ind != -2) {
                 g_array.push(ind);
                 sessionStorage.setItem('g_cart', JSON.stringify(g_array));
 
@@ -329,7 +340,8 @@
                 }
                 tr = t.insertRow(rows);
             }
-            
+            document.getElementById("QST").innerHTML = "$" + Math.round((total_price*0.1 + Number.EPSILON) * 100) / 100;
+            document.getElementById("GST").innerHTML = "$" + Math.round((total_price*0.05 + Number.EPSILON) * 100) / 100;
             document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
             document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
 
@@ -369,6 +381,8 @@
             }
         }
 
+        document.getElementById("QST").innerHTML = "$" + Math.round((total_price*0.1 + Number.EPSILON) * 100) / 100;
+        document.getElementById("GST").innerHTML = "$" + Math.round((total_price*0.05 + Number.EPSILON) * 100) / 100;
         document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
         document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
     }
@@ -392,6 +406,8 @@
             }
         }
 
+        document.getElementById("QST").innerHTML = "$" + Math.round((total_price*0.1 + Number.EPSILON) * 100) / 100;
+        document.getElementById("GST").innerHTML = "$" + Math.round((total_price*0.05 + Number.EPSILON) * 100) / 100;
         document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
         document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
     }
@@ -419,7 +435,8 @@
         sessionStorage.setItem('g_cart', JSON.stringify(g_array));
         t.deleteRow(oButton.parentNode.parentNode.rowIndex); // buttton -> td -> tr
 
-
+        document.getElementById("QST").innerHTML = "$" + Math.round((total_price*0.1 + Number.EPSILON) * 100) / 100;
+        document.getElementById("GST").innerHTML = "$" + Math.round((total_price*0.05 + Number.EPSILON) * 100) / 100;
         document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
         document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
     }
