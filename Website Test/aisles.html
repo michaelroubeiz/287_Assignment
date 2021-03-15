@@ -15,173 +15,173 @@
 
         var at_array = localStorage.getItem('aisle_types');
         at_array = JSON.parse(at_array);
-
     </script>
 
-    <style>
-        body {
-            padding-top: 0px;
-        }
+<style>
+    body {
+        padding-top: 0px;
+    }
 
-        #product_pane {
-            margin-left: auto;
-            margin-right: auto;
-        }
+    #product_pane {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        .product_image {
-            margin: auto;
-            vertical-align: middle;
-            text-align: center;
-            transition-duration:0.3s;
-        }
+    .product_image {
+        margin: auto;
+        vertical-align: middle;
+        text-align: center;
+        transition-duration:0.3s;
+    }
 
-        .product_image:hover {
-            background-color: rgb(230, 230, 230);
-        }
-        
-        .header {
-            padding: 50px;
-            text-align: center;
-            background-color:rgb(180, 60, 60);
+    .product_image:hover {
+        background-color: rgb(230, 230, 230);
+    }
+    
+    .header {
+        padding: 50px;
+        text-align: center;
+        background-color:rgb(180, 60, 60);
+        color: white;
+        font-size: 20px;
+    }
+
+    .container {
+        padding: 25px;
+    }
+
+    .button {
+        background-color: #B43C3C;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 40%;
+        border: none;
+        text-align: center;
+        outline: none;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 4px;
+        transition-duration:0.3s;
+    }
+
+    .button:hover {
+        background-color:#8A2E2E;
+    }
+
+    
+    #to_cart {
+        position: absolute;
+        top:45px;
+        right:30px;
+        height: 100px;
+        width: 100px;
+        background-image: url("images\\cart.png");
+        background-size: 70px 70px;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        background-color: #B43C3C;
+        color: white;
+        cursor: pointer;
+        border: 2px solid white;
+        text-align: center;
+        outline: none;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 4px;
+        transition-duration:0.3s;
+    }
+
+    #to_cart:hover {
+        background-color: #8A2E2E;
+    }
+
+    .navbar {
+        background-color: #8A2E2E;
+        color:white;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+    }
+
+    .navbar-brand {
+        text-decoration: none;
+        font-size: 23px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .nav-link:hover, .navbar-brand:hover {
+        color: rgb(194, 194, 194);
+    }
+    
+    .navbar-toggler {
+        border-color: white;
+        background-color : #8A2E2E;
+    }
+
+    .navbar-toggler-icon {
+        vertical-align: middle;
+        color: white;
+    }
+
+    .product_info {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
             color: white;
-            font-size: 20px;
+            background-color: #8A2E2E;
         }
 
-        .container {
-            padding: 25px;
-        }
+    .navbar-toggler:active, .navbar-toggler:hover {
+        background-color: #692222;
+    }
 
-        .button {
-            background-color: #B43C3C;
+    .cart_button {
+            background-color: #4E0250;
             color: white;
             cursor: pointer;
-            padding: 18px;
-            width: 40%;
+            padding: 15px;
+            width: 100%;
             border: none;
             text-align: center;
             outline: none;
-            font-size: 15px;
+            font-size: 18px;
             font-weight: bold;
             border-radius: 4px;
             transition-duration:0.3s;
         }
 
-        .button:hover {
-            background-color:#8A2E2E;
-        }
+    .cart_button:hover {
+        background-color: #260128;
+    }
 
-        
-        #to_cart {
-            position: absolute;
-            top:45px;
-            right:30px;
-            height: 100px;
-            width: 100px;
-            background-image: url("images\\cart.png");
-            background-size: 70px 70px;
-            background-position: center;
-            background-repeat: no-repeat;
-
+    .collapsible {
             background-color: #B43C3C;
             color: white;
             cursor: pointer;
-            border: 2px solid white;
+            padding: 15px;
+            width: 100%;
+            border: none;
             text-align: center;
             outline: none;
-            font-size: 15px;
+            font-size: 18px;
             font-weight: bold;
             border-radius: 4px;
             transition-duration:0.3s;
         }
 
-        #to_cart:hover {
-            background-color: #8A2E2E;
+        .active, .collapsible:hover {
+            background-color:#8A2E2E;
         }
-
-        .navbar {
-            background-color: #8A2E2E;
-            color:white;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            font-size: 20px;
-            color: white;
-        }
-
-        .navbar-brand {
-            text-decoration: none;
-            font-size: 23px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .nav-link:hover, .navbar-brand:hover {
-            color: rgb(194, 194, 194);
-        }
-        
-        .navbar-toggler {
-            border-color: white;
-            background-color : #8A2E2E;
-        }
-
-        .navbar-toggler-icon {
-            vertical-align: middle;
-            color: white;
-        }
-
-        .product_info {
-                padding: 0 18px;
-                display: none;
-                overflow: hidden;
-                color: white;
-                background-color: #8A2E2E;
-            }
-
-        .navbar-toggler:active, .navbar-toggler:hover {
-            background-color: #692222;
-        }
-
-        .cart_button {
-                background-color: #4E0250;
-                color: white;
-                cursor: pointer;
-                padding: 15px;
-                width: 100%;
-                border: none;
-                text-align: center;
-                outline: none;
-                font-size: 18px;
-                font-weight: bold;
-                border-radius: 4px;
-                transition-duration:0.3s;
-            }
-
-        .cart_button:hover {
-            background-color: #260128;
-        }
-
-        .collapsible {
-                background-color: #B43C3C;
-                color: white;
-                cursor: pointer;
-                padding: 15px;
-                width: 100%;
-                border: none;
-                text-align: center;
-                outline: none;
-                font-size: 18px;
-                font-weight: bold;
-                border-radius: 4px;
-                transition-duration:0.3s;
-            }
-
-            .active, .collapsible:hover {
-                background-color:#8A2E2E;
-            }
 
 
     </style>
+
 
 
     <div class="header">
@@ -190,6 +190,7 @@
         <button type="button" class="button" id="to_cart"></a>
         <script>
             document.getElementById("to_cart").onclick = function () {
+                sessionStorage.product = -1;
                 location.href = "grocery_cart.html";
             }
         </script>
@@ -281,29 +282,49 @@
                 im.className = "product_image";
 
                 var na = document.createElement('div');
-                na.innerHTML = "<p style=\"font-size: 30px\">"+current_aisle[i][1]+"</p>";
 
+                if(current_aisle[i][4] == sessionStorage.weekly1) na.innerHTML = "<p style=\"font-size: 30px\">"+current_aisle[i][1]+" / " +sessionStorage.dealstring1 +"</p>";
+                else if (current_aisle[i][4] == sessionStorage.weekly2) na.innerHTML = "<p style=\"font-size: 30px\">"+current_aisle[i][1]+" / " +sessionStorage.dealstring2 +"</p>";
+                else if (current_aisle[i][4] == sessionStorage.weekly3) na.innerHTML = "<p style=\"font-size: 30px\">"+current_aisle[i][1]+" / " +sessionStorage.dealstring3 +"</p>";
+                else na.innerHTML = "<p style=\"font-size: 30px\">"+current_aisle[i][1]+" / " +current_aisle[i][2] +"</p>";
+
+                
                 //to cart button
                 var cart = document.createElement('button');
                 cart.setAttribute("class", "cart_button");
                 cart.textContent = 'Add to Cart';
-                //cart.setAttribute("onclick", "to_cart(this)");
+                cart.setAttribute("onclick", "to_cart(this, " + current_aisle[i][4] + ")");
                 
                 //collapsible info button
                 var info_button = document.createElement('button');
                 info_button.setAttribute('class', 'collapsible');
                 info_button.innerHTML = "product info";
+                info_button.setAttribute("onclick","show_info(this)");
 
                 //collapsible info
-                /*var info = document.createElement('div');
+                var info = document.createElement('div');
                 info.setAttribute('class', 'product_info');
-                info.innerHTML = "<p style=\"font-size: 10px\">"+current_aisle[i][1]+"</p>";*/
+
+                var p_ID, p_Q, p_S, p_T, p_NS = "";
+                p_ID = current_aisle[i][4];
+                p_Q = current_aisle[i][5];
+                p_S = current_aisle[i][6];
+                p_T = current_aisle[i][7];
+                p_NS = current_aisle[i][8];
+
+                info.innerHTML = "<p style=\"font-size: 13px\"><ul> <li>Product ID: " + p_ID +"</li>"+
+                    "<li>Quantity: " + p_Q +"</li>"+
+                    "<li>Size: " + p_S +"</li>"+
+                    "<li>Type: " + p_T +"</li>"+
+                    "<li>Nutritional Source: " + p_NS+"</li></ul></p>";
+
 
                 im.appendChild(na);
 
                 td.appendChild(im);
                 td.appendChild(cart);
                 td.appendChild(info_button);
+                td.appendChild(info);
                 count++;
             }
 
@@ -311,22 +332,23 @@
                 location.href = "homepage.html";
             }
 
-            /*function to_cart(oButton) {
-                sessionStorage.product = Number(a);
-                sessionStorage.aisle = Number(b);
+            function to_cart(oButton, prod_id) {
+                sessionStorage.product = Number(prod_id);
+                sessionStorage.aisle = Number(a);
                 location.href = "grocery_cart.html";
             }
 
             function show_info(oButton) {
                 oButton.classList.toggle("active");
                 var content = oButton.nextElementSibling;
+
                 if (content.style.display === "block") {
                     content.style.display = "none";
                 } 
                 else {
                     content.style.display = "block";
                 }
-            }*/
+            }
             
         </script>
     </div>
