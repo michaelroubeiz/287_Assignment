@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+    
     <nav class="navbar navbar-expand-md" id="top_bar">
         <a class="navbar-brand"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -78,6 +78,25 @@
             background-color:#8A2E2E;
             color: white;
             text-align: center;
+        }
+
+        .weekly_button {
+            background-color: #8A2E2E;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: center;
+            outline: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition-duration:0.3s;
+        }
+
+        .weekly_button:hover {
+            background-color: #692222;
         }
 
         #top_bar {
@@ -216,18 +235,22 @@
             transition-duration:0.3s;
         }
 
-        .category_image:hover {
+        .category_image:hover, .product_image:hover {
             background-color: rgb(230, 230, 230);
         }
-        
-         a { color: inherit; } 
-         a:hover {color: white}
 
-    </style> 
+        .product_image {
+            margin: auto;
+            vertical-align: middle;
+            text-align: center;
+            transition-duration:0.3s;
+        }
+
+    </style>
 
     <script>
         //initializing array for products
-        if (typeof product_array === 'undefined') {
+        if(typeof product_array === "undefined") {
             var product_array = [
                 //Fruits and Vegetables
                 [["images\\banana.png", "Banana", "$0.33", "190g", 0, "6 (per bunch)", "7-8 inches", "Fruit", "Potassium, Fiber"], 
@@ -277,34 +300,25 @@
                 ["images\\nuts.jpg", "Nuts", "$12.99", "300g", 0,"Sold Individually", "13cm", "Snack", "Magnesium, Fiber"], 
                 ["images\\jello.jpg", "Jell-o", "$3.29", "265g", 0,"2 (per box)", "7cm", "Snack", "Sugar"]]
             ];
+        }
 
-            var x; 
-            var y;
-            var count = 0;
+        var x; 
+        var y;
+        var count = 0;
 
-            for(x = 0; x < product_array.length; x++) {
-                for(y = 0; y < product_array[x].length; y++) {
-                    product_array[x][y][4] = (count+1);
-                    count++;
-                }
+        for(x = 0; x < product_array.length; x++) {
+            for(y = 0; y < product_array[x].length; y++) {
+                product_array[x][y][4] = (count+1);
+                count++;
             }
-
-            //initializing array of aisle types
-            var aisle_type_array = ["Vegetables and Fruits", "Diary and Eggs", "Pantry", "Beverages", "Meat and Poultry", "Snacks"];
-            var category_images = ["images\\fruits_and_vegetables.png", "images\\eggs_and_diary.png", "images\\pantry.png", "images\\beverages.png", "images\\meat_and_poultry.png", "images\\snacks.png"];
-            localStorage.setItem('aisle_types', JSON.stringify(aisle_type_array));
-
-            localStorage.setItem('products', JSON.stringify(product_array));
-        }
-        
-        document.getElementById("to_cart").onclick = function () {
-            location.href = "grocery_cart.html";
         }
 
-        document.getElementById("to_login").onclick = function () {
-            location.href = "LoginPage.html";
-            //add login link here
-        }
+        //initializing array of aisle types
+        var aisle_type_array = ["Vegetables and Fruits", "Diary and Eggs", "Pantry", "Beverages", "Meat and Poultry", "Snacks"];
+        var category_images = ["images\\fruits_and_vegetables.png", "images\\eggs_and_diary.png", "images\\pantry.png", "images\\beverages.png", "images\\meat_and_poultry.png", "images\\snacks.png"];
+        localStorage.setItem('aisle_types', JSON.stringify(aisle_type_array));
+
+        localStorage.setItem('products', JSON.stringify(product_array));
 
     </script>
     
@@ -382,16 +396,157 @@
                 if(aisle_type_array[i] == "Vegetables and Fruits")                
                     na.innerHTML = "<p style=\"font-size: 23.8px\">"+aisle_type_array[i]+"</p>";
                 else na.innerHTML = "<p style=\"font-size: 30px\">"+aisle_type_array[i]+"</p>";
-
                 im.appendChild(na);
 
                 td.appendChild(im);
                 count++;
             }
         </script>
-
     </div>
 
+    <br>
+        <h2 style="text-align:center;">Weekly Deals</h2>
+    </br>
+
+    <!--Weekly Deal-->
+    <div class="container">
+        <table border="0" width="100%" id="weekly_deals">
+            <col style="width:33%">
+            <tr>
+                <td id="wd_1"></td>
+                <td id="wd_2"></td>
+                <td id="wd_3"></td>
+            </tr>
+
+            <tr>
+                <td id="wdb_1"></td>
+                <td id="wdb_2"></td>
+                <td id="wdb_3"></td>
+            </tr>
+        </table>
+
+        <script>
+            var p_darray = localStorage.getItem('products');
+            p_darray = JSON.parse(p_darray);
+            var p_array = [];
+
+            for(var i = 0; i < p_darray.length; i++) {
+                for(var m = 0; m < p_darray[i].length; m++) {
+                    p_darray[i][m].push(i);
+                    p_array.push(p_darray[i][m]);
+                }
+            }
+
+            var wd1 = document.getElementById("wd_1");
+            var wd2 = document.getElementById("wd_2");
+            var wd3 = document.getElementById("wd_3");
+
+            var p_wd1 = Math.floor(Math.random() * p_array.length) +1;
+
+            var p_wd2 = Math.floor(Math.random() * p_array.length)+1;
+                if(p_wd2 == p_wd1) 
+                    while(p_wd2 == p_wd1) 
+                    var p_wd2 = Math.floor(Math.random() * p_array.length)+1;
+            
+            var p_wd3 = Math.floor(Math.random() * p_array.length)+1;
+                if(p_wd3 == p_wd2 || p_wd3 == p_wd1) 
+                        while(p_wd3 == p_wd2 || p_wd3 == p_wd1) 
+                        var p_wd3 = Math.floor(Math.random() * p_array.length)+1;
+
+            if(typeof sessionStorage.weekly1 === "undefined") sessionStorage.weekly1 = p_wd1;
+            if(typeof sessionStorage.weekly2 === "undefined") sessionStorage.weekly2 = p_wd2;
+            if(typeof sessionStorage.weekly3 === "undefined") sessionStorage.weekly3 = p_wd3;
+
+
+            //first weekly deal
+            var im1 = document.createElement('div');
+            var link = "product_page.html?aisle_id="+p_array[sessionStorage.weekly1-1][9]+"&product_id="+p_array[sessionStorage.weekly1-1][4];
+
+            im1.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly1-1][0]+"\" alt=\""+p_array[sessionStorage.weekly1-1][0]+"\" width=\"150\" height=\"150\"></a>";
+            im1.className = "product_image";
+
+            var name1 = document.createElement('div');
+
+            var old_price1 = ("$" + (parseFloat(p_array[sessionStorage.weekly1-1][2].substring(1,p_array[sessionStorage.weekly1-1][2].length)) + 2)).strike();
+            var new_price1 = old_price1 + " " + p_array[sessionStorage.weekly1-1][2].bold();
+            if(typeof sessionStorage.dealstring1 === "undefined") sessionStorage.dealstring1 = new_price1;
+            var title_string1 = p_array[sessionStorage.weekly1-1][1]+" / " +new_price1;
+
+            if(title_string1.length > 20) name1.innerHTML = "<p style=\"font-size: 28px\">"+title_string1 +"</p>";
+            else name1.innerHTML = "<p style=\"font-size: 30px\">"+title_string1 +"</p>";
+
+            var a_button1 = document.createElement("button");
+            a_button1.innerHTML = "Go to aisle";
+            a_button1.setAttribute("onclick", "to_aisle("+p_array[sessionStorage.weekly1-1][9]+")");
+            a_button1.setAttribute("class", "weekly_button");
+            im1.appendChild(name1);
+            wd1.appendChild(im1);
+
+            document.getElementById("wdb_1").appendChild(a_button1);
+
+
+
+            //second weekly deal
+            var im2 = document.createElement('div');
+            var link = "product_page.html?aisle_id="+p_array[sessionStorage.weekly2-1][9]+"&product_id="+p_array[sessionStorage.weekly2-1][4];
+
+            im2.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly2-1][0]+"\" alt=\""+p_array[sessionStorage.weekly2-1][0]+"\" width=\"150\" height=\"150\"></a>";
+            im2.className = "product_image";
+
+            var name2 = document.createElement('div');
+
+            var old_price2 = ("$" + (parseFloat(p_array[sessionStorage.weekly2-1][2].substring(1,p_array[sessionStorage.weekly2-1][2].length)) + 1)).strike();
+            var new_price2 = old_price2 + " " + p_array[sessionStorage.weekly2-1][2].bold();
+            if(typeof sessionStorage.dealstring2 === "undefined") sessionStorage.dealstring2 = new_price2;
+    
+            var title_string2 = p_array[sessionStorage.weekly2-1][1]+" / " +new_price2;
+
+            if(title_string2.length > 20) name2.innerHTML = "<p style=\"font-size: 28px\">"+title_string2 +"</p>";
+            else name2.innerHTML = "<p style=\"font-size: 30px\">"+title_string2 +"</p>";
+            
+            var a_button2 = document.createElement("button");
+            a_button2.innerHTML = "Go to aisle";
+            a_button2.setAttribute("onclick", "to_aisle("+p_array[sessionStorage.weekly2-1][9]+")");
+            a_button2.setAttribute("class", "weekly_button");
+            im2.appendChild(name2);
+            wd2.appendChild(im2);
+            document.getElementById("wdb_2").appendChild(a_button2);
+
+
+
+            //third weekly deal
+            var im3 = document.createElement('div');
+            var link = "product_page.html?aisle_id="+p_array[sessionStorage.weekly3-1][9]+"&product_id="+p_array[sessionStorage.weekly3-1][4];
+
+            im3.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly3-1][0]+"\" alt=\""+p_array[sessionStorage.weekly3-1][0]+"\" width=\"150\" height=\"150\"></a>";
+            im3.className = "product_image";
+
+            var name3 = document.createElement('div');
+
+            var old_price3 = ("$" + (parseFloat(p_array[sessionStorage.weekly3-1][2].substring(1,p_array[sessionStorage.weekly3-1][2].length)) + 3)).strike();
+            var new_price3 = old_price3 + " " + p_array[sessionStorage.weekly3-1][2].bold();
+            if(typeof sessionStorage.dealstring3 === "undefined") sessionStorage.dealstring3 = new_price3;
+    
+            var title_string3 = p_array[sessionStorage.weekly3-1][1]+" / " +new_price3;
+
+            if(title_string3.length > 20) name3.innerHTML = "<p style=\"font-size: 28px\">"+title_string3 +"</p>";
+            else name3.innerHTML = "<p style=\"font-size: 30px\">"+title_string3 +"</p>";
+
+            var a_button3 = document.createElement("button");
+            a_button3.innerHTML = "Go to aisle";
+            a_button3.setAttribute("onclick", "to_aisle("+p_array[sessionStorage.weekly3-1][9]+")");
+            a_button3.setAttribute("class", "weekly_button");
+            im3.appendChild(name3);
+            wd3.appendChild(im3);
+            document.getElementById("wdb_3").appendChild(a_button3);
+
+
+            function to_aisle(aisle) {
+                location.href = "aisles.html?aisle_id="+(aisle+1);
+            }
+
+        </script>
+    </div>
 </body>
     <!--collapsible footer for info-->
     <div class="bottom_row" >
@@ -400,7 +555,7 @@
             <br>
             <h3>Welcome to Concordia Supermarket! </h3>
             <p>Click on any aisle to be brought to a page of products. Add these products to your cart and get an estimation on how much they'll cost!</p>
-            
+        
             <a href="contact_us.html">Contact Us</a>
         </div>
     </div>
