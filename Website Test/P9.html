@@ -3,463 +3,616 @@
 <html lang="en">
 
 <head>
-  <div class="header">
-    <a class="nav-link" href="../SOEN287-A1/homepage.html">
-      <h1>Concordia Supermarket</h1>
-    </a>
-    <p>Best place to find all your needs</p>
-  </div>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
   
-  
-  <link rel="stylesheet" href="css/P9_P10.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/P9_P10.css">
+
 </head>
 
-    <body>
-   
-    <table>
-       
+<body>
+        <nav class="navbar navbar-expand-md" id="top_bar">
+            <a class="navbar-brand"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"> &#9660</span>
+            </button>
+    
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <a class="nav-link" href="homepage.html">Homepage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="P7.html">Product List</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="P11.html">Order list</a>
+                    </li>
+    
+                </ul>
+            </div>
+         </nav>
+       </nav>
+
+        <div class="header">
+            <a class="nav-link" href="homepage.html">
+              <h1>Concordia Supermarket</h1>
+            </a>
+            <p>Best place to find all your needs</p>
+          </div>
+
+        <script>
+            function deleteUser(user)
+            {
+                var item = document.getElementById(user);
+                item.remove();
+            }
+        </script>
+
+
+         </br>
+         
+
+    <table id="myTable">
+      </br>
+      </br>
         <tr>
             <th>First/Last Name</th>
             <th>created</th>
             <th>E-mail</th>
-           
-            <form action="P10AddUser.html">
-                <th><button>Add New User </button></th>
+            
+            <form action="P10AddUser.html" id="add">
+                <th> <button type="submit" value="Add" class="btn btn-secondary btn-lg btn-block">Add User</button></th>
             </form>
+           
+            
         </tr>
 
-        <tr>
+        <tr id="user1">
             <td>Emily thomas</td>
             <td>19/02/2021</td>
             <td>Emilythompson@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block"  >Edit</button>
+                  </form>
+                  <br />
+                
+                  <form>
+                    <button onclick = "deleteUser('user1')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
+
             </td>
         </tr>
 
-        <tr>
+        <tr id="user2">
+          
             <td>Sydney London</td>
             <td>11/02/2021</td>
             <td>sydlon@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user2')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
+
             </td>
         </tr>
 
-        <tr>
+        <tr id="user3">
             <td>Jordan Terry</td>
             <td>13/02/2021</td>
             <td>jterry0927@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user3')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user4">
             <td>Sandra Samuel</td>
             <td>15/02/2021</td>
             <td>sandrasam0257@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user4')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user5">
             <td>Brooke Sands</td>
             <td>14/02/2021</td>
             <td>BrookeS26342@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user5')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user6">
             <td>claude ernest</td>
             <td>19/02/2021</td>
             <td>Claudeerrn53902@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user6')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user7">
             <td>Lilya Tom</td>
             <td>12/01/2021</td>
             <td>lilya@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user7')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user8">
             <td>Gigi Glenn</td>
             <td>19/02/2021</td>
             <td>gigiglenn3863s@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user8')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user9">
             <td>Clemence Trevor</td>
             <td>10/02/2021</td>
             <td>clemencetrvv2562@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user9')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user10">
             <td>Loulou Sam</td>
             <td>15/01/2021</td>
             <td>loulousam1343@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user10')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user11"> 
             <td>Thomas Chris</td>
             <td>2/02/2021</td>
             <td>ThomasChris572@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user11')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user12">
             <td>Texan Oujala</td>
             <td>19/02/2021</td>
             <td>TexanOujala234@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user12')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user13">
             <td>George Ben</td>
             <td>19/02/2021</td>
             <td>georgeben262z.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user13')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user14">
             <td>Christina Mateo</td>
             <td>11/01/2021</td>
             <td>christinaMateo@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user14')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user15">
             <td>Tom Legened</td>
             <td>19/02/2021</td>
             <td>tomlegen638@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user15')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user16">
             <td>Jane Villanueva</td>
             <td>03/02/2021</td>
             <td>janevillaueva264@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user16')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
         
-        <tr>
+        <tr id="user17">
             <td>Garret Griffin</td>
             <td>05/02/2021</td>
             <td>garretgriffen@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user17')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user18">
             <td>Tom Sego </td>
             <td>03/02/2021</td>
             <td>tomseg638@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user18')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
     
-        <tr>
+        <tr id="user19">
             <td>Linda Bruno</td>
             <td>04/01/2021</td>
             <td>linlinB263@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user19')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user20">
             <td>Travis Trul</td>
             <td>5/02/2021</td>
             <td>tTravisTrul@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user20')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user21"> 
             <td>Rose Ithan</td>
             <td>02/02/2021</td>
             <td>roseithanrje@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user21')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user22">
             <td>Adele Adkins</td>
             <td>08/02/2021</td>
             <td>adeleadkins383</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user22')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
-        <tr>
+        <tr id="user23">
             <td>Tre Andre</td>
             <td>01/02/2021</td>
             <td>tomlegen638@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user23')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
     
-        <tr>
+        <tr id="user24">
             <td>Olivia gomez</td>
             <td>19/02/2021</td>
             <td>ogomez75@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user24')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user25">
             <td>Tom Legened</td>
             <td>19/02/2021</td>
             <td>tomlegen638@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user25')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
     
-        <tr>
+        <tr id="user26">
             <td>Ramsey Berathean</td>
             <td>09/02/2021</td>
             <td>RamBerd873638@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user26')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
     
-        <tr>
+        <tr id="user27">
             <td>Clementine White</td>
             <td>19/02/2021</td>
             <td>clementinewhite637@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user27')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user28">
             <td>Tom esther</td>
             <td>12/02/2021</td>
             <td>tomlesther38@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user28')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
     
-        <tr>
+        <tr id="user29">
             <td>Tamara Lamar</td>
             <td>13/02/2021</td>
             <td>tamaralamar4947@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user29')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user30">
             <td>Ahmed Ismael</td>
             <td>11/02/2021</td>
             <td>ahmedismael453@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user30')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user31">
             <td>Tiff Hadi</td>
             <td>09/02/2021</td>
             <td>tiffHadi8@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user31')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
-        <tr>
+        <tr id="user32">
             <td>Leo Lion</td>
             <td>11/02/2021</td>
             <td>leolion38@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user32')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user33">
             <td>Cara Lavigne</td>
             <td>19/02/2021</td>
             <td>clavigne@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user33')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user34">
             <td>Bruno Pluto</td>
             <td>01/02/2021</td>
             <td>brunopluto8@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user34')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
 
-        <tr>
+        <tr id="user35">
             <td>Celo Tomare</td>
             <td>07/02/2021</td>
             <td>celotomare8@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user35')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
-        <tr>
+        <tr id="user36">
             <td>Sam Samuel</td>
             <td>08/01/2021</td>
             <td>samsamuel253@hotmail.com</td>
             <td>
                 <form action="P10EditUser.html">
-                    <button>Edit</button><br/>
+                    <button type="submit" value="Edit" class="btn btn-secondary btn-lg btn-block">Edit</button>
+                  </form>
+                  <br />
+                  <form>
+                    <button onclick = "deleteUser('user36')" style="font-size:24px;" type="button" value="Delete" class="btn btn-secondary btn-lg btn-block"><em class="fa fa-trash-o"></em></button>
                 </form>
-                <button>Delete</button>
             </td>
         </tr>
     
