@@ -251,12 +251,14 @@
             var product_name, price, weight = "";
             var p_ID, p_Q, p_S, p_T, p_NS = "";
 
-            var t = document.getElementById("product_pane");
-            var p = t.parentNode;
-            var wrapper = document.createElement('div');
-            wrapper.style.overflowX="scroll";
-            wrapper.appendChild(t);
-            p.appendChild(wrapper);
+            if(screen.width < 500) {
+                var t = document.getElementById("product_pane");
+                var p = t.parentNode;
+                var wrapper = document.createElement('div');
+                wrapper.style.overflowX="scroll";
+                wrapper.appendChild(t);
+                p.appendChild(wrapper);
+            }
 
             //getting data based on id
             var image = document.getElementById("image");
