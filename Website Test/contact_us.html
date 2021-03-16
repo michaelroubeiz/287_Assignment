@@ -91,11 +91,12 @@
             padding: 0 18px;
             max-height: 0;
             width : 100%;
-            bottom: 0px;
+            bottom: 0;
             overflow: hidden;
             color: white;
             transition: max-height 0.2s ease-out;
             background-color: #8A2E2E;
+            
         }
 
         .collapsible {
@@ -112,6 +113,9 @@
             text-align: left;
             outline: none;
             font-size: 23px;
+            position: relative;
+            bottom: 0;
+            left: 0;
         } 
 
         .collapsible:hover{
@@ -120,7 +124,7 @@
 
         
         .footer {
-            position: fixed;
+            position: absolute;
             left: 0;
             bottom: 0;
             width: 100%;
@@ -218,11 +222,15 @@
     <button type="submit" value="submit" class="btn btn-secondary btn-lg btn-block">Submit</button>
     <button type="reset" value="reset" class="btn btn-secondary btn-lg btn-block">Reset</button>
 
-   
+    <br>
+    <br>
 
     </fieldset>
+
+    
 </form>
 </body>
+
 <!--collapsible footer for info-->
 <div class="bottom_row" >
     <button class="collapsible" id="info_button">Info</button>
