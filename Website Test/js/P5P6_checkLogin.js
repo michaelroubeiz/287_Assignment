@@ -1,3 +1,4 @@
+//validate login form
 function formValidation () {
   //retrieve email
   var email = document.getElementById("email").value;
@@ -16,6 +17,9 @@ function formValidation () {
         document.getElementById("email").style.borderColor = "red";
         checkEmail = " \nEmail ";
         
+    } else
+    {
+      document.getElementById("email").style.borderColor = "green";
     }
 
     //validate password
@@ -23,14 +27,16 @@ function formValidation () {
     {
         document.getElementById("password").style.borderColor = "red";
         checkPass = "\nEmpty Password... ";
-        
     }else{
-        document.getElementById("password").style.borderColor = "green";
+    document.getElementById("password").style.borderColor = "green";
+
     }
 
+    //check and display inputs that are invalid
     if (checkEmail != ""||checkPass != ""){
         alert("Invalid: "+ checkEmail + checkPass);
     return false;
+    //else return a prompt saying valid submission
     }else{
         if (!(pass == "") && (email.match(pattern))){
             confirm("valid submission");
@@ -39,6 +45,7 @@ function formValidation () {
     }
 }
 
+//reset boarder colors on "reset"
 function resetInputs()
 {
 

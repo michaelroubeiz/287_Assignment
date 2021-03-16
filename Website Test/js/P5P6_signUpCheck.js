@@ -1,83 +1,4 @@
 
-// // The event handler function for password checking
-// function checkPasswords() 
-// { 
-//   // retrieve the passwords entered
-//   var init = document.getElementById("initial");
-//   var sec = document.getElementById("second");
-	
-// 	// If the 1st password is empty
-//   if (init.value == "") 
-//   {
-//     document.getElementById("initial").style.borderColor = "red";
-//     document.getElementById("second").style.borderColor = "red";
-//     alert("The password is empty.\n" + "Please enter one");
-//     return false;
-//   }
-	
-// 	//if the two passwords are not the same
-//   if (init.value != sec.value) 
-//   {
-//     document.getElementById("initial").style.borderColor = "red";
-//     document.getElementById("second").style.borderColor = "red";
-//     alert("The two passwords are not the same.\n" + "Please re-enter.");
-//     return false;
-//   } 
-//   else {
-//   document.getElementById("initial").style.borderColor = "green";
-//   document.getElementById("second").style.borderColor = "green";
-//     return true;
-//   }
-// }
-
-// // The event handler function for email checking
-// function checkEmail(){
-//     var email = document.getElementById("email").value;
-//     var pattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-
-//     if (!(email.match(pattern)))
-//     {
-//         document.getElementById("email").style.borderColor = "red";
-//         alert("wrong");
-//     } 
-
- 
-// }
-
-// // The event handler function for postal code checking
-// function checkPostalCode(){
-   
-//     var pstCode = document.getElementById("pstCode").value;
-//     var pattern = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
-
-//     if (!(pstCode.match(pattern)))
-//     {
-//         document.getElementById("pstCode").style.borderColor = "red";
-//         alert("wrong pstcode");
-//     } 
-
-// }
-
-// // The event handler function for first name checking
-// function checkName(){
-//     //alert("first name");
-//     var firstName = document.getElementById("firstName").value;
-//     var lastName = document.getElementById("lastName").value;
-//     var pattern = /^[a-zA-Z]+(?:-[a-zA-Z]+)*$/;
-
-//     if (!(firstName.match(pattern)))
-//     {
-//         document.getElementById("firstName").style.borderColor = "red";
-//         alert("wrong first name");
-//     }  
-
-//     if (!(lastName.match(pattern)))
-//     {
-//         document.getElementById("lastName").style.borderColor = "red";
-//         alert("wrong last name");
-//     } 
-// }
-
 function formValidation () {
   //retrieve names
   var firstName = document.getElementById("firstName").value;
@@ -186,6 +107,7 @@ function formValidation () {
 
 }
 
+//reset boarder colors
 function resetInputs()
 {
   
