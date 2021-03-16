@@ -131,21 +131,15 @@
 
     </style>
 
-    <script>
+ <script>
         function checkInput() {
-
-        //check if the string starts with #
-        //needs to execute to find a way to execute the function 
-        var x=document.getElementById("Order Number");
-        var message=document.getElementById("error-nwl");
-        if (x.value.length < 8)
-        {
-            message.innerHTML="You have to enter at least 8 characters."
-        }
+            var a=document.forms["ContactUs"]["Order Number"].value;
+            var nospecial=/[*|\":<>[\]{}`\\()';@&$]/;
+            if(a.match(nospecial)){
+                alert('Special characters like * | \ " : < > [ ] { } ` \ ( ) \'\' ; @ & $ are not allowed');
+                return false;
+            }
     }
-        
-        //Don't know yet how to check how many "numbers" and "letters" the Order Number input contais
-
     </script>
 
     <body>
@@ -207,7 +201,7 @@
         </p>
         <p>
             <label>Order Number  </label> 
-            <input type="text" name="Order Number" id="Order Number" value="" placeholder="example: #12345AB" required maxlength="8" onsubmit="checkInput(); return false;" method="post" >
+            <input type="text" name="Order Number" id="OrderNumber" value="" placeholder="example: #12345AB" pattern="^[#A-Z0-9]{8}" required maxlength="8" onsubmit="return checkInput();" method="post" >
             <div id="error-nwl"></div>
               
             
