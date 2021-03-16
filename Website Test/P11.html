@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/p11Style.css">
+
+     <!-- bootstrap for nav bar toggle -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <title>P11</title>
 
     <div class="header">
@@ -22,7 +27,7 @@
             var table = document.getElementById(tableNum);
             table.remove();
 
-            var navBar = document.getElementById('navBar').getElementsByTagName('li')[num-1];
+            var navBar = document.getElementById('deleteNavItem').getElementsByTagName('li')[num-1];
             navBar.remove();
         }
     </script>
@@ -34,28 +39,80 @@
             item.remove();
         }
     </script>
-
 </head>
 
 
 <body>
-   
-    <div>
-        <ul id = "navBar"> 
-            <li><a href="#Order_58927578430">Order #58927578430</a></li>
-            <li><a href="#Order_58927942845">Order #58927942845</a></li>
-            <li><a href="#Order_58957492051">Order #58957492051</a></li>
-            <li><a href="#Order_58938657648">Order #58938657648</a></li>
-            <li><a href="#Order_58867426468">Order #58867426468</a></li>
-        </ul>
+
+    <nav class="navbar navbar-expand-md">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"> &#9660</span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul id = "deleteNavItem" class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#Order_58927578430">Order #58927578430</a>
+                </li>       
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#Order_58927942845">Order #58927942845</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#Order_58957492051">Order #58957492051</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#Order_58938657648">Order #58938657648</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#Order_58867426468">Order #58867426468</a>
+                </li> 
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- footer -->
+    <div class="bottom_row" >
+        <button class="collapsible" id="info_button">Info</button>
+        <div class="content">
+            <br>
+            <h3>Welcome to Concordia Supermarket! </h3>
+            <p>Click on any aisle to be brought to a page of products. Add these products to your cart and get an estimation on how much they'll cost!</p>
+                
+            <a href="contact_us.html">Contact Us</a>
+        </div>
+    </div>
+        
+    <script>
+        var bt = document.getElementById("info_button");
+        
+         bt.addEventListener("click", function() 
+        {
+            this.classList.toggle("active");
+        
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight)
+            {
+                content.style.maxHeight = null;
+            } 
+            else 
+            {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
+    </script>
 
     
         <br\>
 
-        <!-- Add order-->
-        <form style="width:95%" action="LoginPage.html" id="add">
-            <button type="submit" value="Add" class="btn btn-secondary btn-lg btn-block">Add Order</button>
-        </form>
+    <!-- Add order-->
+    <form style="width:95%" action="P4P5_LoginPage.html" id="add">
+        <button type="submit" value="Add" class="btn btn-secondary btn-lg btn-block">Add Order</button>
+    </form>
 
         
     <!-- Table 1 -->
@@ -695,7 +752,19 @@
             </td>
         </tr>
 
+    </table>
+
+        <p>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </p>
+
     </body>
 
 
 </html>
+
