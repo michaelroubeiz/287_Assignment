@@ -4,32 +4,62 @@
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />        <link rel="stylesheet" href="p12Style.css"/>
         <link rel="stylesheet" href="css/P9_P10.css"/>
-
         <title>Edit User Information</title>
 
-    <div class="header">
+  
 
+    <body>
+        <nav class="navbar navbar-expand-md" id="top_bar">
+            <a class="navbar-brand"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"> &#9660</span>
+            </button>
+    
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <a class="nav-link" href="homepage.html">Homepage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="P9.html">User List</a>
+                    </li>
+    
+                    
+    
+                </ul>
+            </div>
+        </nav>
+    </nav>
+
+    <div class="header">
         <a href=homepage.html>
+
             <h1 style="color: white;">Concordia Supermarket</h1>
+
         </a>
 
         <p>Best place to find all your needs</p>
-    </div>
-    </head>
+     </div>
 
-    <body>
-        <table>
+         <table>
             <caption>Edit User Information</caption>
-            <form>
+
+            <form action="P9.html">            
                  <tr>
                      <td><b>New User</b></td>
-                     <td><input type="text"></td>
+                     <td><input type="textInput" type="text" required></td>
                  </tr>
-            </form>
+                 <tr>
+                    <td><b>E-mail of User</b></td>
+                    <td><input class = "textInput" type="text" required></td>
+                 </tr>
         </table>
-        <form action="P9.html">
-            <button>Submit</button>
-        </form>
+             <form action="P9.html">
+             </br>
+             <input class = "btn btn-secondary btn-lg btn-block"  style="width:100px" type = "submit" value = "Submit">
+             </form>
+]
+             <button class="btn btn-secondary btn-lg btn-block" style="width:100px">Cancel</button>
+             </form>
     </body>
 
 </html>
