@@ -104,6 +104,11 @@ button
   color: white;
 }
 
+#P10_button {
+  position:fixed;
+  left: 50%;
+}
+
 .nav-link:hover,
 .navbar-brand:hover {
   color: rgb(194, 194, 194);
@@ -123,3 +128,5 @@ button
 .navbar-toggler:hover {
   background-color: #692222;
 }
+
+
