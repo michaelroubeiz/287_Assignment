@@ -145,7 +145,6 @@
             var a=document.forms["ContactUs"]["Order Number"].value;
             var nospecial=/[*|\":<>[\]{}`\\()';@&$]/;
             if(a.match(nospecial)){
-                alert('Special characters like * | \ " : < > [ ] { } ` \ ( ) \'\' ; @ & $ are not allowed');
                 return false;
             }
     }
