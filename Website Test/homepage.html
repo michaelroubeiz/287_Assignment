@@ -295,7 +295,7 @@
                 ["images\\duck.jpg", "Duck", "$19.28", "500g", 0,"Sold Individually", "12cm", "Poultry", "Protein"]],
 
                 //Snacks
-                [["images\\popcorn.png", "Popcorn", "$5.59", "340g", 0,"6 (per box)", "12cm", "Snack", "Magnesium, Phosphorus"],
+                [["images\\popcorn.png", "Popcorn", "$6.59", "340g", 0,"6 (per box)", "12cm", "Snack", "Magnesium, Phosphorus"],
                 ["images\\chips.png", "Lays Chips", "$1.89", "50g", 0,"Sold Individually", "7cm", "Snack", "Fat, Sodium"],
                 ["images\\chocolate.png", "Chocolate", "$3.39", "135g", 0,"Sold Individually", "12cm", "Snack", "Sugar, Protein"],
                 ["images\\cookies.jpg", "Cookies", "$3.99", "255g", 0,"Sold Individually", "12cm", "Snack", "Sugar, Carbohydrates"],
@@ -434,10 +434,12 @@
 
         <script>
 
+            //Fetching product information
             var p_darray = localStorage.getItem('products');
             p_darray = JSON.parse(p_darray);
             var p_array = [];
 
+            //converting 3d array to 1d array
             for(var i = 0; i < p_darray.length; i++) {
                 for(var m = 0; m < p_darray[i].length; m++) {
                     p_darray[i][m].push(i);
@@ -445,6 +447,8 @@
                 }
             }
 
+            //initializing weekly Deal product ID variables + 
+            //randomly assigning them
             var wd1 = document.getElementById("wd_1");
             var wd2 = document.getElementById("wd_2");
             var wd3 = document.getElementById("wd_3");
@@ -461,32 +465,38 @@
                         while(p_wd3 == p_wd2 || p_wd3 == p_wd1) 
                         var p_wd3 = Math.floor(Math.random() * p_array.length)+1;
 
+            //initializing storage variables to recall weekly deal product IDs
             if(typeof sessionStorage.weekly1 === "undefined") sessionStorage.weekly1 = p_wd1;
             if(typeof sessionStorage.weekly2 === "undefined") sessionStorage.weekly2 = p_wd2;
             if(typeof sessionStorage.weekly3 === "undefined") sessionStorage.weekly3 = p_wd3;
 
 
             //first weekly deal
+            //creating image element + its link
             var im1 = document.createElement('div');
             var link = "product_page.html?aisle_id="+p_array[sessionStorage.weekly1-1][9]+"&product_id="+p_array[sessionStorage.weekly1-1][4];
 
-            
+            //setting HTML with cases depending on screen width for mobile responsiveness
             if(screen.width<500) im1.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly1-1][0]+"\" alt=\""+p_array[sessionStorage.weekly1-1][0]+"\" width=\""+(0.22*screen.width)+"\" height=\""+(0.22*screen.width)+"\"></a>";
             else im1.innerHTML = "<a href=\""+link+"\"><img src=\""+p_array[sessionStorage.weekly1-1][0]+"\" alt=\""+p_array[sessionStorage.weekly1-1][0]+"\" width=\"150\" height=\"150\"></a>";
             im1.className = "product_image";
 
+            //creating name element
             var name1 = document.createElement('div');
 
+            //creating the deal string
             var old_price1 = ("$" + (parseFloat(p_array[sessionStorage.weekly1-1][2].substring(1,p_array[sessionStorage.weekly1-1][2].length)) + 2)).strike();
             var new_price1 = old_price1 + " " + p_array[sessionStorage.weekly1-1][2].bold();
             if(typeof sessionStorage.dealstring1 === "undefined") sessionStorage.dealstring1 = new_price1;
             var title_string1 = p_array[sessionStorage.weekly1-1][1]+" / " +new_price1;
 
+            //screen width cases for name + price
             if(screen.width < 500 && title_string1.length > 20) name1.innerHTML = "<p style=\"font-size: 22px\">"+title_string1 +"</p>";
             else if(screen.width < 500) name1.innerHTML = "<p style=\"font-size: 24px\">"+title_string1 +"</p>";
             else if(title_string1.length > 20) name1.innerHTML = "<p style=\"font-size: 28px\">"+title_string1 +"</p>";
             else name1.innerHTML = "<p style=\"font-size: 30px\">"+title_string1 +"</p>";
 
+            //Creating button to go to weekly deal item aisle
             var a_button1 = document.createElement("button");
             a_button1.innerHTML = "Go to aisle";
             a_button1.setAttribute("onclick", "to_aisle("+p_array[sessionStorage.weekly1-1][9]+")");
