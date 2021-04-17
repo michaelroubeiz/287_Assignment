@@ -67,7 +67,7 @@
 
         <script type="text/javascript">
             <?php 
-                if(!in_array(($_SESSION["current_product"]-1), $_SESSION["cart"])) {
+                if(!in_array(($_SESSION["current_product"]-1), $_SESSION["cart"]) && ($_SESSION["current_product"]-1) >=0) {
                     array_push($_SESSION["cart"], $_SESSION["current_product"]-1);
                     array_push($_SESSION["amounts"], array($_SESSION["current_product"], 1));
                 }
@@ -76,6 +76,9 @@
             var g_array = <?php echo json_encode($_SESSION["cart"]); ?>;
 
             var a_array = <?php echo json_encode($_SESSION["amounts"]); ?>;
+
+            //alert(g_array);
+            //alert(a_array);
 
             var p_darray = <?php echo json_encode($_SESSION["products"]); ?>;
             var p_array = [];
@@ -99,7 +102,7 @@
             for(x = 0; x < g_array.length; x++) {
                 var price_one = p_array[+g_array[x]][2].substring(1,p_array[+g_array[x]][2].length);
                 var price_two = parseFloat(price_one);
-                var price_three = a_array[x][1]*Math.round((price_two + Number.EPSILON) * 100) / 100
+                var price_three = a_array[x][1]*Math.round((price_two + Number.EPSILON) * 100) / 100;
 
                 total_price += price_three;
             }
@@ -187,111 +190,147 @@
             document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
             
             document.getElementById("back_to_aisle").onclick = function () {
-                var ai = <?php echo json_encode($_SESSION["current_aisle"]); ?> + 1;
+                var ai = <?php echo json_encode($_SESSION["current_aisle"]); ?>;
+                ai++;
 
                 var x = "P2.php?aisle_id="+ai;
                 location.href = x;
             }
 
-        </script>
-    </div>
-</body>
-    <script type="text/javascript">  
-        function more(oButton) {
-            var x;
-            var index = g_array.length - +oButton.parentNode.parentNode.rowIndex;
-            var table = document.getElementById("cart_pane");
+            function more(oButton) {
+                var x;
+                var index = g_array.length - +oButton.parentNode.parentNode.rowIndex;
+                var table = document.getElementById("cart_pane");
 
-            for(x = 0; x < a_array.length; x++) {
-                var c_ind = g_array[index] + 1;
-                if(a_array[x][0] == c_ind) {
-                    a_array[x][1]++;
+                for(x = 0; x < a_array.length; x++) {
+                    var c_ind = +g_array[index] + 1;
 
-                    //save amounts
-                    
-                    table.rows[+oButton.parentNode.parentNode.rowIndex].cells[3].textContent = a_array[x][1];
+                    //alert("work: " + c_ind);
+                    if(a_array[x][0] == c_ind) {
+                        //alert("found : " + a_array[x][0]);
+                        a_array[x][1]++;
 
-
-                    var price_one = p_array[g_array[index]][2].substring(1,p_array[g_array[index]][2].length);
-                    var price_two = parseFloat(price_one);
-                    total_price += price_two;
-
-                    table.rows[+oButton.parentNode.parentNode.rowIndex].cells[5].textContent = "$" + Math.round((a_array[x][1] * price_two) * 100) / 100;
-                }
-            }
-
-            document.getElementById("QST").innerHTML = "$" + Math.round((total_price*0.1 + Number.EPSILON) * 100) / 100;
-            document.getElementById("GST").innerHTML = "$" + Math.round((total_price*0.05 + Number.EPSILON) * 100) / 100;
-            document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
-            document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
-        }
-
-        function less(oButton) {
-            var x;
-            var index = g_array.length - +oButton.parentNode.parentNode.rowIndex;
-            var table = document.getElementById("cart_pane");
-
-            for(x = 0; x < a_array.length; x++) {
-                var c_ind = g_array[index] + 1;
-                if(a_array[x][0] == c_ind) {
-                    if((+a_array[x][1]-1) >0) {
-                        a_array[x][1]--;
+                        //alert("altered: " + a_array[x]);
                         
-                        //save amounts
-                        //sessionStorage.setItem('a_cart', JSON.stringify(a_array));
+                        //save
+                        $.post("P4.php", {inc:a_array}, function() {});
 
+                        <?php 
+                            if(isset($_POST['inc'])) {
+                                $_SESSION["amounts"] = $_POST['inc'];
+                            }
+                        ?>
+                        
                         table.rows[+oButton.parentNode.parentNode.rowIndex].cells[3].textContent = a_array[x][1];
+
 
                         var price_one = p_array[g_array[index]][2].substring(1,p_array[g_array[index]][2].length);
                         var price_two = parseFloat(price_one);
-                        total_price -= price_two;
+                        total_price += price_two;
 
                         table.rows[+oButton.parentNode.parentNode.rowIndex].cells[5].textContent = "$" + Math.round((a_array[x][1] * price_two) * 100) / 100;
                     }
-                    else if((+a_array[x][1]-1) ==0) {
-                        remove(oButton);
+                }
+
+                document.getElementById("QST").innerHTML = "$" + Math.round((total_price*0.1 + Number.EPSILON) * 100) / 100;
+                document.getElementById("GST").innerHTML = "$" + Math.round((total_price*0.05 + Number.EPSILON) * 100) / 100;
+                document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
+                document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
+            }
+
+            function less(oButton) {
+                var x;
+                var index = g_array.length - +oButton.parentNode.parentNode.rowIndex;
+                var table = document.getElementById("cart_pane");
+
+                for(x = 0; x < a_array.length; x++) {
+                    var c_ind = +g_array[index] + 1;
+                    if(a_array[x][0] == c_ind) {
+                        if((+a_array[x][1]-1) >0) {
+                            a_array[x][1]--;
+
+                            //alter array and save
+                            $.post("P4.php", {dec:a_array}, function() {});
+
+                            <?php 
+                                if(isset($_POST['dec'])) {
+                                    $_SESSION["amounts"] = $_POST['dec'];
+                                }
+                            ?>
+
+                            table.rows[+oButton.parentNode.parentNode.rowIndex].cells[3].textContent = a_array[x][1];
+
+                            var price_one = p_array[g_array[index]][2].substring(1,p_array[g_array[index]][2].length);
+                            var price_two = parseFloat(price_one);
+                            total_price -= price_two;
+
+                            table.rows[+oButton.parentNode.parentNode.rowIndex].cells[5].textContent = "$" + Math.round((a_array[x][1] * price_two) * 100) / 100;
+                        }
                     }
                 }
+
+                document.getElementById("QST").innerHTML = "$" + Math.round((total_price*0.1 + Number.EPSILON) * 100) / 100;
+                document.getElementById("GST").innerHTML = "$" + Math.round((total_price*0.05 + Number.EPSILON) * 100) / 100;
+                document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
+                document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
             }
 
-            document.getElementById("QST").innerHTML = "$" + Math.round((total_price*0.1 + Number.EPSILON) * 100) / 100;
-            document.getElementById("GST").innerHTML = "$" + Math.round((total_price*0.05 + Number.EPSILON) * 100) / 100;
-            document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
-            document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
-        }
+            function remove(oButton) {
+                var t = document.getElementById('cart_pane');
+                var index = g_array.length - +oButton.parentNode.parentNode.rowIndex;
+                var q;
 
-        function remove(oButton) {
-            var t = document.getElementById('cart_pane');
-            var index = g_array.length - +oButton.parentNode.parentNode.rowIndex;
-            var q;
+                if(g_array.length-1 !=0) {
+                    for( q = 0; q < a_array.length; q++) {
+                        var c_ind = (+g_array[index] + 1);
 
-            for( q = 0; q < a_array.length; q++) {
-                if(a_array[q][0] == g_array[index]) {
-                    var price_one = p_array[+g_array[index]][2].substring(1,p_array[+g_array[index]][2].length);
-                    var price_two = parseFloat(price_one);
-                    var price_three = Math.round((a_array[q][1]*price_two + Number.EPSILON) * 100) / 100;
+                        if(a_array[q][0] == c_ind) {
+                            var price_one = p_array[+g_array[index]][2].substring(1,p_array[+g_array[index]][2].length);
+                            var price_two = parseFloat(price_one);
+                            var price_three = Math.round((a_array[q][1]*price_two + Number.EPSILON) * 100) / 100;
 
-                    total_price -= price_three;
+                            total_price -= price_three;
 
 
-                    a_array.splice(q, 1);
+                            a_array.splice(q, 1);
+
+                            g_array.splice(index, 1);
+
+                            $.post("P4.php", {rem_a:a_array, rem_g:g_array}, function() {});
+
+                        }
+                    }
+
+                    <?php 
+                        if(isset($_POST['rem_a'])) {
+                            $a = array();
+                            $a = $_POST['rem_a'];
+                            $_SESSION["amounts"] = $a;
+
+                            unset($_POST['rem_a']);
+                        }
+
+                        if(isset($_POST['rem_g'])) {
+                            $c = array();
+                            $c = $_POST['rem_g'];
+                            $_SESSION["cart"] = $c;
+
+                            unset($_POST['rem_g']);
+                        }
+                    ?>
                     
-                    //Save amounts
-                    //sessionStorage.setItem('a_cart', JSON.stringify(a_array));
+                    t.deleteRow(oButton.parentNode.parentNode.rowIndex); 
                 }
+
+                else alert("Grocery cart must have at least one item in it!");
+
+                document.getElementById("QST").innerHTML = "$" + Math.round((total_price*0.1 + Number.EPSILON) * 100) / 100;
+                document.getElementById("GST").innerHTML = "$" + Math.round((total_price*0.05 + Number.EPSILON) * 100) / 100;
+                document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
+                document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
             }
 
-            g_array.splice(index, 1);
-            
-            //save cart
-            //sessionStorage.setItem('g_cart', JSON.stringify(g_array));
-            t.deleteRow(oButton.parentNode.parentNode.rowIndex); // buttton -> td -> tr
-
-            document.getElementById("QST").innerHTML = "$" + Math.round((total_price*0.1 + Number.EPSILON) * 100) / 100;
-            document.getElementById("GST").innerHTML = "$" + Math.round((total_price*0.05 + Number.EPSILON) * 100) / 100;
-            document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
-            document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
-        }
-
-    </script>
+        </script>
+    </div>
+</body>
 </html>
