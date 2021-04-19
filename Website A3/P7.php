@@ -53,7 +53,7 @@ for ($k = 0; $k < 6; $k++) {
     while ($output[$_SESSION["count"]] !== "#") {
         for ($i = 0; $i <= 8; $i++) {
             $new[$k][$j][$i] = $output[$_SESSION["count"]];
-            $_SESSION["products"] += $new;
+            $_SESSION["products"] = $new;
             $_SESSION["count"] = ++$count;
         }
         $j++;
