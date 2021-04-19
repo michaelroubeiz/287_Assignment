@@ -22,7 +22,7 @@
     <div>
     <h3>Contact Information</h3>
     </br>
-    <form target="_blank" action="https://calabrian-hydromete.000webhostapp.com/contact_form.php" method="post" >
+    <form target="_blank" action="contact_form.php" method="post" >
         <fieldset>
         
         <p>
