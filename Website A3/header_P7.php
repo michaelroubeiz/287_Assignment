@@ -30,7 +30,7 @@
                     <a class="nav-link" href="P11.html">Order list</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout.php">End Session</a>
+                    <a class="nav-link" href="logout_P7.php">End Session</a>
                 </li>
             </ul>
         </div>
