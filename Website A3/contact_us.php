@@ -22,12 +22,12 @@
     <div>
     <h3>Contact Information</h3>
     </br>
-    <form target="_blank" action="https://calabrian-hydromete.000webhostapp.com/contact_form.php" method="post" >
+    <form target="_blank" action="contact_form.php" method="post" >
         <fieldset>
         
         <p>
             <label>UserName  </label>
-            <input type="text" name="UserName">
+            <input type="text" name="UserName" placeholder="Enter an email">
            
         </p>
         <p>
@@ -59,40 +59,6 @@
 
  
 </form>
-
-<?php
-/*if(!empty($_POST["UserName"]) {
-
-$found = false;
-$UserName = $_POST["UserName"];
-
-$file = fopen("Sign_Up_Information.txt", "r");
-
-if($file)
-{
-  echo "Hi your order details are below: ";
-  while(($line = fgets($file)))
-  {
-    echo "hi1--- delete after";
-    $array = explode(":", $line);
-
-    if($array[0] == $UserName) {
-      
-        $found=true;
-        fclose($file);
-      }
-
-    
-
-  }
-}
-}
-if (!empty($_POST["UserName"]) {
-    $found=true;
-        echo "<script> location.href='new_url'; </script>";
-        exit;
-}*/
-?>
 
 </body>
 
