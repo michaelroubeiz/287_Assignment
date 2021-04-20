@@ -6,7 +6,7 @@
             <h3>Welcome to Concordia Supermarket! </h3>
             <p>Click on any aisle to be brought to a page of products. Add these products to your cart and get an estimation on how much they'll cost!</p>
         
-            <a href="contact_us.html">Contact Us</a>
+            <a href="contact_us.php">Contact Us</a>
         </div>
     </div>
 
