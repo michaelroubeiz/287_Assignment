@@ -132,12 +132,11 @@
                             }
                             fclose($order_file);
 
-                            if($matchingProduct = false);
-                                echo "<script>alert('Item entered does not exist')</script>";
-                        
                         }
                     }
                 }
+                    if($matchingProduct = false);
+                        echo "<script>alert('Item entered does not exist');</script>";
             }
         ?>
 
