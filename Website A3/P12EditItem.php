@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang = "en">
 
@@ -7,7 +8,7 @@
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="p12Style.css"/>
+        <link rel="stylesheet" href="/P12Style.css">
 
         <!-- bootstrap for nav bar toggle -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -16,7 +17,7 @@
         <title>P12 Add Order</title>
         
         <div class="header">
-            <a href=hp1.php>
+            <a href=p1.php>
                 <h1>Concordia Supermarket</h1>
             </a>
             <p>Best place to find all your needs</p>
@@ -30,7 +31,7 @@
     
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="P2.php?aisle_id=1">Vegetable and fruits</a>
                     </li>       
                     
@@ -56,8 +57,7 @@
                 </ul>
             </div>
         </nav>
-
-        <!-- footer --->
+        <!-- footer -->
         <div class="bottom_row" >
             <button class="collapsible" id="info_button">Info</button>
             <div class="content">
@@ -91,28 +91,50 @@
 
 
     <body>
-        <!--- form --->
+
+    <?php
+
+        session_start();
+        
+        $_SESSION['orders'][$_SESSION['tableItemToEdit']][$_SESSION['rowItemToEdit']+1] = $_POST['newQuantity'];
+
+        $string_order = array();
+        for($orderNum = 0; $orderNum < count($_SESSION['orders']); $orderNum++)
+        {
+            for($spot = 0; $spot < count($_SESSION['orders'][$orderNum]); $spot++)
+            {
+                if($spot == 0) // order number
+                    $string_order[$orderNum] = $_SESSION['orders'][$orderNum][$spot];
+                elseif($spot%2 == 0) // number of the product
+                    $string_order[$orderNum] = ($string_order[$orderNum] . "," .  $_SESSION['orders'][$orderNum][$spot]); 
+                elseif($spot%2 == 1) // product name
+                    $string_order[$orderNum] = ($string_order[$orderNum] . "," .  $_SESSION['orders'][$orderNum][$spot][1]);
+            }
+        }
+        $order_file = fopen('orders.txt', 'w');
+        foreach($string_order as $value)
+        {
+            fwrite($order_file, $value);
+        }
+        fclose($order_file);
+    
+    ?>
+
         <form method = "POST">
-            <table>        
-            <caption>Add Order</caption>
-                 <tr>
-                    <td><b>Customer email</b></td>
-                    <td><input name = "orderNumber" class = "textInput" type="text" required pattern = "[[0-9a-zA-Z.+_]+@[0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}" title = "ten digit number"></td>
-                 </tr>
+            <table>
+                <caption>Edit Product</caption>
+
+                    <tr>
+                    <td><b>New Quantity</b></td>
+                    <td><input name = 'newQuantity' type="text" required pattern = "[0-9]+"></td>
+                </tr>
             </table>
             <input class = "submitButton" type = "submit" value = "Submit">
         </form>
-        <?php
-            if(isset($_POST['orderNumber']))
-            {
-                $order_file = fopen('orders.txt', 'a') or die("Unable to open file:(");
-                $str_order = ("\n" . $_POST['orderNumber']);
-                fwrite($order_file, $str_order);
-                fclose($order_file);
-            }
-        ?>
-        <form action="/P11.php">
-            <button class = "cancelButton">Return</button>
+        <form action = "/P11.php">
+            <button class = "cancelButton" >Return</button>
         </form>
+
     </body>
+
 </html>

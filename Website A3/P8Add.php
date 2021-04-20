@@ -4,7 +4,6 @@ global $i;
 $thisPage = basename($_SERVER["PHP_SELF"]);
 include "header_P7.php";
 
-
 if (array_key_exists("submit", $_POST) && validate()) {
     setValues();
 }
@@ -12,7 +11,7 @@ function setValues()
 {
     $_POST["image"] = "images\\" . $_POST["image"];
     $added = array(array($_POST["image"], $_POST["product"], $_POST["price"], $_POST["weight"], 0, $_POST["quantity"], $_POST["size"], $_POST["type"], $_POST["nutritional_source"]));
-    array_splice($_SESSION["products"][0], 6, 0,  $added);  //fix this
+    array_splice($_SESSION["products"][$_SESSION["add"]], count($_SESSION["products"][$_SESSION["add"]]), 0,  $added);  //fix this
     header("Location: P7.php");
     exit();
 }
