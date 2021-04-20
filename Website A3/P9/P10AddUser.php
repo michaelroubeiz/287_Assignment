@@ -8,7 +8,7 @@ include "header_P9.php";
 
 
 
-function valueSet()
+function settingValue()
 {
     if (isset($_POST["submit"]) && !empty($_POST["submit"]))
      {
@@ -27,7 +27,7 @@ function valueSet()
 
 if (array_key_exists("submit", $_POST)) 
 {
-    valueSet();
+    settingValue();
 }
 
 if (isset($_POST["cancel"])) 
@@ -91,15 +91,17 @@ if (isset($_POST["cancel"]))
         </div>
 
         <?php
-            if(isset($_POST['name'] ){
+            if(isset($_POST['name'] )
+            {
                 if(isset($_POST['email'] )
-            }
+            
             {
                 $user_file = fopen('users.txt', 'a') or die("Cannot open file");
                 $string_user = ("\n" . $_POST['name']);
                 fwrite($user_file, $string_user);
                 fclose($user_file);
             }
+        }
         ?>
 
         <div>
