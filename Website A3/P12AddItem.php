@@ -15,13 +15,39 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
         <title>P12 Add Order</title>
-        
+
+        <nav class="navbar navbar-expand-md" id="top_bar">
+            <a class="navbar-brand"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"> &#9660</span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <a class="nav-link" href="P1.php">Homepage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="P9.php">User list</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="P11.php">Order list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout_P7.php">End Session</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
         <div class="header">
             <a href=p1.php>
                 <h1>Concordia Supermarket</h1>
             </a>
             <p>Best place to find all your needs</p>
         </div>
+
+        
 
         <nav class="navbar navbar-expand-md">
             <a class="navbar-brand" href="homepage.html">Categories</a>
@@ -133,11 +159,10 @@
                             fclose($order_file);
 
                         }
+            }
                     }
                 }
-                    if($matchingProduct = false);
-                        echo "<script>alert('Item entered does not exist');</script>";
-            }
+                    
         ?>
 
         <form method = 'POST'>
