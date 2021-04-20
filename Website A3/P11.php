@@ -2,8 +2,6 @@
 
     session_start();
 
-    if(!isset($_SESSION['products']))
-    {
         //Fruits and Vegetables (0)
         $product_array = array ( 
             array(
@@ -67,11 +65,6 @@
         );
 
         $_SESSION['product_array'] = $product_array; // i only need to use this as a session for other<form action = "P11.html">
-    }
-    else
-    {
-        $_SESSION['product_array'] = $_SESSION['products'];
-    }
     // 5 orders that are there when the website is first opened, paired with their quantities
     $order_array = array();
     
