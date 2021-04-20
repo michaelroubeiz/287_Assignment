@@ -1,7 +1,7 @@
 <?php 
     session_start();
 
-    if(!isset($products)) {
+    if(!isset($_SESSION["products"])) {
         $products = array (
             //Fruits and Vegetables
             array ( 
