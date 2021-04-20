@@ -2,71 +2,76 @@
 
     session_start();
 
+    if(!isset($_SESSION['products']))
+    {
+        //Fruits and Vegetables (0)
+        $product_array = array ( 
+            array(
+                array ( "images\\banana.png", "Banana", "0.33"), 
+                array ( "images\\apple.png", "Apple", "0.86"),
+                array ( "images\\tomato.png", "Tomato", "1.76"), 
+                array ( "images\\lettuce.png", "Lettuce", "2.99"),
+                array ( "images\\carrot.png", "Carrot", "1.99"),
+                array ( "images\\onion.png", "Onion", "4.39")
+            ),
 
-    //Fruits and Vegetables (0)
-    $product_array = array ( 
-        array(
-            array ( "images\\banana.png", "Banana", "0.33"), 
-            array ( "images\\apple.png", "Apple", "0.86"),
-            array ( "images\\tomato.png", "Tomato", "1.76"), 
-            array ( "images\\lettuce.png", "Lettuce", "2.99"),
-            array ( "images\\carrot.png", "Carrot", "1.99"),
-            array ( "images\\onion.png", "Onion", "4.39")
-        ),
+            //Diary and Eggs (1)
+            array ( 
+                array ( "images\\eggs.jpg", "Eggs", "3.49"),
+                array ( "images\\milk.png", "Milk", "6.86"), 
+                array ( "images\\cheese.png", "Cheese", "5.49"),  
+                array ( "images\\butter.png", "Butter", "4.69"),    
+                array ( "images\\yogurt.png", "Yogurt", "6.99"),
+                array ( "images\\cream_cheese.jpg", "Cream Cheese", "5.49")
+            ), 
 
-        //Diary and Eggs (1)
-        array ( 
-            array ( "images\\eggs.jpg", "Eggs", "3.49"),
-            array ( "images\\milk.png", "Milk", "6.86"), 
-            array ( "images\\cheese.png", "Cheese", "5.49"),  
-            array ( "images\\butter.png", "Butter", "4.69"),    
-            array ( "images\\yogurt.png", "Yogurt", "6.99"),
-            array ( "images\\cream_cheese.jpg", "Cream Cheese", "5.49")
-        ), 
+            //Pantry (2)
+            array ( 
+                array ( "images\\ketchup.png", "Ketchup", "3.99"),
+                array ( "images\\salt.png", "Salt", "6.49"),
+                array ( "images\\sugar.jpg", "Sugar", "3.49"),
+                array ( "images\\olive oil.png", "Olive Oil", "12.99"),
+                array ( "images\\spaghetti.jpg", "Spaghetti", "2.39"),
+                array ( "images\\mayonnaise.jpg", "Mayonnaise", "6.49")
+            ),
 
-        //Pantry (2)
-        array ( 
-            array ( "images\\ketchup.png", "Ketchup", "3.99"),
-            array ( "images\\salt.png", "Salt", "6.49"),
-            array ( "images\\sugar.jpg", "Sugar", "3.49"),
-            array ( "images\\olive oil.png", "Olive Oil", "12.99"),
-            array ( "images\\spaghetti.jpg", "Spaghetti", "2.39"),
-            array ( "images\\mayonnaise.jpg", "Mayonnaise", "6.49")
-        ),
+            //Beverages (3)
+            array ( 
+                array ( "images\\water.png", "Water", "4.49"),
+                array ( "images\\juice.png", "Juice", "2.79"),
+                array ( "images\\coca-cola.png", "Soft Drink (Coca Cola)", "1.89"),
+                array ( "images\\coffee.jpg", "Coffee", "6.99"),
+                array ( "images\\tea.png", "Tea", "3.49"),
+                array ( "images\\almond_milk.jpg", "Almond Milk", "3.70")
+            ),
 
-        //Beverages (3)
-        array ( 
-            array ( "images\\water.png", "Water", "4.49"),
-            array ( "images\\juice.png", "Juice", "2.79"),
-            array ( "images\\coca-cola.png", "Soft Drink (Coca Cola)", "1.89"),
-            array ( "images\\coffee.jpg", "Coffee", "6.99"),
-            array ( "images\\tea.png", "Tea", "3.49"),
-            array ( "images\\almond_milk.jpg", "Almond Milk", "3.70")
-        ),
+            //Meat and Poultry (4)
+            array ( 
+                array ( "images\\ground_beef.png", "Ground Beef", "1.54"),
+                array ( "images\\chicken.png", "Chicken", "12.54"),
+                array ( "images\\steak.jpg", "Steak", "8.88"),
+                array ( "images\\sausage.png", "Wieners", "5.99"),
+                array ( "images\\turkey.jpg", "Turkey", "61.83"),
+                array ( "images\\duck.jpg", "Duck", "19.28")
+            ),
 
-        //Meat and Poultry (4)
-        array ( 
-            array ( "images\\ground_beef.png", "Ground Beef", "1.54"),
-            array ( "images\\chicken.png", "Chicken", "12.54"),
-            array ( "images\\steak.jpg", "Steak", "8.88"),
-            array ( "images\\sausage.png", "Wieners", "5.99"),
-            array ( "images\\turkey.jpg", "Turkey", "61.83"),
-            array ( "images\\duck.jpg", "Duck", "19.28")
-        ),
+            //Snacks (5)
+            array ( 
+                array ( "images\\popcorn.png", "Popcorn", "6.59"),
+                array ( "images\\chips.png", "Lays Chips", "1.89"),
+                array ( "images\\chocolate.png", "Chocolate", "3.39"),
+                array ( "images\\cookies.jpg", "Cookies", "3.99"),
+                array ( "images\\nuts.jpg", "Nuts", "12.99"), 
+                array ( "images\\jello.jpg", "Jell-o", "3.29")
+            )
+        );
 
-        //Snacks (5)
-        array ( 
-            array ( "images\\popcorn.png", "Popcorn", "6.59"),
-            array ( "images\\chips.png", "Lays Chips", "1.89"),
-            array ( "images\\chocolate.png", "Chocolate", "3.39"),
-            array ( "images\\cookies.jpg", "Cookies", "3.99"),
-            array ( "images\\nuts.jpg", "Nuts", "12.99"), 
-            array ( "images\\jello.jpg", "Jell-o", "3.29")
-        )
-    );
-
-    $_SESSION['product_array'] = $product_array; // i only need to use this as a session for other<form action = "P11.html">
-    
+        $_SESSION['product_array'] = $product_array; // i only need to use this as a session for other<form action = "P11.html">
+    }
+    else
+    {
+        $_SESSION['product_array'] = $_SESSION['products'];
+    }
     // 5 orders that are there when the website is first opened, paired with their quantities
     $order_array = array();
     
@@ -115,8 +120,7 @@
 <html lang = "en">
 
     <head>
-        <meta charset = "UTF-8">
-        
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
         <link rel="stylesheet" href="P11Style.css">
@@ -128,7 +132,7 @@
         <title>P11</title>
         
         <div class="header">
-            <a href=homepage.html>
+            <a href=p1.php>
                 <h1>Concordia Supermarket</h1>
             </a>
             <p>Best place to find all your needs</p>
@@ -139,6 +143,7 @@
     <body>
 
         <nav class="navbar navbar-expand-md">
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -148,7 +153,7 @@
 
                 <?php foreach($_SESSION["orders"] as $value)
                     echo "<li class='nav-item'>
-                            <a class='nav-link' href=#Order_" . $value[0] . ">Order #". $value[0] . "</a>  
+                            <a class='nav-link' href=#Order_" . $value[0] . ">" . $value[0] . "</a>  
                          </li>";
                 ?>
 
@@ -267,12 +272,39 @@
                     fclose($order_file);
 
                     // redirect back to this page so the post is gone but the session stays
-                    // header("Location: P11.php"); 
-                    // exit();
-                    
+                    header("Location: P11.php"); 
+                    exit();
 
                 }
             }
+
+            // take post from edit item and change session array of the orders. Allows know which item is being edited
+            // then redirect to P12EditItem to let the user edit it
+            for($i = 0; $i<count($_SESSION['orders']); $i++)
+            {
+                for($j = 0; $j < count($_SESSION['orders'][$i]); $j++)
+                {
+                    if(isset($_POST["editItem" . $i . $j]))
+                    {
+                        $_SESSION['tableItemToEdit'] = $i;
+                        $_SESSION['rowItemToEdit'] = $j;
+                        header("Location: P12EditItem.php");
+                    }
+                }
+            }
+
+            // add item to a table. Find index then redirect page
+            for($i = 0; $i<count($_SESSION['orders']); $i++)
+            {
+
+                if(isset($_POST['addItem' . $i]))
+                {
+                    $_SESSION['tableToAddItem'] = $i;
+                    header("Location: P12AddItem.php");
+                }
+
+            }
+
 
             $_SESSION["order_cost"] = array();
             $_SESSION["i"] = 0; // count the tables
@@ -280,16 +312,16 @@
             {
                 $_SESSION["current_table"] = $_SESSION['i'];
                 // !!!!!!!!!!!!! fact check that id
-                echo "<table id = 'table" . $_SESSION["i"] . "'>
-                        <a id=Order_" . $currentOrder[0] . "> <caption><br/>Order #" . $currentOrder[0] . "</caption> </a>
+                echo "<table id = 'table" . $_SESSION['i'] . "'>
+                        <a id=Order_" . $currentOrder[0] . "> <caption><br/>" . $currentOrder[0] . "</caption> </a>
                         <tr>
                             <th>Product</th>
                             <th>Image</th>
                             <th>Unit Price</th>
                             <th>Quantity</th>
                             <th>Subtotal</th>
-                            <form action='P12AddItem.php' method = 'POST'>
-                                <th><input name = 'addItem' type='submit' value='Add' class='btn btn-secondary btn-lg btn-block'></th>
+                            <form method = 'POST'>
+                                <th><input name = 'addItem" . $_SESSION['i'] . "' type='submit' value='Add' class='btn btn-secondary btn-lg btn-block'></th>
                             </form>
                         </tr>";
 
@@ -309,8 +341,8 @@
                             <td>" . $currentOrder[$counter + 1] . "</td>
                             <td>$" .  number_format($currentOrder[$counter][2]*$currentOrder[$counter + 1], 2) . "</td>
                             <td>
-                                <form action='P12EditItem.php'>
-                                    <input type='submit' value='Edit' class='btn btn-secondary btn-lg btn-block'>
+                                <form method = 'POST'>
+                                    <input name = 'editItem" . $_SESSION['i'] . $counter . "' type='submit' value='Edit' class='btn btn-secondary btn-lg btn-block'>
                                 </form>
                                 <form method = 'POST'>
                                     <input type = 'submit' name = 'deleteItemButton" . $_SESSION['i'] . $counter . "' style='font-size:24px;' value='Delete' class='btn btn-secondary btn-lg btn-block'>
