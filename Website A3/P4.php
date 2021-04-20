@@ -57,7 +57,7 @@
             </tr>
 
             <tr style="border-bottom: 0px;">
-                <td><button type="button" class="button" id="back_to_aisle">back to aisle</a></td>
+                <td><button type="button" class="button" id="send_order">Send Order</a></td>
                 <td></td>
                 <td style="font-size:20px; font-weight:bold; text-align:left;">Total: </td>
                 <td style="font-size:20px; text-align:right;" id="total"></td>
@@ -189,12 +189,32 @@
             document.getElementById("tax").innerHTML = "$" + Math.round((total_price*0.15 + Number.EPSILON) * 100) / 100;
             document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
             
-            document.getElementById("back_to_aisle").onclick = function () {
-                var ai = <?php echo json_encode($_SESSION["current_aisle"]); ?>;
-                ai++;
+            document.getElementById("send_order").onclick = function () {
+                var order_num = "email";
+                var add_string = "" + order_num;
+                
+                var om;
 
-                var x = "P2.php?aisle_id="+ai;
-                location.href = x;
+                for(om = 0; om < a_array.length; om++) {
+                    var p_name = p_array[(+a_array[om][0]-1)][1];
+                    var p_number = a_array[om][1];
+                    add_string += ","+p_name+","+p_number;
+                }
+
+                add_string+='\n';
+
+                $.post("P4.php", {ord:add_string}, function() {});
+
+                <?php 
+                    if(isset($_POST['ord'])) {
+                        $orders = fopen("orders.txt", "a") or die("Unable to open file.");
+                        $txt = $_POST['ord'];
+                        fwrite($orders, $txt);
+                        fclose($orders);
+                    }
+                ?>
+
+                alert("Order successfully sent!");
             }
 
             function more(oButton) {
