@@ -13,28 +13,36 @@
 
 <body>
     <nav class="navbar navbar-expand-md" id="top_bar">
-        <a class="navbar-brand"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"> &#9660</span>
-        </button>
+            <a class="navbar-brand"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"> &#9660</span>
+            </button>
+    
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="P4.php">Grocery Cart</a>
+                    </li>       
 
-        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <a class="nav-link" href="P1.php">Homepage</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="P9.php">User list</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="P11.php">Order list</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="logout_P7.php">End Session</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="logout.php">Log Out</a>
+                    </li> 
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="P7.php">Product list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="P9.php">User list</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="P11.php">Order list</a>
+                    </li>
+    
+                </ul>
+            </div>
+        </nav>
+        
 
     <div class="header">
         <h1>Concordia Supermarket</h1>
