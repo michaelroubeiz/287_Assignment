@@ -90,13 +90,25 @@ if (isset($_POST["cancel"]))
             </div>
         </div>
 
-       
+        <?php
+            if(isset($_POST['name'] ){
+                if(isset($_POST['email'] )
+            }
+            {
+                $user_file = fopen('users.txt', 'a') or die("Cannot open file");
+                $string_user = ("\n" . $_POST['name']);
+                fwrite($user_file, $string_user);
+                fclose($user_file);
+            }
+        ?>
 
         <div>
             <br />
-            <button type="submit" name="cancel" value="Cancel" class="btn btn-secondary btn-lg btn-block" style="width:100px">Cancel</button>
-            <br />
+            <form action="P9.php">
             <button type="submit" onclick="" name="submit" value="Enter" class="btn btn-secondary btn-lg btn-block" style="width:100px">Submit</button>
+            <br />
+            <button type="submit" name="cancel" value="Cancel" class="btn btn-secondary btn-lg btn-block" style="width:100px">Cancel</button>
+            <form>
         </div>
 
 
