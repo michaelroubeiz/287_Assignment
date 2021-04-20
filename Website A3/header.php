@@ -23,18 +23,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="P5.php">Login</a>
                 </li> 
-
-                <li class="nav-item">
-                    <a class="nav-link" href="P7.php">Product list</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="P9.php">User list</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="P11.php">Order list</a>
-                </li>
-
             </ul>
         </div>
     </nav>

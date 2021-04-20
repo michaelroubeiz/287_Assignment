@@ -29,7 +29,7 @@ if($_SESSION["email"]=="admin"){
             <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="grocery_cart.html">Grocery Cart</a>
+                        <a class="nav-link" href="P4.php">Grocery Cart</a>
                     </li>       
 
                     <li class="nav-item">
