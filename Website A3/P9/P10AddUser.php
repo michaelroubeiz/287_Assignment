@@ -8,7 +8,7 @@ include "header_P9.php";
 
 
 
-function settingValue()
+function valueSet()
 {
     if (isset($_POST["submit"]) && !empty($_POST["submit"]))
      {
@@ -27,7 +27,7 @@ function settingValue()
 
 if (array_key_exists("submit", $_POST)) 
 {
-    settingValue();
+    valueSet();
 }
 
 if (isset($_POST["cancel"])) 
@@ -46,7 +46,7 @@ if (isset($_POST["cancel"]))
         var name = document.getElementsByName("name").value;
         var email = document.getElementsByName("email").value;
        
-        if ((name == null || name == "") && (email == null || email == "") 
+        if ((name == null || name == "") && (email == null || email == "") )
         {
             alert("You have not filled all the boxes!");
 
@@ -91,17 +91,18 @@ if (isset($_POST["cancel"]))
         </div>
 
         <?php
-            if(isset($_POST['name'] )
-            {
-                if(isset($_POST['email'] )
-            
-            {
-                $user_file = fopen('users.txt', 'a') or die("Cannot open file");
+            if((isset($_POST['name'])) && (isset($_POST['email']))){
+  
+                //$user_file = (fopen('users.txt', 'a')) || (die("Cannot open file"));
+                if (fopen('users.txt', 'a')){
+                    $user_file = (fopen('users.txt', 'a'));
+                }else{
+                    die("Cannot open file");
+                }
                 $string_user = ("\n" . $_POST['name']);
                 fwrite($user_file, $string_user);
                 fclose($user_file);
             }
-        }
         ?>
 
         <div>
