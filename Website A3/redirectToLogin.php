@@ -5,7 +5,7 @@
 <script>
    var ans = confirm("You are no longer logged in. Redirecting...");
    if (ans == true){
-    location.href = 'LogIn.php';
+    location.href = 'P5.php';
    }
 </script>
 </body>
