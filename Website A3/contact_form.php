@@ -29,7 +29,7 @@ if($file)
         header("Location:P11.php ");
         }
         else {
-        header("Location:P6.php");
+        header("Location:p6.php");
         }
         }
 }     
