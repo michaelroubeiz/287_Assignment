@@ -191,7 +191,7 @@
             
             document.getElementById("send_order").onclick = function () {
                 var order_num = <?php if(isset($_SESSION["email "])echo json_encode($_SESSION["email"]);
-                                        else echo "default"; ?>;
+                                        else echo json_encode("default"); ?>;
 
                 var add_string = "" + order_num;
                 
