@@ -7,6 +7,7 @@
 
         $_SESSION["cart"] = $cart;
         $_SESSION["amounts"] = $amounts;
+
     }
 
     include ("header.php");
@@ -190,8 +191,9 @@
             document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
             
             document.getElementById("send_order").onclick = function () {
-                var order_num = <?php if(isset($_SESSION["email "])echo json_encode($_SESSION["email"]);
-                                        else echo json_encode("default"); ?>;
+                var order_num = <?php echo json_encode($_SESSION["email"]);?>;
+
+		        if(order_num == null) order_num = "default";
 
                 var add_string = "" + order_num;
                 

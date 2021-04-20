@@ -73,7 +73,6 @@
         }
 
         $_SESSION["products"] = $products;
-
     }
 
     $aisle_type_array = array("Vegetables and Fruits", "Diary and Eggs", "Pantry", "Beverages", "Meat and Poultry", "Snacks");
@@ -167,7 +166,7 @@
         </table>
 
         <script type="text/javascript">
-            var p_darray = <?php echo json_encode($products); ?>;
+            var p_darray = <?php echo json_encode($_SESSION["products"]); ?>;
             var p_array = [];
         
             //converting 3d array to 1d array
@@ -185,15 +184,15 @@
             var wd3 = document.getElementById("wd_3");
 
             <?php 
-                $p_wd1 = rand(0, sizeof($products));
+                $p_wd1 = rand(0, sizeof($_SESSION["products"]));
 
-                $p_wd2 = rand(0, sizeof($products));
+                $p_wd2 = rand(0, sizeof($_SESSION["products"]));
                     if($p_wd2 == $p_wd1) 
-                        while($p_wd2 == $p_wd1) $p_wd2 = rand(0, sizeof($products));
+                        while($p_wd2 == $p_wd1) $p_wd2 = rand(0, sizeof($_SESSION["products"]));
 
-                $p_wd3 = rand(0, sizeof($products));
+                $p_wd3 = rand(0, sizeof($_SESSION["products"]));
                     if($p_wd3 == $p_wd2 || $p_wd3 == $p_wd1)
-                        while($p_wd3 == $p_wd2 || $p_wd3 == $p_wd1) $p_wd3 = rand(0, sizeof($products));
+                        while($p_wd3 == $p_wd2 || $p_wd3 == $p_wd1) $p_wd3 = rand(0, sizeof($_SESSION["products"]));
 
                 if(!isset($_SESSION["w1"])) $_SESSION["w1"] = $p_wd1;
                 if(!isset($_SESSION["w2"])) $_SESSION["w2"] = $p_wd2;
