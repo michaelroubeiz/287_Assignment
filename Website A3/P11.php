@@ -130,6 +130,32 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
         <title>P11</title>
+
+        
+        <nav class="navbar navbar-expand-md" id="top_bar">
+            <a class="navbar-brand"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"> &#9660</span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li>
+                    <a class="nav-link" href="P1.php">Homepage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="P9.php">User list</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="P11.php">Order list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout_P7.php">End Session</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         
         <div class="header">
             <a href=p1.php>
