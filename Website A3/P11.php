@@ -65,9 +65,8 @@
         )
     );
 
-
-    unset($_SESSION["orders"]);
-
+    $_SESSION['product_array'] = $product_array; // i only need to use this as a session for other<form action = "P11.html">
+    
     // 5 orders that are there when the website is first opened, paired with their quantities
     $order_array = array();
     
@@ -135,25 +134,6 @@
             <p>Best place to find all your needs</p>
         </div>
 
-        <script type = text/javascript>
-            function deleteTable(tableName, num)
-            {
-                var table = document.getElementById(tableName);
-                table.remove();
-
-                var navBar = document.getElementById('deleteNavItem').getElementsByTagName('li')[num];
-                navBar.remove();
-            }
-        </script>
-
-        <script type = text/javascript>
-            function deleteItem(product)
-            {
-                var item = document.getElementById(product);
-                item.remove();
-            }
-        </script>
-
     </head>
 
     <body>
@@ -177,57 +157,130 @@
         </nav> 
         
     <!-- footer -->
-        <div class="bottom_row" >
+    <div class="bottom_row" >
             <button class="collapsible" id="info_button">Info</button>
             <div class="content">
                 <br>
                 <h3>Welcome to Concordia Supermarket! </h3>
-                <p>Click on any aisle to be brought to a page of products. 
-                Add these products to your cart and get an estimation on how much they'll cost!</p>
-                    
-                <a href='contact_us.html'>Contact Us</a>"
+                <p>Click on any aisle to be brought to a page of products. Add these products to your cart and get an estimation on how much they'll cost!</p>
+        
+                <a href="contact_us.html">Contact Us</a>
             </div>
         </div>
 
-        <?php 
-            if(isset($_POST['deleteTableButton']))
+        <script>
+            var bt = document.getElementById("info_button");
+
+            bt.addEventListener("click", function() 
             {
-                $str_order = array();
-                unset($_SESSION['orders'][$i]);
-                $_SESSION['orders'] = array_values($_SESSION['orders']);
-                echo 'I AM INNNNN!!!!!!! <br/><br/><br/>';
-                /*
-                $order_file = fopen('orders.txt', 'w') or die("Unable to open file:(");
+                this.classList.toggle("active");
 
-                for($orderNum = 0; $orderNum < count($_SESSION['orders']); $orderNum++)
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight)
                 {
-                    for($spot = 0; $spot < count($_SESSION['orders'][$orderNum]); $spot++)
-                    {
-                        if(Spot == 0)
-                            $str_order[$orderNum] = $_SESSION['orders'][$orderNum][$spot];
-                        else
-                            $str_order[$orderNum] = $str_order . ',' .  $_SESSION['orders'][$orderNum][$spot];
-                    }
-                }
+                    content.style.maxHeight = null;
+                } 
+                else 
+                {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } 
+            });
+        </script>
 
-                foreach($str_order as $value)
-                {
-                    fwrite($order_file, $value);
-                }
-                fclose($order_file)
-                */
-            } 
-        ?>
+        <!--- add order button --->
+        <form action="/P12AddOrder.php">
+            <button class='btn btn-secondary btn-lg btn-block'>Add Order</button>
+        </form>
+
         <!--- tables --->
         <?php
 
+           for($orderCount = 0; $orderCount < count($_SESSION['orders']); $orderCount++)
+           {
+                for($productCount = 0; $productCount < count($_SESSION['orders'][$orderCount]); $productCount++)
+                {
+                    if(isset($_POST["deleteItemButton" . $orderCount . $productCount]))
+                    {
+                        unset($_SESSION['orders'][$orderCount][$productCount]); // remove product and amount of the product
+                        unset($_SESSION['orders'][$orderCount][$productCount+1]);
+                    }
+                } 
+                
+                $_SESSION['orders'][$orderCount] = array_values($_SESSION['orders'][$orderCount]); // reassign table indexes
+            }
+           
+            $order_file = fopen('orders.txt', 'w') or die("Unable to open file:(");
+
+
+            $string_order = array();
+            // rewrite to the file
+            for($orderNum = 0; $orderNum < count($_SESSION['orders']); $orderNum++)
+            {
+                for($spot = 0; $spot < count($_SESSION['orders'][$orderNum]); $spot++)
+                {
+                    if($spot == 0) // order number
+                        $string_order[$orderNum] = $_SESSION['orders'][$orderNum][$spot];
+                    elseif($spot%2 == 0) // number of the product
+                        $string_order[$orderNum] = ($string_order[$orderNum] . "," .  $_SESSION['orders'][$orderNum][$spot]); 
+                    elseif($spot%2 == 1) // product name
+                        $string_order[$orderNum] = ($string_order[$orderNum] . "," .  $_SESSION['orders'][$orderNum][$spot][1]);
+                }
+            }
+
+            foreach($string_order as $value)
+            {
+                fwrite($order_file, $value);
+            }
+            fclose($order_file);
+
+
+           for($tableCount = 0; $tableCount < count($_SESSION['orders']); $tableCount++)
+            {
+                // remove a table when delete is clicked
+                if(isset($_POST["deleteTableButton" . $tableCount]))
+                {
+
+                    $str_order = array();
+                    unset($_SESSION['orders'][$tableCount]); // remove table
+
+                    
+                    $_SESSION['orders'] = array_values($_SESSION['orders']); // reassign table indexes
+
+                    $order_file = fopen('orders.txt', 'w') or die("Unable to open file:(");
+
+                    for($orderNum = 0; $orderNum < count($_SESSION['orders']); $orderNum++)
+                    {
+                        for($spot = 0; $spot < count($_SESSION['orders'][$orderNum]); $spot++)
+                        {
+                            if($spot == 0) // order number
+                                $str_order[$orderNum] = $_SESSION['orders'][$orderNum][$spot];
+                            elseif($spot%2 == 0) // number of the product
+                                $str_order[$orderNum] = ($str_order[$orderNum] . "," .  $_SESSION['orders'][$orderNum][$spot]); 
+                            elseif($spot%2 == 1) // product name
+                                $str_order[$orderNum] = ($str_order[$orderNum] . "," .  $_SESSION['orders'][$orderNum][$spot][1]);
+                        }
+                    }
+                    foreach($str_order as $value)
+                    {
+                        fwrite($order_file, $value);
+                    }
+                    fclose($order_file);
+
+                    // redirect back to this page so the post is gone but the session stays
+                    // header("Location: P11.php"); 
+                    // exit();
+                    
+
+                }
+            }
+
             $_SESSION["order_cost"] = array();
-            $i = 0; // count the tables
+            $_SESSION["i"] = 0; // count the tables
             foreach($_SESSION["orders"] as $currentOrder)
             {
-                $_SESSION["current_table"] = $i;
+                $_SESSION["current_table"] = $_SESSION['i'];
                 // !!!!!!!!!!!!! fact check that id
-                echo "<table id = 'table" . $i . "'>
+                echo "<table id = 'table" . $_SESSION["i"] . "'>
                         <a id=Order_" . $currentOrder[0] . "> <caption><br/>Order #" . $currentOrder[0] . "</caption> </a>
                         <tr>
                             <th>Product</th>
@@ -235,12 +288,12 @@
                             <th>Unit Price</th>
                             <th>Quantity</th>
                             <th>Subtotal</th>
-                            <form action='P12AddItem.php' id='add'>
-                                <th><button type='submit' value='Add' class='btn btn-secondary btn-lg btn-block'>Add</button></th>
+                            <form action='P12AddItem.php' method = 'POST'>
+                                <th><input name = 'addItem' type='submit' value='Add' class='btn btn-secondary btn-lg btn-block'></th>
                             </form>
                         </tr>";
 
-                $_SESSION["order_cost"][$i] = 0;
+                $_SESSION["order_cost"][$_SESSION['i']] = 0;
 
                 $counter = 1; // start at 1 because element 0 of the order arrays are the order names
                 while(count($currentOrder) > $counter) // loop through all the products of the order that the loop is currently on
@@ -249,7 +302,7 @@
                                                        // positions 2,4,6,8... are the amoun of each product being ordered
                 {
                     // !!!!!!!!!!!!! make sure this is how to output two value in a row
-                    echo "<tr id = " . $currentOrder[$counter][1] . $i . ">  
+                    echo "<tr id = " . $currentOrder[$counter][1] . $_SESSION['i'] . ">  
                             <td>" . $currentOrder[$counter][1] . "</td>
                             <td><img src=" . $currentOrder[$counter][0] . " alt='" . $currentOrder[$counter][1] . " image' width='100' height='100'></td>
                             <td>$" . number_format($currentOrder[$counter][2], 2) . "</td>
@@ -257,32 +310,36 @@
                             <td>$" .  number_format($currentOrder[$counter][2]*$currentOrder[$counter + 1], 2) . "</td>
                             <td>
                                 <form action='P12EditItem.php'>
-                                    <button type='submit' value='Edit' class='btn btn-secondary btn-lg btn-block'>Edit</button>
+                                    <input type='submit' value='Edit' class='btn btn-secondary btn-lg btn-block'>
                                 </form>
                                 <form method = 'POST'>
-                                    <button name = 'deleteItemButton' onclick = 'deleteItem('salt1')' style='font-size:24px;' type='button' value='Delete' class='btn btn-secondary btn-lg btn-block'><em class='fa fa-trash-o'></em></button>
+                                    <input type = 'submit' name = 'deleteItemButton" . $_SESSION['i'] . $counter . "' style='font-size:24px;' value='Delete' class='btn btn-secondary btn-lg btn-block'>
                                 </form>
                             </td>
                         </tr>";
-                        $_SESSION["order_cost"][$i] = ($_SESSION["order_cost"][$i] + ($currentOrder[$counter][2]*$currentOrder[$counter + 1]));
+                        $_SESSION["order_cost"][$_SESSION['i']] = ($_SESSION["order_cost"][$_SESSION['i']] + ($currentOrder[$counter][2]*$currentOrder[$counter + 1]));
                         $counter = $counter + 2;
                 }
 
+                
+                
                 echo "<tr>
                         <td><b>Cart Summary:</b></td>
-                        <td colspan = '4'>Subtotal: $" . number_format($_SESSION["order_cost"][$i], 2) . "<br/>Tax: $" . number_format(($_SESSION["order_cost"][$i]*0.15), 2) ."<br/>Total: $" . number_format(($_SESSION["order_cost"][$i]*1.15), 2) ."</td>
-                        <td>
-                            <form method = 'POST'>
-                                <button name = 'deleteTableButton' onclick = \"deleteTable('table" . $i . "', '" . $i . "')\" style='font-size:24px;' type='button' value='Delete' class='btn btn-secondary btn-lg btn-block'><em class='fa fa-trash-o'></em></button>
-                            </form>
-                        </td>
-                    </tr>";
+                        <td colspan = '4'>Subtotal: $" . number_format($_SESSION["order_cost"][$_SESSION['i']], 2) . "<br/>Tax: $" . number_format(($_SESSION["order_cost"][$_SESSION['i']]*0.15), 2) ."<br/>Total: $" . number_format(($_SESSION["order_cost"][$_SESSION['i']]*1.15), 2) ."</td>";
+
+                echo "<td>
+                        <form method = 'POST'>
+                            <input name = 'deleteTableButton" . $_SESSION['i'] . "' type = 'submit'  style='font-size:24px;' value='Delete' class='btn btn-secondary btn-lg btn-block'>
+                        </form>
+                    </td>
+                </tr>";
                 
+                // onclick = \"deleteTable('table" . $_SESSION['i'] . "', '" . $_SESSION['i'] . "')\"
 
                 echo "</table>";
 
 
-                 $i++;
+                $_SESSION['i']++;
             }
 
         ?>
