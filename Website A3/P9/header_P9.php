@@ -23,7 +23,7 @@
                 <a class="nav-link" href="P1.php">Homepage</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="P9.html">User list</a>
+                    <a class="nav-link" href="P9.php">User list</a>
                 </li>
 
                 <li class="nav-item">
