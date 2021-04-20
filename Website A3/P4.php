@@ -190,7 +190,9 @@
             document.getElementById("total").innerHTML = "$" + Math.round((total_price*1.15 + Number.EPSILON) * 100) / 100;
             
             document.getElementById("send_order").onclick = function () {
-                var order_num = "email";
+                var order_num = <?php if(isset($_SESSION["email "])echo json_encode($_SESSION["email"]);
+                                        else echo "default"; ?>;
+
                 var add_string = "" + order_num;
                 
                 var om;

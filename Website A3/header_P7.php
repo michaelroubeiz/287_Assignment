@@ -20,14 +20,14 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="navbar-nav">
-                <a class="nav-link" href="homepage.html">Homepage</a>
+                <a class="nav-link" href="P1.php">Homepage</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="P9.html">User list</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="P11.html">Order list</a>
+                    <a class="nav-link" href="P11.php">Order list</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout_P7.php">End Session</a>
@@ -52,28 +52,28 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#category0">Vegetables and fruits</a>
-                    </li>
+                        <a class="nav-link" href="P2.php?aisle_id=1">Vegetable and fruits</a>
+                    </li>       
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="P2.php?aisle_id=2">Dairy and Eggs</a>
+                    </li> 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#category1">Dairy and Eggs</a>
-                    </li>
+                        <a class="nav-link" href="P2.php?aisle_id=3">Pantry</a>
+                    </li> 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#category2">Pantry</a>
-                    </li>
+                        <a class="nav-link" href="P2.php?aisle_id=4">Beverages</a>
+                    </li> 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#category3">Beverages</a>
-                    </li>
+                        <a class="nav-link" href="P2.php?aisle_id=5">Meat and Poultry</a>
+                    </li> 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#category4">Meat and Poultry</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#category5">Snacks</a>
-                    </li>
+                        <a class="nav-link" href="P2.php?aisle_id=6">Snacks</a>
+                    </li> 
                 </ul>
             </div>
         </nav>
