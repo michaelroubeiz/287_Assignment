@@ -1,0 +1,7 @@
+melisa@gmail.com,Milk,1,Carrot,3,Olive Oil,1,Steak,1
+anjali@hotmail.com,Banana,3,Ketchup,1,Carrot,2,Soft Drink (Coca Cola),5,Turkey,1,Cookies,3,Jell-o,2
+michael@yahoo.ca,Apple,6,Lettuce,1,Carrot,4,Cheese,2,Coffee,3,Nuts,2
+haytham@google.net,Apple,3,Onion,2,Olive Oil,1,Ground Beef,1,Chocolate,1003
+warda@icloud.ca,Carrot,2,Water,3,Sugar,2,Apple,1,Nuts,4
+mohamed@bing.net,Apple,3,Onion,2,Spaghetti,4,Yogurt,1
+zixi@concordia.ca,Carrot,5,Mayonnaise,1,Cookies,40,Ketchup,1
