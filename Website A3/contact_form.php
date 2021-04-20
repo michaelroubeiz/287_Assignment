@@ -13,29 +13,34 @@ if(!empty($_POST["UserName"]) ){
     $found = false;
     $UserName = $_POST["UserName"];
     //$email = $_POST["email"];
-    echo $UserName;
     $file = fopen("Sign_Up_Information.txt", "r");
 }
 if($file)
 {
-    echo "File open";
     while(($line = fgets($file)))
     {
        
         $array = explode(":", $line);
         
         if($array[0] == $UserName){
+            echo $UserName;
+            $found=true;
+            fclose($file);
         
-        header("Location:P11.php ");
         }
-        else {
-        header("Location:p6.php");
-        }
-        }
+
+        if($found)
+        {
+            header("Location:P11.php ");
+        }else {
+            echo "File is not found...Please Sign Up";
+            header("Location:P6.php ");
+            }
+            
+    }
 }     
     ?>
 <br />
 <br />
 </body>
 </html>
-
