@@ -61,27 +61,27 @@ if(!isset($_POST["sumbitButton"]))
         <div class="collapse navbar-collapse" id="second">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=1">Vegetable and fruits</a>
+                    <a class="nav-link" href="P2.php?aisle_id=1">Vegetable and fruits</a>
                 </li>       
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=2">Dairy and Eggs</a>
+                    <a class="nav-link" href="P2.php?aisle_id=2">Dairy and Eggs</a>
                 </li> 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=3">Pantry</a>
+                    <a class="nav-link" href="aP2.php?aisle_id=3">Pantry</a>
                 </li> 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=4">Beverages</a>
+                    <a class="nav-link" href="P2.php?aisle_id=4">Beverages</a>
                 </li> 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=5">Meat and Poultry</a>
+                    <a class="nav-link" href="P2.php?aisle_id=5">Meat and Poultry</a>
                 </li> 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=6">Snacks</a>
+                    <a class="nav-link" href="P2.php?aisle_id=6">Snacks</a>
                 </li> 
             </ul>
         </div>
@@ -307,3 +307,4 @@ document.getElementById("reset").onclick = resetInputs;
 
 <?php
 }?>
+
