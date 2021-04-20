@@ -2,8 +2,6 @@
 
     session_start();
 
-    if(!isset($_SESSION['products']))
-    {
         //Fruits and Vegetables (0)
         $product_array = array ( 
             array(
@@ -67,11 +65,6 @@
         );
 
         $_SESSION['product_array'] = $product_array; // i only need to use this as a session for other<form action = "P11.html">
-    }
-    else
-    {
-        $_SESSION['product_array'] = $_SESSION['products'];
-    }
     // 5 orders that are there when the website is first opened, paired with their quantities
     $order_array = array();
     
@@ -123,7 +116,7 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="P11Style.css">
+        <link rel="stylesheet" href="css/P11Style.css">
 
         <!-- bootstrap for nav bar toggle -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
