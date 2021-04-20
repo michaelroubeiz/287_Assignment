@@ -28,9 +28,6 @@ if($_SESSION["email"]=="admin"){
     
             <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="P4.php">Grocery Cart</a>
-                    </li>       
 
                     <li class="nav-item">
                         <a class="nav-link"  href="logout.php">Log Out</a>
@@ -52,7 +49,7 @@ if($_SESSION["email"]=="admin"){
         </nav>
         
         <div class="header">
-        <a class="nav-link" href="p5.php">
+        <a class="nav-link" href="p.php">
             <h1>Concordia Supermarket</h1>
         </a>
         <p>Best place to find all your needs</p>
@@ -67,27 +64,27 @@ if($_SESSION["email"]=="admin"){
         <div class="collapse navbar-collapse" id="second">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=1">Vegetable and fruits</a>
+                    <a class="nav-link" href="P2.php?aisle_id=1">Vegetable and fruits</a>
                 </li>       
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=2">Dairy and Eggs</a>
+                    <a class="nav-link" href="P2.php?aisle_id=2">Dairy and Eggs</a>
                 </li> 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=3">Pantry</a>
+                    <a class="nav-link" href="aP2.php?aisle_id=3">Pantry</a>
                 </li> 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=4">Beverages</a>
+                    <a class="nav-link" href="P2.php?aisle_id=4">Beverages</a>
                 </li> 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=5">Meat and Poultry</a>
+                    <a class="nav-link" href="P2.php?aisle_id=5">Meat and Poultry</a>
                 </li> 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="aisles.html?aisle_id=6">Snacks</a>
+                    <a class="nav-link" href="P2.php?aisle_id=6">Snacks</a>
                 </li> 
             </ul>
         </div>
@@ -98,22 +95,6 @@ if($_SESSION["email"]=="admin"){
 <body>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <p>Logged in as Admin</p>
-        <input class="btn btn-secondary " type="submit" value="Log Out" name="logout">
-        <style>
-            .btn
-            {
-              background: rgb(180, 60, 60);
-              border-radius: 4px;
-              border: 2px solid rgb(180, 60, 60);
-              font-size: 15px;
-              color: #fff;
-            }
-            .btn:hover {
-              background: #c2bebe;
-              color: #fff;
-              border: 2px solid #c2bebe;
-            }
-            </style>
 </form>
 
 
