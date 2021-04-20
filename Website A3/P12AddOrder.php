@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang = "en">
 
@@ -17,7 +16,7 @@
         <title>P12 Add Order</title>
         
         <div class="header">
-            <a href=homepage.html>
+            <a href=hp1.php>
                 <h1>Concordia Supermarket</h1>
             </a>
             <p>Best place to find all your needs</p>
@@ -31,28 +30,28 @@
     
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="aisles.html?aisle_id=1">Vegetable and fruits</a>
+                <li class="nav-item">
+                        <a class="nav-link" href="P2.php?aisle_id=1">Vegetable and fruits</a>
                     </li>       
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="aisles.html?aisle_id=2">Dairy and Eggs</a>
+                        <a class="nav-link" href="P2.php?aisle_id=2">Dairy and Eggs</a>
                     </li> 
     
                     <li class="nav-item">
-                        <a class="nav-link" href="aisles.html?aisle_id=3">Pantry</a>
+                        <a class="nav-link" href="P2.php?aisle_id=3">Pantry</a>
                     </li> 
     
                     <li class="nav-item">
-                        <a class="nav-link" href="aisles.html?aisle_id=4">Beverages</a>
+                        <a class="nav-link" href="P2.php?aisle_id=4">Beverages</a>
                     </li> 
     
                     <li class="nav-item">
-                        <a class="nav-link" href="aisles.html?aisle_id=5">Meat and Poultry</a>
+                        <a class="nav-link" href="P2.php?aisle_id=5">Meat and Poultry</a>
                     </li> 
     
                     <li class="nav-item">
-                        <a class="nav-link" href="aisles.html?aisle_id=6">Snacks</a>
+                        <a class="nav-link" href="P2.php?aisle_id=6">Snacks</a>
                     </li> 
                 </ul>
             </div>
@@ -89,14 +88,16 @@
             });
         </script>
     </head>
+
+
     <body>
         <!--- form --->
         <form method = "POST">
             <table>        
             <caption>Add Order</caption>
                  <tr>
-                    <td><b>Order Number (10 digits)</b></td>
-                    <td><input name = "orderNumber" class = "textInput" type="text" required pattern = "[0-9]{10}" title = "ten digit number"></td>
+                    <td><b>Customer email</b></td>
+                    <td><input name = "orderNumber" class = "textInput" type="text" required pattern = "[[0-9a-zA-Z.+_]+@[0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}" title = "ten digit number"></td>
                  </tr>
             </table>
             <input class = "submitButton" type = "submit" value = "Submit">
