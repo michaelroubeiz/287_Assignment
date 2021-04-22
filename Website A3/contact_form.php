@@ -31,7 +31,7 @@ if($file)
 
         if($found)
         {
-            header("Location:P11.php ");
+            echo '<script>alert("Your request has been submitted!\nHere is your order summary: \n- 1 Milk  $6.86\n- 1 Cheese  $5.49\n- 2 Spaghetti   $2.39 x2\n Total: $17.13 +tx\n We will get back to you soon!")</script>';
         }else {
             echo "File is not found...Please Sign Up";
             header("Location:P6.php ");
