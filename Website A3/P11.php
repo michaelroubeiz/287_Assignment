@@ -136,6 +136,9 @@
                     <li>
                     <a class="nav-link" href="P1.php">Homepage</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="P7.php">Product list</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="P9.php">User list</a>
                     </li>
